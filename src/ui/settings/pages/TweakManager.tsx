@@ -26,6 +26,7 @@ export default function AssetBrowser() {
                         subLabel={`Hides that you are typing to other people. ` }
                         leading={<FormRow.Icon source={getAssetIDByName("bell")} />}
                         onPress={() => {
+                            settings.tweaks ??= {};
                             settings.tweaks.silentTyping ??= true;
                             settings.tweaks.silentTyping = !settings.tweaks.silentTyping;
                             (settings.tweaks.silentTyping ? silentTyping : unloadSilentTyping)();

@@ -12,7 +12,7 @@ const { showSimpleActionSheet } = findByProps("showSimpleActionSheet");
 const styles = stylesheet.createThemedStyleSheet({
     card: {
         backgroundColor: semanticColors?.BACKGROUND_SECONDARY,
-        borderRadius: 5,
+        borderRadius: 7,
     },
     header: {
         padding: 0,
