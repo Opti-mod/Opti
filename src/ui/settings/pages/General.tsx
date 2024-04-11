@@ -16,12 +16,12 @@ export default function General() {
 
     const versions = [
         {
-            label: "Vendetta",
+            label: "Opti Version",
             version: debugInfo.vendetta.version,
             icon: "ic_progress_wrench_24px",
         },
         {
-            label: "Discord",
+            label: "Discord Version",
             version: `${debugInfo.discord.version} (${debugInfo.discord.build})`,
             icon: "Discord",
         },

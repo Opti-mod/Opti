@@ -35,7 +35,7 @@ const keyMap = (screens: Screen[], data: string | ((s: Screen) => any) | null) =
 export const getScreens = (youKeys = false): Screen[] => [
     {
         key: formatKey("VendettaSettings", youKeys),
-        title: "General",
+        title: "Opti",
         icon: "settings",
         render: General,
     },
