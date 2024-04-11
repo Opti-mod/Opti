@@ -180,7 +180,7 @@ export default function General() {
                     />
                     <FormDivider />
                     <FormRow
-                        label="Automatically connect to debug websocket"
+                        label="Connect to debug websocket"
                         leading={<FormRow.Icon source={getAssetIDByName("copy")} />}
                         onPress={() => connectToDebugger(settings.debuggerUrl)}
                     />

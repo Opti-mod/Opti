@@ -12,7 +12,6 @@ import InstallButton from "@ui/settings/components/InstallButton";
 import General from "@ui/settings/pages/General";
 import Plugins from "@ui/settings/pages/Plugins";
 import Themes from "@ui/settings/pages/Themes";
-import Developer from "@ui/settings/pages/Developer";
 import { PROXY_PREFIX } from "@/lib/constants";
 
 interface Screen {
@@ -42,13 +41,13 @@ export const getScreens = (youKeys = false): Screen[] => [
     {
         key: formatKey("VendettaPlugins", youKeys),
         title: "Plugins",
-        icon: "debug",
+        icon: "ic_behavior_24px",
         options: {
             headerRight: () => (
                 <InstallButton
                     alertTitle="Install Plugin"
                     installFunction={async (input) => {
-                        if (!input.startsWith(PROXY_PREFIX) && !settings.developerSettings)
+                        if (!input.startsWith(PROXY_PREFIX))
                             setImmediate(() => showConfirmationAlert({
                                 title: "Unproxied Plugin",
                                 content: "The plugin you are trying to install has not been proxied/verified by Vendetta staff. Are you sure you want to continue?",
@@ -76,13 +75,6 @@ export const getScreens = (youKeys = false): Screen[] => [
             headerRight: () => !settings.safeMode?.enabled && <InstallButton alertTitle="Install Theme" installFunction={installTheme} />,
         },
         render: Themes,
-    },
-    {
-        key: formatKey("VendettaDeveloper", youKeys),
-        title: "Developer",
-        icon: "ic_edit_24px",
-        shouldRender: () => settings.developerSettings ?? false,
-        render: Developer,
     },
     {
         key: formatKey("VendettaCustomPage", youKeys),
