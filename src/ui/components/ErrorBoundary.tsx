@@ -18,6 +18,12 @@ const styles = stylesheet.createThemedStyleSheet({
         textAlign: "center",
         marginBottom: 5,
     },
+    br: {
+        fontSize: 0,
+        paddingTop: 20,
+        paddingLeft: 20,
+        paddingRight: 20
+      },
 });
 
 export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
@@ -34,6 +40,8 @@ export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, E
         return (
             <RN.ScrollView style={styles.view}>
                 <Forms.FormText style={styles.title}>Opti has encountered an error.</Forms.FormText>
+                <Forms.FormText style={styles.br}> </Forms.FormText>
+                <Forms.FormText style={styles.br}> </Forms.FormText>
                 <Codeblock selectable style={{ marginBottom: 5 }}>{this.state.errText}</Codeblock>
                 <Button
                     color={Button.Colors.RED}
@@ -42,7 +50,7 @@ export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, E
                     onPress={() => this.setState({ hasErr: false, errText: undefined })}
                     text="Retry"
                 />
-
+                <Forms.FormText style={styles.br}> </Forms.FormText>
                  <Button
                     color={Button.Colors.BRAND}
                     size={Button.Sizes.MEDIUM}
