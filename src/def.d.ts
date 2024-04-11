@@ -155,6 +155,9 @@ interface Settings {
         enabled: boolean;
         currentThemeId?: string;
     };
+    tweaks: {
+    silentTyping: boolean;
+    }
 }
 
 interface ApplicationCommand {

@@ -1,21 +1,23 @@
 import { instead } from "../patcher";
 import { findByProps } from "../metro/filters";
 
-export var enabledTweak = false;
 
-export async function silentTyping()
-{
-    const patches = ["startTyping", "stopTyping"].map((k) => instead(k, Typing, () => {}));
-    const Typing = findByProps("startTyping");
-    if(enabledTweak == true)
-    {   
-        console.log("Yay it works!!!!");
-    }
-    else
-    {
-        patches.forEach((unpatch) => unpatch());
-    }
-}
+
+const Typing = findByProps("startTyping");
+let patches: Function[] = [];
+
+export function silentTyping() {
+    console.log("Opti loaded the tweak!!!!");
+    patches = ['startTyping', 'stopTyping'].map(k => instead(k, Typing, () => {}));
+  }
+
+  export function unloadSilentTyping() {
+    console.log("unloaded tweak");
+    patches.forEach(unpatch => unpatch());
+  }
+
+  export var enabledTweak = false;
+
 
 
 

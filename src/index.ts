@@ -22,7 +22,7 @@ export default async () => {
         initSafeMode(),
         initSettings(),
         initQuickInstall(),
-    //    initBadges(),
+        initBadges(),
     ]);
 
     window.vendetta = await windowObject(unloads);
