@@ -12,7 +12,7 @@ const { FormDivider, FormRow } = Forms;
 export default function AssetBrowser() {
     const [search, setSearch] = React.useState("");
     useProxy(settings);
-
+    settings.tweaks ??= {};
     return (
         <ErrorBoundary>
             <RN.View style={{ flex: 1 }}>
@@ -23,10 +23,9 @@ export default function AssetBrowser() {
                 />
                <FormRow
                         label="Silent Typing Indicator"
-                        subLabel={`Hides that you are typing to other people. ` }
+                        subLabel={`Hides that you are typing to other people. ` + settings.tweaks.silentTyping.valueOf() }
                         leading={<FormRow.Icon source={getAssetIDByName("bell")} />}
                         onPress={() => {
-                            settings.tweaks ??= {};
                             settings.tweaks.silentTyping ??= true;
                             settings.tweaks.silentTyping = !settings.tweaks.silentTyping;
                             (settings.tweaks.silentTyping ? silentTyping : unloadSilentTyping)();

@@ -5,6 +5,8 @@ import { Forms, Button, Codeblock } from "@ui/components";
 interface ErrorBoundaryState {
     hasErr: boolean;
     errText?: string;
+    errName?: string;
+    errCause?: string;
 }
 
 const styles = stylesheet.createThemedStyleSheet({
@@ -32,7 +34,7 @@ export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, E
         this.state = { hasErr: false };
     }
 
-    static getDerivedStateFromError = (error: Error) => ({ hasErr: true, errText: error.message });
+    static getDerivedStateFromError = (error: Error) => ({ hasErr: true, errText: error.message, errName: error.name, errCause: error.cause });
 
     render() {
         if (!this.state.hasErr) return this.props.children;
@@ -41,6 +43,7 @@ export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, E
             <RN.ScrollView style={styles.view}>
                 <Forms.FormText style={styles.title}>Opti has encountered an error.</Forms.FormText>
                 <Forms.FormText style={styles.br}> </Forms.FormText>
+                <Codeblock selectable style={{ marginBottom: 5 }}>{this.state.errName}</Codeblock>
                 <Codeblock selectable style={{ marginBottom: 5 }}>{this.state.errText}</Codeblock>
                 <Button
                     color={Button.Colors.RED}
