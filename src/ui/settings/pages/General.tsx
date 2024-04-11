@@ -121,14 +121,36 @@ export default function General() {
                         onPress={toggleSafeMode}
                     />
                     <FormDivider />
-                    <FormSwitchRow
-                        label="Developer Mode"
-                        leading={<FormRow.Icon source={getAssetIDByName("ic_progress_wrench_24px")} />}
-                        value={settings.developerSettings}
-                        onValueChange={(v: boolean) => {
-                            settings.developerSettings = v;
-                        }}
+                    <FormRow
+                        label="Asset Browser"
+                        leading={<FormRow.Icon source={getAssetIDByName("ic_image")} />}
+                        trailing={FormRow.Arrow}
+                        onPress={() => navigation.push("VendettaCustomPage", {
+                            title: "Asset Browser",
+                            render: AssetBrowser,
+                        })}
                     />
+                    <FormDivider />
+                    <FormRow
+                        label="ErrorBoundary Tools"
+                        leading={<FormRow.Icon source={getAssetIDByName("ic_warning_24px")} />}
+                        trailing={FormRow.Arrow}
+                        onPress={() => showSimpleActionSheet({
+                            key: "ErrorBoundaryTools",
+                            header: {
+                                title: "Which ErrorBoundary do you want to trip?",
+                                icon: <FormRow.Icon style={{ marginRight: 8 }} source={getAssetIDByName("ic_warning_24px")} />,
+                                onClose: () => hideActionSheet(),
+                            },
+                            options: [
+                                // @ts-expect-error 
+                                // Of course, to trigger an error, we need to do something incorrectly. The below will do!
+                                { label: "Opti", onPress: () => navigation.push("VendettaCustomPage", { render: () => <undefined /> }) },
+                                { label: "Discord", isDestructive: true, onPress: () => navigation.push("VendettaCustomPage", { noErrorBoundary: true }) },
+                            ],
+                        })}
+                    />
+                    
                 </FormSection>
                 <FormSection title="Info">
                     <Summary label="Versions" icon="ic_information_filled_24px">
@@ -202,35 +224,7 @@ export default function General() {
                             loaderConfig.loadReactDevTools = v;
                         }}
                     />}
-                    <FormRow
-                        label="Asset Browser"
-                        leading={<FormRow.Icon source={getAssetIDByName("ic_image")} />}
-                        trailing={FormRow.Arrow}
-                        onPress={() => navigation.push("VendettaCustomPage", {
-                            title: "Asset Browser",
-                            render: AssetBrowser,
-                        })}
-                    />
                     <FormDivider />
-                    <FormRow
-                        label="ErrorBoundary Tools"
-                        leading={<FormRow.Icon source={getAssetIDByName("ic_warning_24px")} />}
-                        trailing={FormRow.Arrow}
-                        onPress={() => showSimpleActionSheet({
-                            key: "ErrorBoundaryTools",
-                            header: {
-                                title: "Which ErrorBoundary do you want to trip?",
-                                icon: <FormRow.Icon style={{ marginRight: 8 }} source={getAssetIDByName("ic_warning_24px")} />,
-                                onClose: () => hideActionSheet(),
-                            },
-                            options: [
-                                // @ts-expect-error 
-                                // Of course, to trigger an error, we need to do something incorrectly. The below will do!
-                                { label: "Opti", onPress: () => navigation.push("VendettaCustomPage", { render: () => <undefined /> }) },
-                                { label: "Discord", isDestructive: true, onPress: () => navigation.push("VendettaCustomPage", { noErrorBoundary: true }) },
-                            ],
-                        })}
-                    />
                 </FormSection>}
 
                 </FormSection>
