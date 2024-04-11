@@ -28,7 +28,7 @@ export default function AddonPage<T>({ items, safeModeMessage, safeModeExtras, c
                     <Search
                         style={{ marginBottom: 10 }}
                         onChangeText={(v: string) => setSearch(v.toLowerCase())}
-                        placeholder="Search"
+                        placeholder="Search Plugins"
                     />
                 </>}
                 style={{ paddingHorizontal: 10, paddingTop: 10 }}

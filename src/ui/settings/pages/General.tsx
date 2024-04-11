@@ -9,6 +9,7 @@ import { Forms, Summary, ErrorBoundary } from "@ui/components";
 import settings from "@lib/settings";
 import { loaderConfig } from "@lib/settings";
 import AssetBrowser from "@ui/settings/pages/AssetBrowser";
+import TweakManager from "@ui/settings/pages/TweakManager";
 import Version from "@ui/settings/components/Version";
 import { connectToDebugger } from "@lib/debug";
 
@@ -107,23 +108,23 @@ export default function General() {
                     />
                 </FormSection>
                 <FormSection title="Actions">
-                    <FormRow
-                        label="Reload Discord"
-                        subLabel={`This may crash instead of reloading.`}
-                        leading={<FormRow.Icon source={getAssetIDByName("ic_message_retry")} />}
-                        onPress={() => BundleUpdaterManager.reload()}
-                    />
-                    <FormDivider />
-                    <FormRow
+                <FormRow
                         label="Tweak Manager"
                         subLabel={`Manage Opti's built in tweaks.`}
                         leading={<FormRow.Icon source={getAssetIDByName("ic_star_filled")} />}
                         onPress={() => 
                             navigation.push("VendettaCustomPage", {
                                 title: "Tweak Manager",
-                                render: AssetBrowser,
+                                render: TweakManager,
                             })
                         }
+                    />
+                 <FormDivider />
+                    <FormRow
+                        label="Reload Discord"
+                        subLabel={`This may crash instead of reloading.`}
+                        leading={<FormRow.Icon source={getAssetIDByName("ic_message_retry")} />}
+                        onPress={() => BundleUpdaterManager.reload()}
                     />
                     <FormDivider />
                     <FormRow
@@ -188,7 +189,7 @@ export default function General() {
                         value={settings.debuggerUrl}
                         onChange={(v: string) => settings.debuggerUrl = v}
                         placeholder="127.0.0.1:9090"
-                        title="DEBUGGER URL"
+                        title="Debugger URL"
                     />
                     <FormDivider />
                     <FormRow
