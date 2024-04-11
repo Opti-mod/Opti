@@ -49,7 +49,7 @@ export default function General() {
             icon: "ic_download_24px",
         },
         {
-            label: "Operating System",
+            label: "OS",
             version: `${debugInfo.os.name} ${debugInfo.os.version}`,
             icon: "ic_cog_24px"
         },
@@ -85,7 +85,7 @@ export default function General() {
             <RN.ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 38 }}>
                 <FormSection title="Links" titleStyleType="no_border">
                     <FormRow
-                        label="Discord Server"
+                        label="Discord"
                         leading={<FormRow.Icon source={getAssetIDByName("Discord")} />}
                         trailing={FormRow.Arrow}
                         onPress={() => url.openDeeplink(DISCORD_SERVER)}
@@ -113,7 +113,7 @@ export default function General() {
                     />
                     <FormDivider />
                     <FormSwitchRow
-                        label="Developer Settings"
+                        label="Developer Mode"
                         leading={<FormRow.Icon source={getAssetIDByName("ic_progress_wrench_24px")} />}
                         value={settings.developerSettings}
                         onValueChange={(v: boolean) => {

@@ -29,7 +29,7 @@ export default function Developer() {
                     />
                     <FormDivider />
                     <FormRow
-                        label="Connect to debug websocket"
+                        label="Automatically connect to debug websocket"
                         leading={<FormRow.Icon source={getAssetIDByName("copy")} />}
                         onPress={() => connectToDebugger(settings.debuggerUrl)}
                     />
@@ -100,7 +100,7 @@ export default function Developer() {
                             options: [
                                 // @ts-expect-error 
                                 // Of course, to trigger an error, we need to do something incorrectly. The below will do!
-                                { label: "Vendetta", onPress: () => navigation.push("VendettaCustomPage", { render: () => <undefined /> }) },
+                                { label: "Opti", onPress: () => navigation.push("VendettaCustomPage", { render: () => <undefined /> }) },
                                 { label: "Discord", isDestructive: true, onPress: () => navigation.push("VendettaCustomPage", { noErrorBoundary: true }) },
                             ],
                         })}
