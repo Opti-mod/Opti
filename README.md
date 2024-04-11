@@ -1,6 +1,8 @@
 # Opti (Vendetta fork )
 A mod for Discord's mobile apps.
 
+https://raw.githubusercontent.com/Opti-mod/Opti/rewrite/dist/vendetta.js
+
 ## Installing
 Vendetta's codebase is platform-agnostic, but you need a platform-specific loader.
 
