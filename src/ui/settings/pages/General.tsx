@@ -1,4 +1,4 @@
-import { ReactNative as RN, url } from "@metro/common";
+import { ReactNative as RN, url, NavigationNative } from "@metro/common";
 import { DISCORD_SERVER, GITHUB } from "@lib/constants";
 import { getDebugInfo, toggleSafeMode } from "@lib/debug";
 import { findByProps } from "@metro/filters";
@@ -18,7 +18,7 @@ const { showSimpleActionSheet } = findByProps("showSimpleActionSheet");
 const debugInfo = getDebugInfo();
 
 export default function General() {
-    const navigation = url.useNavigation();
+    const navigation = NavigationNative.useNavigation();
     useProxy(settings);
     useProxy(loaderConfig);
 
@@ -232,7 +232,7 @@ export default function General() {
                         })}
                     />
                 </FormSection>}
-                
+
                 </FormSection>
                 
 
