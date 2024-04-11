@@ -1,5 +1,5 @@
 import { ErrorBoundaryProps } from "@types";
-import { React, ReactNative as RN, stylesheet } from "@metro/common";
+import { React, ReactNative as RN, stylesheet, clipboard } from "@metro/common";
 import { Forms, Button, Codeblock } from "@ui/components";
 
 interface ErrorBoundaryState {
@@ -33,7 +33,7 @@ export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, E
 
         return (
             <RN.ScrollView style={styles.view}>
-                <Forms.FormText style={styles.title}>Uh oh.</Forms.FormText>
+                <Forms.FormText style={styles.title}>Opti has encountered an error.</Forms.FormText>
                 <Codeblock selectable style={{ marginBottom: 5 }}>{this.state.errText}</Codeblock>
                 <Button
                     color={Button.Colors.RED}
@@ -41,6 +41,14 @@ export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, E
                     look={Button.Looks.FILLED}
                     onPress={() => this.setState({ hasErr: false, errText: undefined })}
                     text="Retry"
+                />
+
+                 <Button
+                    color={Button.Colors.BRAND}
+                    size={Button.Sizes.MEDIUM}
+                    look={Button.Looks.FILLED}
+                    onPress={() => clipboard.setString("" + this.state.errText)}
+                    text="Copy to Clipboard"
                 />
             </RN.ScrollView>
         )

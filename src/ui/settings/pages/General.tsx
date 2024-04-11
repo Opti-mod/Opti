@@ -115,6 +115,18 @@ export default function General() {
                     />
                     <FormDivider />
                     <FormRow
+                        label="Tweak Manager"
+                        subLabel={`Manage Opti's built in tweaks.`}
+                        leading={<FormRow.Icon source={getAssetIDByName("ic_star_filled")} />}
+                        onPress={() => 
+                            navigation.push("VendettaCustomPage", {
+                                title: "Tweak Manager",
+                                render: AssetBrowser,
+                            })
+                        }
+                    />
+                    <FormDivider />
+                    <FormRow
                         label={settings.safeMode?.enabled ? "Return to Normal Mode" : "Reload in Safe Mode"}
                         subLabel={`This will reload Discord ${settings.safeMode?.enabled ? "normally." : "without loading plugins."}`}
                         leading={<FormRow.Icon source={getAssetIDByName("ic_privacy_24px")} />}
