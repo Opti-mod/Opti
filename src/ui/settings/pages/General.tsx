@@ -1,18 +1,26 @@
 import { ReactNative as RN, url } from "@metro/common";
 import { DISCORD_SERVER, GITHUB } from "@lib/constants";
 import { getDebugInfo, toggleSafeMode } from "@lib/debug";
+import { findByProps } from "@metro/filters";
 import { useProxy } from "@lib/storage";
 import { BundleUpdaterManager } from "@lib/native";
 import { getAssetIDByName } from "@ui/assets";
 import { Forms, Summary, ErrorBoundary } from "@ui/components";
 import settings from "@lib/settings";
+import { loaderConfig } from "@lib/settings";
+import AssetBrowser from "@ui/settings/pages/AssetBrowser";
 import Version from "@ui/settings/components/Version";
+import { connectToDebugger } from "@lib/debug";
 
-const { FormRow, FormSwitchRow, FormSection, FormDivider } = Forms;
+const { FormRow, FormSwitchRow, FormSection, FormDivider, FormInput  } = Forms;
+const { hideActionSheet } = findByProps("openLazy", "hideActionSheet");
+const { showSimpleActionSheet } = findByProps("showSimpleActionSheet");
 const debugInfo = getDebugInfo();
 
 export default function General() {
+    const navigation = url.useNavigation();
     useProxy(settings);
+    useProxy(loaderConfig);
 
     const versions = [
         {
@@ -101,6 +109,7 @@ export default function General() {
                 <FormSection title="Actions">
                     <FormRow
                         label="Reload Discord"
+                        subLabel={`This may crash instead of reloading.`}
                         leading={<FormRow.Icon source={getAssetIDByName("ic_message_retry")} />}
                         onPress={() => BundleUpdaterManager.reload()}
                     />
@@ -140,6 +149,93 @@ export default function General() {
                         ))}
                     </Summary>
                 </FormSection>
+                <FormSection title="Developer">
+                <FormInput
+                        value={settings.debuggerUrl}
+                        onChange={(v: string) => settings.debuggerUrl = v}
+                        placeholder="127.0.0.1:9090"
+                        title="DEBUGGER URL"
+                    />
+                    <FormDivider />
+                    <FormRow
+                        label="Automatically connect to debug websocket"
+                        leading={<FormRow.Icon source={getAssetIDByName("copy")} />}
+                        onPress={() => connectToDebugger(settings.debuggerUrl)}
+                    />
+                    {window.__vendetta_rdc && <>
+                        <FormDivider />
+                        <FormRow
+                            label="Connect to React DevTools"
+                            leading={<FormRow.Icon source={getAssetIDByName("ic_badge_staff")} />}
+                            onPress={() => window.__vendetta_rdc?.connectToDevTools({
+                                host: settings.debuggerUrl.split(":")?.[0],
+                                resolveRNStyle: RN.StyleSheet.flatten,
+                            })}
+                        />
+                    </>}
+                {window.__vendetta_loader?.features.loaderConfig && <FormSection title="Loader config">
+                    <FormSwitchRow
+                        label="Load from custom url"
+                        subLabel={"Load Vendetta from a custom endpoint."}
+                        leading={<FormRow.Icon source={getAssetIDByName("copy")} />}
+                        value={loaderConfig.customLoadUrl.enabled}
+                        onValueChange={(v: boolean) => {
+                            loaderConfig.customLoadUrl.enabled = v;
+                        }}
+                    />
+                    <FormDivider />
+                    {loaderConfig.customLoadUrl.enabled && <>
+                        <FormInput
+                            value={loaderConfig.customLoadUrl.url}
+                            onChange={(v: string) => loaderConfig.customLoadUrl.url = v}
+                            placeholder="http://localhost:4040/vendetta.js"
+                            title="VENDETTA URL"
+                        />
+                        <FormDivider />
+                    </>}
+                    {window.__vendetta_loader.features.devtools && <FormSwitchRow
+                        label="Load React DevTools"
+                        subLabel={`Version: ${window.__vendetta_loader.features.devtools.version}`}
+                        leading={<FormRow.Icon source={getAssetIDByName("ic_badge_staff")} />}
+                        value={loaderConfig.loadReactDevTools}
+                        onValueChange={(v: boolean) => {
+                            loaderConfig.loadReactDevTools = v;
+                        }}
+                    />}
+                    <FormRow
+                        label="Asset Browser"
+                        leading={<FormRow.Icon source={getAssetIDByName("ic_image")} />}
+                        trailing={FormRow.Arrow}
+                        onPress={() => navigation.push("VendettaCustomPage", {
+                            title: "Asset Browser",
+                            render: AssetBrowser,
+                        })}
+                    />
+                    <FormDivider />
+                    <FormRow
+                        label="ErrorBoundary Tools"
+                        leading={<FormRow.Icon source={getAssetIDByName("ic_warning_24px")} />}
+                        trailing={FormRow.Arrow}
+                        onPress={() => showSimpleActionSheet({
+                            key: "ErrorBoundaryTools",
+                            header: {
+                                title: "Which ErrorBoundary do you want to trip?",
+                                icon: <FormRow.Icon style={{ marginRight: 8 }} source={getAssetIDByName("ic_warning_24px")} />,
+                                onClose: () => hideActionSheet(),
+                            },
+                            options: [
+                                // @ts-expect-error 
+                                // Of course, to trigger an error, we need to do something incorrectly. The below will do!
+                                { label: "Opti", onPress: () => navigation.push("VendettaCustomPage", { render: () => <undefined /> }) },
+                                { label: "Discord", isDestructive: true, onPress: () => navigation.push("VendettaCustomPage", { noErrorBoundary: true }) },
+                            ],
+                        })}
+                    />
+                </FormSection>}
+                
+                </FormSection>
+                
+
             </RN.ScrollView>
         </ErrorBoundary>
     )
