@@ -1,7 +1,4 @@
-> [!IMPORTANT]  
-> As of 06/02/24, Vendetta has been discontinued.
-
-# Vendetta
+# Opti (Vendetta fork )
 A mod for Discord's mobile apps.
 
 ## Installing
