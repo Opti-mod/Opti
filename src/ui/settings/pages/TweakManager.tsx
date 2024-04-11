@@ -23,7 +23,7 @@ export default function AssetBrowser() {
                 />
                <FormRow
                         label="Silent Typing Indicator"
-                        subLabel={`Hides that you are typing to other people. ` + settings.tweaks.silentTyping }
+                        subLabel={`Hides that you are typing to other people. ` }
                         leading={<FormRow.Icon source={getAssetIDByName("bell")} />}
                         onPress={() => {
                             settings.tweaks.silentTyping ??= true;

@@ -122,7 +122,7 @@ export default function General() {
                  <FormDivider />
                     <FormRow
                         label="Reload Discord"
-                        subLabel={`This may crash instead of reloading.`}
+                        subLabel={`This has a chance of crashing instead of directly reloading.`}
                         leading={<FormRow.Icon source={getAssetIDByName("ic_message_retry")} />}
                         onPress={() => BundleUpdaterManager.reload()}
                     />
@@ -144,25 +144,6 @@ export default function General() {
                         })}
                     />
                     <FormDivider />
-                    <FormRow
-                        label="ErrorBoundary Tools"
-                        leading={<FormRow.Icon source={getAssetIDByName("ic_warning_24px")} />}
-                        trailing={FormRow.Arrow}
-                        onPress={() => showSimpleActionSheet({
-                            key: "ErrorBoundaryTools",
-                            header: {
-                                title: "Which ErrorBoundary do you want to trip?",
-                                icon: <FormRow.Icon style={{ marginRight: 8 }} source={getAssetIDByName("ic_warning_24px")} />,
-                                onClose: () => hideActionSheet(),
-                            },
-                            options: [
-                                // @ts-expect-error 
-                                // Of course, to trigger an error, we need to do something incorrectly. The below will do!
-                                { label: "Opti", onPress: () => navigation.push("VendettaCustomPage", { render: () => <undefined /> }) },
-                                { label: "Discord", isDestructive: true, onPress: () => navigation.push("VendettaCustomPage", { noErrorBoundary: true }) },
-                            ],
-                        })}
-                    />
                     
                 </FormSection>
                 <FormSection title="Info">
@@ -185,6 +166,26 @@ export default function General() {
                     </Summary>
                 </FormSection>
                 <FormSection title="Developer">
+                <FormRow
+                        label="ErrorBoundary Tools"
+                        leading={<FormRow.Icon source={getAssetIDByName("ic_warning_24px")} />}
+                        trailing={FormRow.Arrow}
+                        onPress={() => showSimpleActionSheet({
+                            key: "ErrorBoundaryTools",
+                            header: {
+                                title: "Which ErrorBoundary do you want to trip?",
+                                icon: <FormRow.Icon style={{ marginRight: 8 }} source={getAssetIDByName("ic_warning_24px")} />,
+                                onClose: () => hideActionSheet(),
+                            },
+                            options: [
+                                // @ts-expect-error 
+                                // Of course, to trigger an error, we need to do something incorrectly. The below will do!
+                                { label: "Opti", onPress: () => navigation.push("VendettaCustomPage", { render: () => <undefined /> }) },
+                                { label: "Discord", isDestructive: true, onPress: () => navigation.push("VendettaCustomPage", { noErrorBoundary: true }) },
+                            ],
+                        })}
+                    />
+                    <FormDivider />
                 <FormInput
                         value={settings.debuggerUrl}
                         onChange={(v: string) => settings.debuggerUrl = v}
@@ -208,7 +209,7 @@ export default function General() {
                             })}
                         />
                     </>}
-                {window.__vendetta_loader?.features.loaderConfig && <FormSection title="Loader config">
+                {window.__vendetta_loader?.features.loaderConfig && <FormSection title="Developer">
                     <FormSwitchRow
                         label="Load from custom url"
                         subLabel={"Load Vendetta from a custom endpoint."}
