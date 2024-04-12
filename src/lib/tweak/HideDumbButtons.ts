@@ -7,7 +7,7 @@ const ChatInput = findByName("ChatInput");
 let unpatch: () => boolean;
 // credit to https://github.com/amsyarasyiq/letup/blob/main/plugins/HideGiftButton/src/index.ts
 
-export function hideButtons() {
+export function hideDumbButtons() {
     console.log("TweakManager has loaded HideUnneccesaryButtons.");
     const blockList = ["ic_thread_normal_24px", "ic_gift"].map(n => getAssetIDByName(n));
     

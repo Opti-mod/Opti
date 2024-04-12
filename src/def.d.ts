@@ -155,10 +155,11 @@ interface Settings {
         enabled: boolean;
         currentThemeId?: string;
     };
+
     tweaks: {
     silentTyping: boolean;
     hideButtons: boolean;
-    }
+    };
 }
 
 interface ApplicationCommand {
