@@ -12,6 +12,7 @@ import AssetBrowser from "@ui/settings/pages/AssetBrowser";
 import TweakManager from "@ui/settings/pages/TweakManager";
 import Version from "@ui/settings/components/Version";
 import { connectToDebugger } from "@lib/debug";
+import { getPlugins } from "@/lib/plugins";
 
 const { FormRow, FormSwitchRow, FormSection, FormDivider, FormInput  } = Forms;
 const { hideActionSheet } = findByProps("openLazy", "hideActionSheet");
@@ -94,7 +95,7 @@ export default function General() {
             <RN.ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 38 }}>
                 <FormSection title="Links" titleStyleType="no_border">
                     <FormRow
-                        label="Discord"
+                        label="Discord Server"
                         leading={<FormRow.Icon source={getAssetIDByName("Discord")} />}
                         trailing={FormRow.Arrow}
                         onPress={() => url.openDeeplink(DISCORD_SERVER)}
@@ -164,6 +165,14 @@ export default function General() {
                             </>
                         ))}
                     </Summary>
+                    <FormDivider />
+                    <Summary label="Opti Stats" icon="ic_list">
+                    <FormRow
+                        label={"Plugins: " + getPlugins()}
+                        leading={<FormRow.Icon source={getAssetIDByName("ic_message_retry")} />}
+                    />
+                    </Summary>
+
                 </FormSection>
                 <FormSection title="Developer">
                 <FormRow

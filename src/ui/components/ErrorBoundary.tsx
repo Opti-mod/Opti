@@ -7,6 +7,7 @@ interface ErrorBoundaryState {
     errText?: string;
     errName?: string;
     errCause?: string;
+    errStack?: string;
 }
 
 const styles = stylesheet.createThemedStyleSheet({
@@ -34,7 +35,7 @@ export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, E
         this.state = { hasErr: false };
     }
 
-    static getDerivedStateFromError = (error: Error) => ({ hasErr: true, errText: error.message, errName: error.name, errCause: error.cause });
+    static getDerivedStateFromError = (error: Error) => ({ hasErr: true, errText: error.message, errName: error.name, errCause: error.cause, errStack: error.stack });
 
     render() {
         if (!this.state.hasErr) return this.props.children;
@@ -45,9 +46,13 @@ export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, E
                 <Forms.FormText style={styles.br}> </Forms.FormText>
                 <Codeblock selectable style={{ marginBottom: 5 }}>{this.state.errName}</Codeblock>
                 <Codeblock selectable style={{ marginBottom: 5 }}>{this.state.errText}</Codeblock>
+                <Codeblock selectable style={{ marginBottom: 5 }}>{this.state.errStack}</Codeblock>
                 <Forms.FormText style={styles.br}> </Forms.FormText>
                 <Forms.FormText style={styles.title}>What caused this error: </Forms.FormText>
                 <Codeblock selectable style={{ marginBottom: 5 }}>{this.state.errCause}</Codeblock>
+                <Forms.FormText style={styles.br}> </Forms.FormText>
+                <Forms.FormText style={styles.br}> </Forms.FormText>
+
                 <Button
                     color={Button.Colors.RED}
                     size={Button.Sizes.MEDIUM}

@@ -28,7 +28,7 @@ export default function AssetBrowser() {
                         subLabel={`Hides that you are typing to other people. Value: ` + settings.tweaks.silentTyping.valueOf() }
                         leading={<FormRow.Icon source={getAssetIDByName("bell")} />}
                         onPress={() => {
-                            settings.tweaks.silentTyping ??= true;
+                            settings.tweaks.silentTyping ??= false;
                             settings.tweaks.silentTyping = !settings.tweaks.silentTyping;
                             (settings.tweaks.silentTyping ? silentTyping : unloadSilentTyping)();
                             }
@@ -49,7 +49,7 @@ export default function AssetBrowser() {
                         subLabel={`Removes the Gift and Voice Message buton. Value: ` + settings.tweaks.hideButtons.valueOf() }
                         leading={<FormRow.Icon source={getAssetIDByName("ic_trash_24px")} />}
                         onPress={() => {
-                            settings.tweaks.hideButtons ??= false; // has to be enabled first
+                            settings.tweaks.hideButtons ??= false;
                             settings.tweaks.hideButtons = !settings.tweaks.hideButtons;
                             (settings.tweaks.hideButtons ? hideDumbButtons : unloadHideButtons)();
                             }
@@ -58,10 +58,10 @@ export default function AssetBrowser() {
                     <FormDivider />
                     <FormRow
                         label="Trust All URLS"
-                        subLabel={`Removes the "Trust This URL?" prompt. Value: ` }
+                        subLabel={`Removes the "Trust This URL?" prompt. Value: undefined` }
                         leading={<FormRow.Icon source={getAssetIDByName("unlocked")} />}
                         onPress={() => {
-                            settings.tweaks.trustURL ??= true;
+                            settings.tweaks.trustURL ??= false;
                             settings.tweaks.trustURL = !settings.tweaks.trustURL;
                             (settings.tweaks.trustURL ? trustURL : unloadTrustURL)();
                             }
@@ -69,13 +69,11 @@ export default function AssetBrowser() {
                     />
                     <FormDivider />
                     <FormRow
-                        label="Enable Developer/Staff/Experiments Mode"
+                        label="Enable Staff/Experiments Mode"
                         subLabel={`Enables Discord Experiments (WILL IMPLOMENT SOON!)` }
                         leading={<FormRow.Icon source={getAssetIDByName("debug")} />}
                         onPress={() => {
-                            settings.tweaks.trustURL ??= true;
-                            settings.tweaks.trustURL = !settings.tweaks.trustURL;
-                            (settings.tweaks.trustURL ? trustURL : unloadTrustURL)();
+
                             }
                         }
                     />

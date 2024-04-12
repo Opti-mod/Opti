@@ -141,4 +141,10 @@ export async function initPlugins() {
 
 const stopAllPlugins = () => Object.keys(loadedPlugins).forEach(p => stopPlugin(p, false));
 
+export function getPlugins()
+{
+    var num = 0;
+    return Object.keys(loadedPlugins).forEach(p => num++);
+}
+
 export const getSettings = (id: string) => loadedPlugins[id]?.settings;
