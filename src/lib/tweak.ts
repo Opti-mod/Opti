@@ -6,15 +6,5 @@ import { trustURL, unloadTrustURL } from "@/lib/tweak/trustURL";
 
 export function initTweaks()
 {
-    useProxy(settings);
-
-    if(settings.tweaks.silentTyping.valueOf() == undefined) {
-        settings.tweaks.silentTyping = false;
-    }
-    if(settings.tweaks.hideButtons.valueOf() == undefined) {
-        settings.tweaks.hideButtons = false;
-    }
-    if(settings.tweaks.trustURL.valueOf() == undefined) {
-        settings.tweaks.trustURL = false;
-    }
+    // nothing for now.
 }
