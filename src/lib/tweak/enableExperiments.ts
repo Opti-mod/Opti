@@ -30,6 +30,6 @@ export function enableExperiments() {
 
   export function unloadEnableExperiments() {
     console.log("TweakManager has unloaded EnableExperiments.");
-    FluxDispatcher.unsubscribe("CONNECTION_OPEN", event);
+    FluxDispatcher.unsubscribe("CONNECTION_OPEN");
   }
 
