@@ -49,7 +49,7 @@ export default function AssetBrowser() {
                         subLabel={`Removes the Gift and Voice Message buton. Value: ` + settings.tweaks.hideButtons.valueOf() }
                         leading={<FormRow.Icon source={getAssetIDByName("ic_trash_24px")} />}
                         onPress={() => {
-                            settings.tweaks.hideButtons ??= true;
+                            settings.tweaks.hideButtons ??= false; // has to be enabled first
                             settings.tweaks.hideButtons = !settings.tweaks.hideButtons;
                             (settings.tweaks.hideButtons ? hideDumbButtons : unloadHideButtons)();
                             }
@@ -58,7 +58,7 @@ export default function AssetBrowser() {
                     <FormDivider />
                     <FormRow
                         label="Trust All URLS"
-                        subLabel={`Removes the "Trust This URL?" prompt. Value: ` + settings.tweaks.trustURL.valueOf() }
+                        subLabel={`Removes the "Trust This URL?" prompt. Value: ` }
                         leading={<FormRow.Icon source={getAssetIDByName("unlocked")} />}
                         onPress={() => {
                             settings.tweaks.trustURL ??= true;

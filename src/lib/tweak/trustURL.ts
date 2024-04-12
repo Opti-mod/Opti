@@ -5,6 +5,7 @@ const MaskedLink = findByStoreName("MaskedLinkStore");
 let patches: Function[] = [];
 
 export function trustURL() {
+    console.log("TweakManager has loaded TrustURLs.");
         patches.push( 
             after("isTrustedDomain", MaskedLink, ()=>
                 { 
@@ -15,6 +16,7 @@ export function trustURL() {
 
 export function unloadTrustURL()
 {
+    console.log("TweakManager has unloaded TrustURLs.");
     for(const unpatch of patches) 
         unpatch();
 }
