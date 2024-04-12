@@ -1,8 +1,5 @@
-import { after, instead } from "../patcher";
-import { findByName, findByProps } from "../metro/filters";
+import { findByProps } from "../metro/filters";
 import { User } from "../metro/common";
-import { getAssetIDByName } from "@/ui/assets";
-import { findInReactTree } from "../utils";
 
 const FluxDispatcher = findByProps("_currentDispatchActionType");
 const SerializedExperimentStore = findByProps("getSerializedState");
@@ -10,6 +7,7 @@ const SerializedExperimentStore = findByProps("getSerializedState");
 export function enableExperiments() {
   // rosie from rosiecord https://github.com/acquitelol/enable-staging/blob/mistress/src/index.ts
     console.log("TweakManager has loaded EnableExperiments.");
+    FluxDispatcher.subscribe("CONNECTION_OPEN");
     try {
       User.getCurrentUser().flags |= 1;
 

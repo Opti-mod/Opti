@@ -1,7 +1,5 @@
 import { ReactNative as RN } from "@metro/common";
-import { all } from "@ui/assets";
 import { Forms, Search, ErrorBoundary } from "@ui/components";
-import AssetDisplay from "@ui/settings/components/AssetDisplay";
 import { getAssetIDByName } from "@ui/assets";
 import { silentTyping, unloadSilentTyping } from "@/lib/tweak/silentTyping";
 import { hideDumbButtons, unloadHideButtons } from "@/lib/tweak/HideDumbButtons";
@@ -40,11 +38,11 @@ export default function AssetBrowser() {
                     />
                      <FormDivider />
                       <FormRow
-                        label="Link Converter"
+                        label="Link Converter (WIP)"
                         subLabel={`Converts links such as twitter.com to vxtwitter.com`}
                         leading={<FormRow.Icon source={getAssetIDByName("ic_link")} />}
                         onPress={() =>
-                            console.log("Work in progress")
+
                             }
                     />
                     <FormDivider />

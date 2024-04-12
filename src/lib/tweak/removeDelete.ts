@@ -1,7 +1,5 @@
-import { after, instead } from "../patcher";
-import { findByName, findByProps } from "../metro/filters";
-import { getAssetIDByName } from "@/ui/assets";
-import { findInReactTree } from "../utils";
+import { instead } from "../patcher";
+import { findByProps } from "../metro/filters";
 import { i18n } from "../metro/common";
 
 let unpatch: () => boolean;

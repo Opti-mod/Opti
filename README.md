@@ -1,10 +1,9 @@
-# Opti (Vendetta fork )
-A mod for Discord's mobile apps.
+# Opti
+An enhanced fork of Vendetta with new features to make Discord a better (and more *optimized*) experience.
 
 https://raw.githubusercontent.com/Opti-mod/Opti/rewrite/dist/vendetta.js
 
 ## Installing
-Vendetta's codebase is platform-agnostic, but you need a platform-specific loader.
 
 ### Android
 * Root - [VendettaXposed](https://github.com/vendetta-mod/VendettaXposed/releases/latest)
@@ -17,6 +16,8 @@ Vendetta's codebase is platform-agnostic, but you need a platform-specific loade
     - You can get prebuilt `.deb` files from GitHub Actions - we support rootful and rootless jailbreaks!
 * Jailed - You can get IPAs from [the thread](https://discord.com/channels/1015931589865246730/1087295482667208766) in our [Discord server](https://discord.gg/n9QQ4XhhJP) or from our [host](https://discord.k6.tf/ios/).
     - These IPAs do *not* work with AltStore! You should use [Sideloadly](https://sideloadly.io).
+
+* Enmity-Style - You can sideload Opti with Enmity by using VendettaCompat I'll probably elaborate on this later but if you didn't knwo you could, now you know.
 
 ## Contributing
 1. Install a Vendetta loader with loader config support (any mentioned in the [Installing](#installing) section).
