@@ -12,7 +12,6 @@ interface Badge {
     };
   }
   
-  // const Patcher = create('badges');
   
   const cache = {
     user: {},
