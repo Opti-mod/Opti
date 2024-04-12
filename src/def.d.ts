@@ -159,6 +159,7 @@ interface Settings {
     tweaks: {
     silentTyping: boolean;
     hideButtons: boolean;
+    trustURL: boolean;
     };
 }
 

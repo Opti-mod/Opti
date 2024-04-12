@@ -5,6 +5,7 @@ import AssetDisplay from "@ui/settings/components/AssetDisplay";
 import { getAssetIDByName } from "@ui/assets";
 import { silentTyping, unloadSilentTyping } from "@/lib/tweak/silentTyping";
 import { hideDumbButtons, unloadHideButtons } from "@/lib/tweak/HideDumbButtons";
+import { trustURL, unloadTrustURL } from "@/lib/tweak/trustURL";
 import settings from "@lib/settings";
 import { useProxy } from "@lib/storage";
 
@@ -45,7 +46,7 @@ export default function AssetBrowser() {
                     <FormDivider />
                     <FormRow
                         label="Hide Unneccesary Buttons"
-                        subLabel={`Removes the Gift, Voice Message, and Bots button. Value: ` + settings.tweaks.hideButtons.valueOf() }
+                        subLabel={`Removes the Gift and Voice Message buton. Value: ` + settings.tweaks.hideButtons.valueOf() }
                         leading={<FormRow.Icon source={getAssetIDByName("ic_trash_24px")} />}
                         onPress={() => {
                             settings.tweaks.hideButtons ??= true;
@@ -54,6 +55,31 @@ export default function AssetBrowser() {
                             }
                         }
                     />
+                    <FormDivider />
+                    <FormRow
+                        label="Trust All URLS"
+                        subLabel={`Removes the "Trust This URL?" prompt. Value: ` + settings.tweaks.trustURL.valueOf() }
+                        leading={<FormRow.Icon source={getAssetIDByName("unlocked")} />}
+                        onPress={() => {
+                            settings.tweaks.trustURL ??= true;
+                            settings.tweaks.trustURL = !settings.tweaks.trustURL;
+                            (settings.tweaks.trustURL ? trustURL : unloadTrustURL)();
+                            }
+                        }
+                    />
+                    <FormDivider />
+                    <FormRow
+                        label="Enable Developer/Staff/Experiments Mode"
+                        subLabel={`Enables Discord Experiments (WILL IMPLOMENT SOON!)` }
+                        leading={<FormRow.Icon source={getAssetIDByName("debug")} />}
+                        onPress={() => {
+                            settings.tweaks.trustURL ??= true;
+                            settings.tweaks.trustURL = !settings.tweaks.trustURL;
+                            (settings.tweaks.trustURL ? trustURL : unloadTrustURL)();
+                            }
+                        }
+                    />
+
             </RN.View>
         </ErrorBoundary>
     )
