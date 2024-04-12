@@ -14,6 +14,9 @@ import Plugins from "@ui/settings/pages/Plugins";
 import Themes from "@ui/settings/pages/Themes";
 import { PROXY_PREFIX } from "@/lib/constants";
 import TweakManager from "@ui/settings/pages/TweakManager";
+import { Forms } from "@ui/components";
+
+const { FormRow, FormSwitchRow, FormSection, FormDivider, FormInput  } = Forms;
 
 interface Screen {
     [index: string]: any;
@@ -24,6 +27,7 @@ interface Screen {
     options?: Record<string, any>;
     render: React.ComponentType<any>;
 }
+
 
     const main = { uri: 'https://raw.githubusercontent.com/byeoon/assets/master/Opti.png' };
 
@@ -38,7 +42,7 @@ export const getScreens = (youKeys = false): Screen[] => [
     {
         key: formatKey("VendettaSettings", youKeys),
         title: "Opti",
-        icon: "" + main ,
+        leading: <FormRow.Icon source={{ uri: 'https://raw.githubusercontent.com/byeoon/assets/master/Opti.png' }} />,
         render: General,
     },
     {
