@@ -13,6 +13,7 @@ import TweakManager from "@ui/settings/pages/TweakManager";
 import Version from "@ui/settings/components/Version";
 import { connectToDebugger } from "@lib/debug";
 import { getPlugins } from "@/lib/plugins";
+import { getThemes } from "@/lib/themes";
 
 const { FormRow, FormSwitchRow, FormSection, FormDivider, FormInput  } = Forms;
 const { hideActionSheet } = findByProps("openLazy", "hideActionSheet");
@@ -169,7 +170,11 @@ export default function General() {
                     <Summary label="Opti Stats" icon="ic_list">
                     <FormRow
                         label={"Plugins: " + getPlugins()}
-                        leading={<FormRow.Icon source={getAssetIDByName("ic_message_retry")} />}
+                        leading={<FormRow.Icon source={getAssetIDByName("ic_download_24px")} />}
+                    />
+                    <FormRow
+                        label={"Themes: " + getThemes()}
+                        leading={<FormRow.Icon source={getAssetIDByName("ic_paint_brush")} />}
                     />
                     </Summary>
 

@@ -58,7 +58,7 @@ export default function AssetBrowser() {
                     <FormDivider />
                     <FormRow
                         label="Trust All URLS"
-                        subLabel={`Removes the "Trust This URL?" prompt. Value: undefined` }
+                        subLabel={`Removes the "Trust This URL?" prompt. Value: ` + settings.tweaks.trustURL.valueOf() }
                         leading={<FormRow.Icon source={getAssetIDByName("unlocked")} />}
                         onPress={() => {
                             settings.tweaks.trustURL ??= false;
@@ -70,7 +70,7 @@ export default function AssetBrowser() {
                     <FormDivider />
                     <FormRow
                         label="Enable Staff/Experiments Mode"
-                        subLabel={`Enables Discord Experiments (WILL IMPLOMENT SOON!)` }
+                        subLabel={`Enables Discord Experiments (TODO!!!!)` }
                         leading={<FormRow.Icon source={getAssetIDByName("debug")} />}
                         onPress={() => {
 

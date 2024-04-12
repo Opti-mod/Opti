@@ -234,3 +234,10 @@ function extractInfo(themeMode: string, colorObj: any): [name: string, colorDef:
 
     return [propName, colorDef[themeMode.toLowerCase()]];
 }
+
+export function getThemes()
+{ 
+    var num = 0;
+    Object.keys(themes).forEach(p => num++);
+    return num;
+}

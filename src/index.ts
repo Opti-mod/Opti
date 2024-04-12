@@ -12,7 +12,6 @@ import logger from "@lib/logger";
 import windowObject from "@lib/windowObject";
 
 export default async () => {
-    // Load everything in parallel
     const unloads = await Promise.all([
         patchLogHook(),
         patchAssets(),
@@ -24,10 +23,9 @@ export default async () => {
         initQuickInstall(),
         initBadges(),
     ]);
-
     window.vendetta = await windowObject(unloads);
     unloads.push(await initPlugins());
 
-    // We good :)
+    // we are balling
     logger.log("Opti is ready!");
 }

@@ -144,7 +144,8 @@ const stopAllPlugins = () => Object.keys(loadedPlugins).forEach(p => stopPlugin(
 export function getPlugins()
 {
     var num = 0;
-    return Object.keys(loadedPlugins).forEach(p => num++);
+    Object.keys(loadedPlugins).forEach(p => num++);
+    return num;
 }
 
 export const getSettings = (id: string) => loadedPlugins[id]?.settings;
