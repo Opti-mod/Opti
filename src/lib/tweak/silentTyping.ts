@@ -5,12 +5,12 @@ const Typing = findByProps("startTyping");
 let patches: Function[] = [];
 
 export function silentTyping() {
-    console.log("Opti loaded the tweak!!!!");
+    console.log("TweakManager has loaded SilentTyping.");
     patches = ['startTyping', 'stopTyping'].map(k => instead(k, Typing, () => {}));
   }
 
   export function unloadSilentTyping() {
-    console.log("unloaded tweak");
+    console.log("TweakManager has unloaded SilentTyping.");
     patches.forEach(unpatch => unpatch());
   }
 

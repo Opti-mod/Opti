@@ -4,6 +4,7 @@ import { Forms, Search, ErrorBoundary } from "@ui/components";
 import AssetDisplay from "@ui/settings/components/AssetDisplay";
 import { getAssetIDByName } from "@ui/assets";
 import { silentTyping, unloadSilentTyping } from "@/lib/tweak/silentTyping";
+import { hideButtons, unloadHideButtons } from "@/lib/tweak/HideDumbButtons";
 import settings from "@lib/settings";
 import { useProxy } from "@lib/storage";
 
@@ -23,7 +24,7 @@ export default function AssetBrowser() {
                 />
                <FormRow
                         label="Silent Typing Indicator"
-                        subLabel={`Hides that you are typing to other people. ` + settings.tweaks.silentTyping.valueOf() }
+                        subLabel={`Hides that you are typing to other people. Value: ` + settings.tweaks.silentTyping.valueOf() }
                         leading={<FormRow.Icon source={getAssetIDByName("bell")} />}
                         onPress={() => {
                             settings.tweaks.silentTyping ??= true;
@@ -44,11 +45,14 @@ export default function AssetBrowser() {
                     <FormDivider />
                     <FormRow
                         label="Hide Unneccesary Buttons"
-                        subLabel={`Removes the Gift, Voice Message, and Bots button.`}
+                        subLabel={`Removes the Gift, Voice Message, and Bots button. Value: ` + settings.tweaks.hideButtons.valueOf()}
                         leading={<FormRow.Icon source={getAssetIDByName("ic_trash_24px")} />}
-                        onPress={() =>
-                            console.log("Work in progress")
+                        onPress={() => {
+                            settings.tweaks.hideButtons ??= true;
+                            settings.tweaks.hideButtons = !settings.tweaks.hideButtons;
+                            (settings.tweaks.hideButtons ? hideButtons : unloadHideButtons)();
                             }
+                        }
                     />
             </RN.View>
         </ErrorBoundary>
