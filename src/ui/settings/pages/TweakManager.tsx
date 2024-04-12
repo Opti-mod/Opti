@@ -45,7 +45,7 @@ export default function AssetBrowser() {
                     <FormDivider />
                     <FormRow
                         label="Hide Unneccesary Buttons"
-                        subLabel={`Removes the Gift, Voice Message, and Bots button. Value: ` + settings.tweaks.hideButtons.valueOf()}
+                        subLabel={`Removes the Gift, Voice Message, and Bots button. Value: ` }
                         leading={<FormRow.Icon source={getAssetIDByName("ic_trash_24px")} />}
                         onPress={() => {
                             settings.tweaks.hideButtons ??= true;

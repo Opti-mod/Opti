@@ -1,4 +1,4 @@
-import { instead, after } from "../patcher";
+import { after } from "../patcher";
 import { findByName } from "../metro/filters";
 import { getAssetIDByName } from "@/ui/assets";
 import { findInReactTree } from "../utils";
@@ -6,6 +6,7 @@ import { findInReactTree } from "../utils";
 const ChatInput = findByName("ChatInput");
 let unpatch: () => boolean;
 // credit to https://github.com/amsyarasyiq/letup/blob/main/plugins/HideGiftButton/src/index.ts
+
 export function hideButtons() {
     console.log("TweakManager has loaded HideUnneccesaryButtons.");
     const blockList = ["ic_thread_normal_24px", "ic_gift"].map(n => getAssetIDByName(n));
