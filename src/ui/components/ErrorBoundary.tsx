@@ -45,6 +45,9 @@ export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, E
                 <Forms.FormText style={styles.br}> </Forms.FormText>
                 <Codeblock selectable style={{ marginBottom: 5 }}>{this.state.errName}</Codeblock>
                 <Codeblock selectable style={{ marginBottom: 5 }}>{this.state.errText}</Codeblock>
+                <Forms.FormText style={styles.br}> </Forms.FormText>
+                <Forms.FormText style={styles.title}>What caused this error: </Forms.FormText>
+                <Codeblock selectable style={{ marginBottom: 5 }}>{this.state.errCause}</Codeblock>
                 <Button
                     color={Button.Colors.RED}
                     size={Button.Sizes.MEDIUM}
@@ -58,7 +61,7 @@ export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, E
                     size={Button.Sizes.MEDIUM}
                     look={Button.Looks.FILLED}
                     onPress={() => clipboard.setString("" + this.state.errText)}
-                    text="Copy to Clipboard"
+                    text="Copy Error to Clipboard"
                 />
             </RN.ScrollView>
         )
