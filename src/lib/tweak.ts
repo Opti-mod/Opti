@@ -7,4 +7,5 @@ import { trustURL, unloadTrustURL } from "@/lib/tweak/trustURL";
 export function initTweaks()
 {
     useProxy(settings);
+    settings.tweaks ??= {};
 }
