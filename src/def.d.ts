@@ -161,6 +161,7 @@ interface Settings {
     hideButtons: boolean;
     trustURL: boolean;
     experiments: boolean;
+    fastdelete: boolean;
     };
 }
 

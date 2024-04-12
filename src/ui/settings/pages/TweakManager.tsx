@@ -9,6 +9,7 @@ import { trustURL, unloadTrustURL } from "@/lib/tweak/trustURL";
 import settings from "@lib/settings";
 import { useProxy } from "@lib/storage";
 import { enableExperiments, unloadEnableExperiments } from "@/lib/tweak/enableExperiments";
+import { removeDeletePrompt, unloadRemoveDelete } from "@/lib/tweak/removeDelete";
 
 const { FormDivider, FormRow } = Forms;
 
@@ -73,10 +74,10 @@ export default function AssetBrowser() {
                     <FormDivider />
                     <FormRow
                         label="Enable Staff/Experiments Mode"
-                        subLabel={`Enables Discord Experiments` }
+                        subLabel={`Enables Discord Experiments \n Port of the Enmity plugin EnableStaging made by acquitelol / rosie ` }
                         leading={<FormRow.Icon source={getAssetIDByName("debug")} />}
                         onPress={() => {
-                            settings.tweaks.experiments ??= false;
+                            settings.tweaks.experiments ??= true;
                             settings.tweaks.experiments = !settings.tweaks.experiments;
                             (settings.tweaks.experiments ? enableExperiments : unloadEnableExperiments)();
                             }
@@ -88,10 +89,13 @@ export default function AssetBrowser() {
                         subLabel={`Delete messages without the warning prompt.` }
                         leading={<FormRow.Icon source={getAssetIDByName("ic_message_delete")} />}
                         onPress={() => {
-
+                            settings.tweaks.fastdelete ??= true;
+                            settings.tweaks.fastdelete = !settings.tweaks.fastdelete;
+                            (settings.tweaks.fastdelete ? removeDeletePrompt : unloadRemoveDelete)();
                             }
                         }
                     />
+                     <FormDivider />
 
             </RN.View>
         </ErrorBoundary>
