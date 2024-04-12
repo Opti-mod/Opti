@@ -15,16 +15,10 @@ export default function AssetBrowser() {
     const [search, setSearch] = React.useState("");
     useProxy(settings);
     settings.tweaks ??= {};
-    // todo: find a way to load all of these on start and fix crash
-    // todo: add indicator that it's on / off, also change to a toggle thing too
+
     return (
         <ErrorBoundary>
             <RN.View style={{ flex: 1 }}>
-                <Search
-                    style={{ margin: 10 }}
-                    onChangeText={(v: string) => setSearch(v)}
-                    placeholder="Search Tweaks"
-                />
                <FormRow
                         label="Silent Typing"
                         subLabel={`Hides that you are typing to other people.` }
@@ -42,7 +36,7 @@ export default function AssetBrowser() {
                         subLabel={`Converts links such as twitter.com to vxtwitter.com`}
                         leading={<FormRow.Icon source={getAssetIDByName("ic_link")} />}
                         onPress={() =>
-
+                            console.log("wip")
                             }
                     />
                     <FormDivider />

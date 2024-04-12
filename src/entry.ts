@@ -13,7 +13,6 @@ import(".").then((m) => m.default()).catch((e) => {
         "Opti failed to load. Plugins will not be loaded.\n",
         `Build Number: ${ClientInfoManager.Build}`,
         `Opti Version: ${__vendettaVersion}`,
-        `Reason: ${e.name}`,
         e?.stack || e.toString(),
     ].join("\n"));
 });

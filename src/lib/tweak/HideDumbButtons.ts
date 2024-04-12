@@ -5,8 +5,8 @@ import { findInReactTree } from "../utils";
 
 const ChatInput = findByName("ChatInput");
 let unpatch: () => boolean;
-// credit to https://github.com/amsyarasyiq/letup/blob/main/plugins/HideGiftButton/src/index.ts
 
+// credit to https://github.com/amsyarasyiq/letup/blob/main/plugins/HideGiftButton/src/index.ts
 export function hideDumbButtons() {
     console.log("TweakManager has loaded HideUnneccesaryButtons.");
     const blockList = ["ic_thread_normal_24px", "ic_gift", "AppsIcon"].map(n => getAssetIDByName(n));
@@ -19,8 +19,6 @@ export function hideDumbButtons() {
         const input = findInReactTree(res, t => "forceAnimateButtons" in t.props && t.props.actions);
         input.props.actions = input.props.actions.filter(a => !blockList.includes(a.source));
     });
-    
-   
   }
 
   export function unloadHideButtons() {

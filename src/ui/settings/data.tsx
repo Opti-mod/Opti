@@ -13,6 +13,7 @@ import General from "@ui/settings/pages/General";
 import Plugins from "@ui/settings/pages/Plugins";
 import Themes from "@ui/settings/pages/Themes";
 import { PROXY_PREFIX } from "@/lib/constants";
+import TweakManager from "@ui/settings/pages/TweakManager";
 
 interface Screen {
     [index: string]: any;
@@ -37,6 +38,12 @@ export const getScreens = (youKeys = false): Screen[] => [
         title: "Opti",
         icon: "ic_settings_boost_24px",
         render: General,
+    },
+    {
+        key: formatKey("VendettaCustomPage", youKeys),
+        title: "Tweaks",
+        icon: "ic_star_filled",
+        render: TweakManager,
     },
     {
         key: formatKey("VendettaPlugins", youKeys),
