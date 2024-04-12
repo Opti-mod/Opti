@@ -1,12 +1,12 @@
 import { ClientInfoManager } from "@lib/native";
 
-// This logs in the native logging implementation, e.g. logcat
 console.log("Opti has loaded!");
 
 // Make 'freeze' and 'seal' do nothing
 Object.freeze = Object;
 Object.seal = Object;
 
+// todo: make  this shorter
 import(".").then((m) => m.default()).catch((e) => {
     console.log(e?.stack ?? e.toString());
     alert([

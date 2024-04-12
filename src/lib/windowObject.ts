@@ -41,7 +41,6 @@ export default async (unloads: any[]): Promise<VendettaObject> => ({
         config: loaderConfig,
     },
     logger,
-    tweak,
     version: debug.versionHash,
     unload: () => {
         unloads.filter(i => typeof i === "function").forEach(p => p());
