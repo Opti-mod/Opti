@@ -36,12 +36,12 @@ export default async (unloads: any[]): Promise<VendettaObject> => ({
     commands: utils.without(commands, "patchCommands"),
     storage,
     settings,
-    tweak,
     loader: {
         identity: window.__vendetta_loader,
         config: loaderConfig,
     },
     logger,
+    tweak,
     version: debug.versionHash,
     unload: () => {
         unloads.filter(i => typeof i === "function").forEach(p => p());
