@@ -16,15 +16,6 @@ export default function AssetBrowser() {
     useProxy(settings);
     settings.tweaks ??= {};
     // todo: find a way to load all of these on start and fix crash
-    if(settings.tweaks.silentTyping.valueOf() == null) {
-        settings.tweaks.silentTyping ??= false;
-    }
-    if(settings.tweaks.hideButtons.valueOf() == null) {
-        settings.tweaks.hideButtons ??= false;
-    }
-    if(settings.tweaks.trustURL.valueOf() == null) {
-        settings.tweaks.trustURL ??= false;
-    }
 
     return (
         <ErrorBoundary>

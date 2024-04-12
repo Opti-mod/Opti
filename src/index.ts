@@ -10,6 +10,7 @@ import initFixes from "@lib/fixes";
 import { initBadges } from "@lib/badges";
 import logger from "@lib/logger";
 import windowObject from "@lib/windowObject";
+import { initTweaks } from "./lib/tweak";
 
 export default async () => {
     const unloads = await Promise.all([
@@ -22,6 +23,7 @@ export default async () => {
         initSettings(),
         initQuickInstall(),
         initBadges(),
+        initTweaks(),
 
     ]);
     window.vendetta = await windowObject(unloads);
