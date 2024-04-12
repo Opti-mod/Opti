@@ -432,7 +432,6 @@ interface VendettaObject {
     };
     debug: {
         connectToDebugger: (url: string) => void;
-        // TODO: Type output?
         getDebugInfo: () => void;
     }
     ui: {
