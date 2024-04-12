@@ -79,6 +79,16 @@ export default function AssetBrowser() {
                             }
                         }
                     />
+                     <FormDivider />
+                     <FormRow
+                        label="Remove Message Delete Prompt"
+                        subLabel={`Delete messages without the warning prompt.` }
+                        leading={<FormRow.Icon source={getAssetIDByName("ic_message_delete")} />}
+                        onPress={() => {
+
+                            }
+                        }
+                    />
 
             </RN.View>
         </ErrorBoundary>

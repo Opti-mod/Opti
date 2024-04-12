@@ -23,12 +23,9 @@ export default async () => {
         initSettings(),
         initQuickInstall(),
         initBadges(),
-        initTweaks(),
-
     ]);
     window.vendetta = await windowObject(unloads);
     unloads.push(await initPlugins());
-
-    // we are balling
+    unloads.push(await initTweaks());
     logger.log("Opti is ready!");
 }
