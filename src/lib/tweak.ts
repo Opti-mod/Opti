@@ -7,9 +7,8 @@ import { ErrorBoundary } from "@/ui/components";
 
 export function initTweaks()
 {
-    console.log("Another day, another fail to load tweaks properly...?");
+    console.log("TweakManager has initialized.");
     (settings.tweaks.trustURL ? trustURL : unloadTrustURL)();
     (settings.tweaks.hideButtons ? hideDumbButtons : unloadHideButtons)();
     (settings.tweaks.silentTyping ? silentTyping : unloadSilentTyping)();
-    console.log("maybe, " + settings.tweaks.hideButtons);
 }
