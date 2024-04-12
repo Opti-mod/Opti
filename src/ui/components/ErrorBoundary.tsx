@@ -47,8 +47,6 @@ export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, E
                 <Codeblock selectable style={{ marginBottom: 5 }}>{this.state.errName}</Codeblock>
                 <Codeblock selectable style={{ marginBottom: 5 }}>{this.state.errStack}</Codeblock>
                 <Forms.FormText style={styles.br}> </Forms.FormText>
-                <Forms.FormText style={styles.br}> </Forms.FormText>
-                <Forms.FormText style={styles.br}> </Forms.FormText>
 
                 <Button
                     color={Button.Colors.RED}
