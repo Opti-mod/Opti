@@ -11,12 +11,12 @@ const { showSimpleActionSheet } = findByProps("showSimpleActionSheet");
 // TODO: These styles work weirdly. iOS has cramped text, Android with low DPI probably does too. Fix?
 const styles = stylesheet.createThemedStyleSheet({
     card: {
-        backgroundColor: semanticColors?.PRIMARY_DARK,
+        backgroundColor: semanticColors?.BACKGROUND_SECONDARY,
         borderRadius: 7,
     },
     header: {
         padding: 0,
-        backgroundColor: semanticColors?.BACKGROUND_TERTIARY,
+        backgroundColor: semanticColors?.PRIMARY_DARK_800,
         borderTopLeftRadius: 5,
         borderTopRightRadius: 5,
     },
