@@ -25,6 +25,8 @@ interface Screen {
     render: React.ComponentType<any>;
 }
 
+    const main = { uri: 'https://raw.githubusercontent.com/byeoon/assets/master/Opti.png' };
+
 const styles = stylesheet.createThemedStyleSheet({ container: { flex: 1, backgroundColor: semanticColors.BACKGROUND_MOBILE_PRIMARY } });
 const formatKey = (key: string, youKeys: boolean) => youKeys ? lodash.snakeCase(key).toUpperCase() : key;
 // If a function is passed, it is called with the screen object, and the return value is mapped. If a string is passed, we map to the value of the property with that name on the screen. Else, just map to the given data.
@@ -36,7 +38,7 @@ export const getScreens = (youKeys = false): Screen[] => [
     {
         key: formatKey("VendettaSettings", youKeys),
         title: "Opti",
-        icon: "ic_settings_boost_24px",
+        icon: "" + main ,
         render: General,
     },
     {

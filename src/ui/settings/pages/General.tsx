@@ -113,7 +113,7 @@ export default function General() {
                 <FormRow
                         label="Tweak Manager"
                         subLabel={`Manage Opti's built in tweaks.`}
-                        leading={<FormRow.Icon source={getAssetIDByName("ic_star_filled")} />}
+                        leading={<FormRow.Icon source={{ uri: 'https://raw.githubusercontent.com/byeoon/assets/master/Opti.png' }} /> }
                         onPress={() => 
                             navigation.push("VendettaCustomPage", {
                                 title: "Tweak Manager",
