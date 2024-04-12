@@ -169,11 +169,11 @@ export default function General() {
                     <FormDivider />
                     <Summary label="Opti Stats" icon="ic_list">
                     <FormRow
-                        label={"Plugins: " + getPlugins()}
+                        label={"Enabled Plugins: " + getPlugins()}
                         leading={<FormRow.Icon source={getAssetIDByName("ic_download_24px")} />}
                     />
                     <FormRow
-                        label={"Themes: " + getThemes()}
+                        label={"Enabled Themes: " + getThemes()}
                         leading={<FormRow.Icon source={getAssetIDByName("ic_paint_brush")} />}
                     />
                     </Summary>

@@ -45,11 +45,8 @@ export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, E
                 <Forms.FormText style={styles.title}>Opti has encountered an error.</Forms.FormText>
                 <Forms.FormText style={styles.br}> </Forms.FormText>
                 <Codeblock selectable style={{ marginBottom: 5 }}>{this.state.errName}</Codeblock>
-                <Codeblock selectable style={{ marginBottom: 5 }}>{this.state.errText}</Codeblock>
                 <Codeblock selectable style={{ marginBottom: 5 }}>{this.state.errStack}</Codeblock>
                 <Forms.FormText style={styles.br}> </Forms.FormText>
-                <Forms.FormText style={styles.title}>What caused this error: </Forms.FormText>
-                <Codeblock selectable style={{ marginBottom: 5 }}>{this.state.errCause}</Codeblock>
                 <Forms.FormText style={styles.br}> </Forms.FormText>
                 <Forms.FormText style={styles.br}> </Forms.FormText>
 
@@ -65,7 +62,7 @@ export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, E
                     color={Button.Colors.BRAND}
                     size={Button.Sizes.MEDIUM}
                     look={Button.Looks.FILLED}
-                    onPress={() => clipboard.setString("" + this.state.errText)}
+                    onPress={() => clipboard.setString("" + this.state.errStack)}
                     text="Copy Error to Clipboard"
                 />
             </RN.ScrollView>

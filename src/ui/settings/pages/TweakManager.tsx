@@ -15,6 +15,17 @@ export default function AssetBrowser() {
     const [search, setSearch] = React.useState("");
     useProxy(settings);
     settings.tweaks ??= {};
+    // todo: find a way to load all of these on start and fix crash
+    if(settings.tweaks.silentTyping.valueOf() == null) {
+        settings.tweaks.silentTyping ??= false;
+    }
+    if(settings.tweaks.hideButtons.valueOf() == null) {
+        settings.tweaks.hideButtons ??= false;
+    }
+    if(settings.tweaks.trustURL.valueOf() == null) {
+        settings.tweaks.trustURL ??= false;
+    }
+
     return (
         <ErrorBoundary>
             <RN.View style={{ flex: 1 }}>
@@ -24,7 +35,7 @@ export default function AssetBrowser() {
                     placeholder="Search Tweaks"
                 />
                <FormRow
-                        label="Silent Typing Indicator"
+                        label="Silent Typing"
                         subLabel={`Hides that you are typing to other people. Value: ` + settings.tweaks.silentTyping.valueOf() }
                         leading={<FormRow.Icon source={getAssetIDByName("bell")} />}
                         onPress={() => {
