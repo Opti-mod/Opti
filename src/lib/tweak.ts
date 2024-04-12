@@ -17,8 +17,4 @@ export function initTweaks()
     if(settings.tweaks.trustURL.valueOf() == undefined) {
         settings.tweaks.trustURL = false;
     }
-    
-    (settings.tweaks.silentTyping ? silentTyping : unloadSilentTyping)();
-    (settings.tweaks.hideButtons ? hideDumbButtons : unloadHideButtons)();
-    (settings.tweaks.trustURL ? trustURL : unloadTrustURL)();
 }
