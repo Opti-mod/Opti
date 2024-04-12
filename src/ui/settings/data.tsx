@@ -73,11 +73,11 @@ export const getScreens = (youKeys = false): Screen[] => [
         render: Plugins,
     },
     {
-        key: formatKey("VendettaThemes", youKeys),
-        title: "Themes",
+        key: formatKey("VendettaThemes", youKeys), // why no work?
+        title: "Shaders",
         icon: "ic_theme_24px",
         // TODO: bad
-        shouldRender: () => window.__vendetta_loader?.features.hasOwnProperty("themes") ?? false,
+        shouldRender: () => window.__vendetta_loader?.features.hasOwnProperty("themes") ?? true,
         options: {
             headerRight: () => !settings.safeMode?.enabled && <InstallButton alertTitle="Install Theme" installFunction={installTheme} />,
         },

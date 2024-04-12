@@ -13,7 +13,9 @@ const { FormDivider, FormRow } = Forms;
 
 export default function AssetBrowser() {
     const [search, setSearch] = React.useState("");
+    //@ts-ignore
     useProxy(settings);
+    //@ts-ignore
     settings.tweaks ??= {};
 
     return (
@@ -66,7 +68,7 @@ export default function AssetBrowser() {
                     <FormDivider />
                     <FormRow
                         label="Enable Staff/Experiments Mode"
-                        subLabel={`Enables Discord Experiments \n Port of the Enmity plugin EnableStaging made by acquitelol / rosie ` }
+                        subLabel={`Enables Discord Experiments \n Port of EnableStaging made by acquitelol ` }
                         leading={<FormRow.Icon source={getAssetIDByName("debug")} />}
                         onPress={() => {
                             settings.tweaks.experiments ??= true;

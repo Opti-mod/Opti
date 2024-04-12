@@ -7,12 +7,12 @@ const SerializedExperimentStore = findByProps("getSerializedState");
 export function enableExperiments() {
   // rosie from rosiecord https://github.com/acquitelol/enable-staging/blob/mistress/src/index.ts
     console.log("TweakManager has loaded EnableExperiments.");
-    FluxDispatcher.subscribe("CONNECTION_OPEN");
     try {
       User.getCurrentUser().flags |= 1;
 
       (User as any)._dispatcher._actionHandlers
         ._computeOrderedActionHandlers("OVERLAY_INITIALIZE")
+        //@ts-ignore
         .forEach(m => {
           m.name.includes("Experiment") &&
             m.actionHandler({
@@ -30,4 +30,10 @@ export function enableExperiments() {
     console.log("TweakManager has unloaded EnableExperiments.");
     FluxDispatcher.unsubscribe("CONNECTION_OPEN");
   }
+
+  // idfk what this does rn
+  function event() {
+    FluxDispatcher.unsubscribe("CONNECTION_OPEN", event);
+    enableExperiments();
+  };
 

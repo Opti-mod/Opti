@@ -22,7 +22,9 @@ const debugInfo = getDebugInfo();
 
 export default function General() {
     const navigation = NavigationNative.useNavigation();
+    //@ts-ignore
     useProxy(settings);
+    //@ts-ignore
     useProxy(loaderConfig);
 
     const versions = [
@@ -121,7 +123,7 @@ export default function General() {
                             })
                         }
                     />
-                 <FormDivider />
+                <FormDivider />
                     <FormRow
                         label="Reload Discord"
                         subLabel={`This has a chance of crashing instead of directly reloading.`}
