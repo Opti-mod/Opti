@@ -139,9 +139,13 @@ export async function fetchTheme(id: string, selected = false) {
         data: processData(themeJSON),
     };
 
-    // TODO: Should we prompt when the selected theme is updated?
-    if (selected) writeTheme(themes[id]);
+    if (selected) {
+        writeTheme(themes[id]);
+        // actually add theme?>?????
+    } 
 }
+
+
 
 export async function installTheme(id: string) {
     if (typeof id !== "string" || id in themes) throw new Error("Theme already installed");
@@ -178,11 +182,6 @@ export async function updateThemes() {
 }
 
 export async function initThemes() {
-    //! Native code is required here!
-    // Awaiting the sync wrapper is too slow, to the point where semanticColors are not correctly overwritten.
-    // We need a workaround, and it will unfortunately have to be done on the native side.
-    // await awaitSyncWrapper(themes);
-
     const selectedTheme = getCurrentTheme();
     if (!selectedTheme) return;
 

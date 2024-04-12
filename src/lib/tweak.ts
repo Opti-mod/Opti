@@ -8,6 +8,7 @@ import { removeDeletePrompt, unloadRemoveDelete } from "./tweak/removeDelete";
 export function initTweaks()
 {
     console.log("TweakManager has initialized.");
+    // to prevent potential crashing.
     if(settings.tweaks.trustURL == undefined)
         settings.tweaks.trustURL = false;
 

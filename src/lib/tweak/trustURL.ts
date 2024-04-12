@@ -6,12 +6,11 @@ let patches: Function[] = [];
 
 export function trustURL() {
     console.log("TweakManager has loaded TrustURLs.");
-        patches.push( 
-            after("isTrustedDomain", MaskedLink, ()=>
-                { 
-                    return true;
-                }
-            ));
+    patches.push( 
+        after("isTrustedDomain", MaskedLink, ()=>
+        { 
+            return true;
+        }));
 }
 
 export function unloadTrustURL()
