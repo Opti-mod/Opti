@@ -9,13 +9,13 @@ export function initTweaks()
     useProxy(settings);
 
     if(settings.tweaks.silentTyping.valueOf() == undefined) {
-        settings.tweaks.silentTyping ??= false;
+        settings.tweaks.silentTyping = false;
     }
     if(settings.tweaks.hideButtons.valueOf() == undefined) {
-        settings.tweaks.hideButtons ??= false;
+        settings.tweaks.hideButtons = false;
     }
     if(settings.tweaks.trustURL.valueOf() == undefined) {
-        settings.tweaks.trustURL ??= false;
+        settings.tweaks.trustURL = false;
     }
     
     (settings.tweaks.silentTyping ? silentTyping : unloadSilentTyping)();
