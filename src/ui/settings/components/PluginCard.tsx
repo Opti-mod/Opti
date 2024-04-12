@@ -17,14 +17,12 @@ export default function PluginCard({ item: plugin, index }: CardWrapper<Plugin>)
     const settings = getSettings(plugin.id);
     const navigation = NavigationNative.useNavigation();
     const [removed, setRemoved] = React.useState(false);
-
-    // This is needed because of React™
     if (removed) return null;
 
     return (
         <Card
             index={index}
-            // TODO: Actually make use of user IDs
+            // TODO: Actually make use of user IDs (will do!)
             headerLabel={`${plugin.manifest.name} by ${plugin.manifest.authors.map(i => i.name).join(", ")}`}
             headerIcon={plugin.manifest.vendetta?.icon || "ic_application_command_24px"}
             toggleType="switch"

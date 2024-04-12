@@ -16,7 +16,7 @@ export default function AssetBrowser() {
     useProxy(settings);
     settings.tweaks ??= {};
     // todo: find a way to load all of these on start and fix crash
-
+    // todo: add indicator that it's on / off, also change to a toggle thing too
     return (
         <ErrorBoundary>
             <RN.View style={{ flex: 1 }}>
@@ -27,7 +27,7 @@ export default function AssetBrowser() {
                 />
                <FormRow
                         label="Silent Typing"
-                        subLabel={`Hides that you are typing to other people. Value: ` + settings.tweaks.silentTyping.valueOf() }
+                        subLabel={`Hides that you are typing to other people.` }
                         leading={<FormRow.Icon source={getAssetIDByName("bell")} />}
                         onPress={() => {
                             settings.tweaks.silentTyping ??= false;
@@ -48,7 +48,7 @@ export default function AssetBrowser() {
                     <FormDivider />
                     <FormRow
                         label="Hide Unneccesary Buttons"
-                        subLabel={`Removes the Gift and Voice Message buton. Value: ` + settings.tweaks.hideButtons.valueOf() }
+                        subLabel={`Removes the Gift and Voice Message buton.` }
                         leading={<FormRow.Icon source={getAssetIDByName("ic_trash_24px")} />}
                         onPress={() => {
                             settings.tweaks.hideButtons ??= false;
@@ -59,8 +59,8 @@ export default function AssetBrowser() {
                     />
                     <FormDivider />
                     <FormRow
-                        label="Trust All URLS"
-                        subLabel={`Removes the "Trust This URL?" prompt. Value: ` + settings.tweaks.trustURL.valueOf() }
+                        label="Trust All URLs"
+                        subLabel={`Removes the "Trust This URL?" prompt.`}
                         leading={<FormRow.Icon source={getAssetIDByName("unlocked")} />}
                         onPress={() => {
                             settings.tweaks.trustURL ??= false;
@@ -72,7 +72,7 @@ export default function AssetBrowser() {
                     <FormDivider />
                     <FormRow
                         label="Enable Staff/Experiments Mode"
-                        subLabel={`Enables Discord Experiments (TODO!!!!)` }
+                        subLabel={`Enables Discord Experiments (TODO!)` }
                         leading={<FormRow.Icon source={getAssetIDByName("debug")} />}
                         onPress={() => {
 

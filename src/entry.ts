@@ -10,7 +10,7 @@ Object.seal = Object;
 import(".").then((m) => m.default()).catch((e) => {
     console.log(e?.stack ?? e.toString());
     alert([
-        "Failed to load Opti!\n",
+        "Opti failed to load. Plugins will not be loaded.\n",
         `Build Number: ${ClientInfoManager.Build}`,
         `Opti Version: ${__vendettaVersion}`,
         `Reason: ${e.name}`,
