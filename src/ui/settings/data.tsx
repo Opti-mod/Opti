@@ -40,12 +40,6 @@ export const getScreens = (youKeys = false): Screen[] => [
         render: General,
     },
     {
-        key: formatKey("VendettaCustomPage", youKeys),
-        title: "Tweaks",
-        icon: "ic_star_filled",
-        render: TweakManager,
-    },
-    {
         key: formatKey("VendettaPlugins", youKeys),
         title: "Plugins",
         icon: "ic_behavior_24px",
