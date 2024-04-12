@@ -8,6 +8,7 @@ import { hideDumbButtons, unloadHideButtons } from "@/lib/tweak/HideDumbButtons"
 import { trustURL, unloadTrustURL } from "@/lib/tweak/trustURL";
 import settings from "@lib/settings";
 import { useProxy } from "@lib/storage";
+import { enableExperiments, unloadEnableExperiments } from "@/lib/tweak/enableExperiments";
 
 const { FormDivider, FormRow } = Forms;
 
@@ -72,10 +73,12 @@ export default function AssetBrowser() {
                     <FormDivider />
                     <FormRow
                         label="Enable Staff/Experiments Mode"
-                        subLabel={`Enables Discord Experiments (TODO!)` }
+                        subLabel={`Enables Discord Experiments` }
                         leading={<FormRow.Icon source={getAssetIDByName("debug")} />}
                         onPress={() => {
-
+                            settings.tweaks.experiments ??= false;
+                            settings.tweaks.experiments = !settings.tweaks.experiments;
+                            (settings.tweaks.experiments ? enableExperiments : unloadEnableExperiments)();
                             }
                         }
                     />
