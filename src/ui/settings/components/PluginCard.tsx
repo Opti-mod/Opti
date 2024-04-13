@@ -22,7 +22,7 @@ export default function PluginCard({ item: plugin, index }: CardWrapper<Plugin>)
     return (
         <Card
             index={index}
-            headerLabel={`${plugin.manifest.name} \n by ${plugin.manifest.authors.map(i => i.name).join(", ")}`}
+            headerLabel={`${plugin.manifest.name} \nby ${plugin.manifest.authors.map(i => i.name).join(", ")}`}
             headerIcon={plugin.manifest.vendetta?.icon || "ic_application_command_24px"}
             toggleType="switch"
             toggleValue={plugin.enabled}
@@ -37,8 +37,8 @@ export default function PluginCard({ item: plugin, index }: CardWrapper<Plugin>)
             overflowTitle={plugin.manifest.name}
             overflowActions={[
                 {
-                    icon: "copy",
                     label: "View Creator Profile",
+                    icon: "ic_profile_24px",
                     onPress: () => {
                         if (!User.getUser(plugin.manifest.authors[0]?.id)) {
                         AsyncUsers.fetchProfile(plugin.manifest.authors[0]?.id).then(() => {
@@ -52,7 +52,7 @@ export default function PluginCard({ item: plugin, index }: CardWrapper<Plugin>)
                 },
                 {
                     icon: "ic_sync_24px",
-                    label: "Refetch",
+                    label: "RetryIcon",
                     onPress: async () => {
                         stopThenStart(plugin, () => {
                             fetchPlugin(plugin.id).then(async () => {

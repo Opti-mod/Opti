@@ -42,7 +42,7 @@ export const getScreens = (youKeys = false): Screen[] => [
     {
         key: formatKey("VendettaSettings", youKeys),
         title: "Opti",
-        leading: <FormRow.Icon source={{ uri: 'https://raw.githubusercontent.com/byeoon/assets/master/Opti.png' }} />,
+        leading:  <RN.Image source={ main } />,
         render: General,
     },
     {
