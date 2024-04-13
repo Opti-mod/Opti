@@ -34,6 +34,7 @@ export const url = findByProps("openURL", "openDeeplink");
 export const toasts = find(m => m.open && m.close && !m.startDrag && !m.init && !m.openReplay && !m.setAlwaysOnTop && !m.setAccountFlag);
 export const User = findByProps("getCurrentUser");
 export const AsyncUsers = findByProps("getUser", "fetchProfile");
+export const Profiles = findByProps("showUserProfile");
 
 // Compatible with pre-204201 versions since createThemedStyleSheet is undefined.
 export const stylesheet = {
