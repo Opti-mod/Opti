@@ -124,8 +124,6 @@ export const getYouData = () => {
                 title: () => s.title,
                 icon: s.icon ? getAssetIDByName(s.icon) : null,
                 screen: {
-                    // TODO: This is bad, we should not re-convert the key casing
-                    // For some context, just using the key here would make the route key be VENDETTA_CUSTOM_PAGE in you tab, which breaks compat with panels UI navigation
                     route: lodash.chain(s.key).camelCase().upperFirst().value(),
                     getComponent: () => WrappedComponent,
                 }
