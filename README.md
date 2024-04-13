@@ -17,7 +17,7 @@ https://raw.githubusercontent.com/Opti-mod/Opti/rewrite/dist/vendetta.js
 * Jailed - You can get IPAs from [the thread](https://discord.com/channels/1015931589865246730/1087295482667208766) in our [Discord server](https://discord.gg/n9QQ4XhhJP) or from our [host](https://discord.k6.tf/ios/).
     - These IPAs do *not* work with AltStore! You should use [Sideloadly](https://sideloadly.io).
 
-* Enmity-Style - You can sideload Opti with Enmity by using VendettaCompat I'll probably elaborate on this later but if you didn't knwo you could, now you know.
+* Enmity-Style - You can sideload Opti with Enmity by using VendettaCompat I'll probably elaborate on this later but if you didn't know you could, now you know.
 
 ## Contributing
 1. Install a Vendetta loader with loader config support (any mentioned in the [Installing](#installing) section).
