@@ -29,7 +29,7 @@ interface Screen {
 }
 
 
-    const main = { uri: 'https://raw.githubusercontent.com/byeoon/assets/master/Opti.png' };
+const main = { uri: 'https://raw.githubusercontent.com/byeoon/assets/master/Opti.png' };
 
 const styles = stylesheet.createThemedStyleSheet({ container: { flex: 1, backgroundColor: semanticColors.BACKGROUND_MOBILE_PRIMARY } });
 const formatKey = (key: string, youKeys: boolean) => youKeys ? lodash.snakeCase(key).toUpperCase() : key;
@@ -57,7 +57,7 @@ export const getScreens = (youKeys = false): Screen[] => [
                         if (!input.startsWith(PROXY_PREFIX))
                             setImmediate(() => showConfirmationAlert({
                                 title: "Unproxied Plugin",
-                                content: "The plugin you are trying to install has not been proxied/verified by Vendetta staff. Are you sure you want to continue?",
+                                content: "The plugin you are trying to install has not been proxied.",
                                 confirmText: "Install",
                                 onConfirm: () =>
                                     installPlugin(input)
@@ -73,10 +73,9 @@ export const getScreens = (youKeys = false): Screen[] => [
         render: Plugins,
     },
     {
-        key: formatKey("VendettaThemes", youKeys), // why no work?
-        title: "Shaders",
+        key: formatKey("VendettaThemes", youKeys),
+        title: "Shaders (Themes)",
         icon: "ic_theme_24px",
-        // TODO: bad
         shouldRender: () => window.__vendetta_loader?.features.hasOwnProperty("themes") ?? true,
         options: {
             headerRight: () => !settings.safeMode?.enabled && <InstallButton alertTitle="Install Theme" installFunction={installTheme} />,
@@ -111,7 +110,6 @@ export const getYouData = () => {
         getLayout: () => ({
             title: "Opti",
             label: "Opti",
-            // We can't use our keyMap function here since `settings` is an array not an object
             settings: getRenderableScreens(true).map(s => s.key)
         }),
         titleConfig: keyMap(screens, "title"),

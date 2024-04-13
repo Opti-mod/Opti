@@ -51,8 +51,8 @@ export default function PluginCard({ item: plugin, index }: CardWrapper<Plugin>)
                     }
                 },
                 {
-                    icon: "ic_sync_24px",
-                    label: "RetryIcon",
+                    icon: "RetryIcon",
+                    label: "Refetch",
                     onPress: async () => {
                         stopThenStart(plugin, () => {
                             fetchPlugin(plugin.id).then(async () => {
