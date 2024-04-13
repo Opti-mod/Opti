@@ -421,6 +421,7 @@ interface VendettaObject {
         PLUGINS_CHANNEL_ID: string;
         THEMES_CHANNEL_ID: string;
         GITHUB: string;
+        BADGES: string;
         PROXY_PREFIX: string;
         HTTP_REGEX: RegExp;
         HTTP_REGEX_MULTI: RegExp;

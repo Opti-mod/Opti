@@ -81,7 +81,9 @@ export default function Card(props: CardProps) {
                         props.onToggleChange?.(pressableState)
                     }}>
                         {/* TODO: Look into making this respect brand color */}
-                        <FormRadio selected={props.toggleValue} />
+                        <FormRadio 
+                        selected={props.toggleValue} 
+                        />
                     </RN.Pressable>)
                 )}
             />
