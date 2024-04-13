@@ -28,7 +28,6 @@ interface Screen {
     render: React.ComponentType<any>;
 }
 
-
 const main = { uri: 'https://raw.githubusercontent.com/byeoon/assets/master/Opti.png' };
 
 const styles = stylesheet.createThemedStyleSheet({ container: { flex: 1, backgroundColor: semanticColors.BACKGROUND_MOBILE_PRIMARY } });
