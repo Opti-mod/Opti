@@ -1,5 +1,5 @@
 import { ButtonColors, Plugin } from "@types";
-import { NavigationNative, clipboard } from "@metro/common";
+import { NavigationNative, User, clipboard } from "@metro/common";
 import { removePlugin, startPlugin, stopPlugin, getSettings, fetchPlugin } from "@lib/plugins";
 import { MMKVManager } from "@lib/native";
 import { getAssetIDByName } from "@ui/assets";
@@ -22,8 +22,7 @@ export default function PluginCard({ item: plugin, index }: CardWrapper<Plugin>)
     return (
         <Card
             index={index}
-            // TODO: Actually make use of user IDs (will do!)
-            headerLabel={`<b>${plugin.manifest.name}</b> \n by ${plugin.manifest.authors.map(i => i.name).join(", ")}`}
+            headerLabel={`${plugin.manifest.name} \n by ${plugin.manifest.authors.map(i => i.name).join(", ")}`}
             headerIcon={plugin.manifest.vendetta?.icon || "ic_application_command_24px"}
             toggleType="switch"
             toggleValue={plugin.enabled}
@@ -37,6 +36,13 @@ export default function PluginCard({ item: plugin, index }: CardWrapper<Plugin>)
             descriptionLabel={plugin.manifest.description}
             overflowTitle={plugin.manifest.name}
             overflowActions={[
+                {
+                    icon: "copy",
+                    label: "View Creator Profile",
+                    onPress: () => {
+                        User.showUserProfile({ userId: plugin.manifest.authors[0].id });
+                    }
+                },
                 {
                     icon: "ic_sync_24px",
                     label: "Refetch",
