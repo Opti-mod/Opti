@@ -1,5 +1,5 @@
 import { ButtonColors, Plugin } from "@types";
-import { NavigationNative, User, clipboard } from "@metro/common";
+import { AsyncUsers, NavigationNative, User, clipboard } from "@metro/common";
 import { removePlugin, startPlugin, stopPlugin, getSettings, fetchPlugin } from "@lib/plugins";
 import { MMKVManager } from "@lib/native";
 import { getAssetIDByName } from "@ui/assets";
@@ -40,7 +40,9 @@ export default function PluginCard({ item: plugin, index }: CardWrapper<Plugin>)
                     icon: "copy",
                     label: "View Creator Profile",
                     onPress: () => {
-                        User.showUserProfile({ userId: plugin.manifest.authors[0].id });
+                        AsyncUsers.fetchProfile(plugin.manifest.authors[0]?.id).then(() => {
+                        User.showUserProfile({ userId: plugin.manifest.authors[0]?.id });
+                        })
                     }
                 },
                 {
