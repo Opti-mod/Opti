@@ -56,7 +56,7 @@ export const getScreens = (youKeys = false): Screen[] => [
                         if (!input.startsWith(PROXY_PREFIX))
                             setImmediate(() => showConfirmationAlert({
                                 title: "Unproxied Plugin",
-                                content: "The plugin you are trying to install has not been proxied.",
+                                content: "The plugin you are trying to install has not been proxied. Want to download it anyways?",
                                 confirmText: "Install",
                                 onConfirm: () =>
                                     installPlugin(input)
