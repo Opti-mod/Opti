@@ -21,6 +21,15 @@ export default function AssetBrowser() {
     return (
         <ErrorBoundary>
             <RN.View style={{ flex: 1 }}>
+            <FormRow
+                        label="Tweaks"
+                        subLabel={`Right now most tweaks are ported Vendetta plugins, when Opti rewrites, this will change. \n Want yours removed? Contact me I'll remove it ASAP.` }
+                        onPress={() => {
+                                console.log("hi")
+                            }
+                        }
+                    />
+                     <FormDivider />
                <FormRow
                         label="Silent Typing"
                         subLabel={`Hides that you are typing to other people.` }
@@ -68,7 +77,7 @@ export default function AssetBrowser() {
                     <FormDivider />
                     <FormRow
                         label="Enable Staff/Experiments Mode"
-                        subLabel={`Enables Discord Experiments \n Port of EnableStaging made by acquitelol ` }
+                        subLabel={`Enables Discord Experiments \n Port of EnableStaging made by acquitelol` }
                         leading={<FormRow.Icon source={getAssetIDByName("debug")} />}
                         onPress={() => {
                             settings.tweaks.experiments ??= true;
