@@ -26,9 +26,10 @@ export default function ThemeCard({ item: theme, index }: CardWrapper<Theme>) {
     return (
         <Card
             index={index}
-            headerLabel={`${theme.data.name} ${authors ? `by ${authors.map(i => i.name).join(", ")}` : ""}`}
+            headerLabel={`${theme.data.name} ${authors ? `\nby ${authors.map(i => i.name).join(", ")}` : ""}`}
+            headerIcon={"ic_theme_24px"}
             descriptionLabel={theme.data.description ?? "No description."}
-            toggleType={!settings.safeMode?.enabled ? "radio" : undefined}
+            toggleType={!settings.safeMode?.enabled ? "switch" : undefined}
             toggleValue={theme.selected}
             onToggleChange={(v: boolean) => {
                 selectAndReload(v, theme.id);

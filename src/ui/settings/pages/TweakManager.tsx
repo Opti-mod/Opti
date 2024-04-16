@@ -42,18 +42,9 @@ export default function AssetBrowser() {
                         }
                     />
                      <FormDivider />
-                      <FormRow
-                        label="Link Converter (WIP)"
-                        subLabel={`Converts links such as twitter.com to vxtwitter.com`}
-                        leading={<FormRow.Icon source={getAssetIDByName("ic_link")} />}
-                        onPress={() =>
-                            console.log("wip")
-                            }
-                    />
-                    <FormDivider />
                     <FormRow
-                        label="Hide Unneccesary Buttons"
-                        subLabel={`Removes the Gift and Voice Message buton.` }
+                        label="Hide Chat Buttons"
+                        subLabel={`Removes the Gift, Voice Message, and Activities buton.` }
                         leading={<FormRow.Icon source={getAssetIDByName("ic_trash_24px")} />}
                         onPress={() => {
                             settings.tweaks.hideButtons ??= false;

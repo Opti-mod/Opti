@@ -12,7 +12,7 @@ export default function Themes() {
     return (
         <AddonPage<Theme>
             items={themes}
-            safeModeMessage={`You are in Safe Mode, meaning themes have been temporarily disabled.${settings.safeMode?.currentThemeId ? " If a theme appears to be causing the issue, you can press below to disable it persistently." : ""}`}
+            safeModeMessage={`You are in Safe Mode, meaning themes have been temporarily disabled.${settings.safeMode?.currentThemeId ? " If a theme appears to be causing the issue, you can press below to disable it." : ""}`}
             safeModeExtras={settings.safeMode?.currentThemeId ? <Button
                 text="Disable Theme"
                 color={ButtonColors.BRAND}
