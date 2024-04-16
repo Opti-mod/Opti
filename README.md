@@ -15,7 +15,6 @@ A more optimized Discord experience.
 * Jailbroken - [VendettaTweak](https://github.com/vendetta-mod/VendettaTweak)
     - You can get prebuilt `.deb` files from GitHub Actions - we support rootful and rootless jailbreaks!
 * Jailed - You can get IPAs from [the thread](https://discord.com/channels/1015931589865246730/1087295482667208766) in our [Discord server](https://discord.gg/n9QQ4XhhJP) or from our [host](https://discord.k6.tf/ios/).
-    - These IPAs do *not* work with AltStore! You should use [Sideloadly](https://sideloadly.io).
 
 * Sideloading with Enmity - You can sideload Opti with Enmity by using VendettaCompat and putting this url in the custom load: https://raw.githubusercontent.com/Opti-mod/Opti/rewrite/dist/vendetta.js
 
