@@ -41,7 +41,7 @@ export const getScreens = (youKeys = false): Screen[] => [
     {
         key: formatKey("VendettaSettings", youKeys),
         title: "Opti",
-        leading:  <RN.Image source={ main } />,
+        leading:  <FormRow.Icon source={{ uri: 'https://raw.githubusercontent.com/Opti-mod/assets/main/Opti%202.png' }} />,
         render: General,
     },
     {
@@ -73,7 +73,7 @@ export const getScreens = (youKeys = false): Screen[] => [
     },
     {
         key: formatKey("VendettaThemes", youKeys),
-        title: "Shaders (Themes)",
+        title: "Shaders",
         icon: "ic_theme_24px",
         shouldRender: () => window.__vendetta_loader?.features.hasOwnProperty("themes") ?? true,
         options: {
