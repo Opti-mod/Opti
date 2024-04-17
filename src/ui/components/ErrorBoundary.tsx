@@ -3,7 +3,6 @@ import { React, ReactNative as RN, stylesheet, clipboard } from "@metro/common";
 import { Forms, Button, Codeblock, } from "@ui/components";
 import { sendCrashReport } from "@lib/webhook";
 
-const { FormDivider  } = Forms;
 interface ErrorBoundaryState {
     hasErr: boolean;
     errText?: string;
@@ -48,7 +47,7 @@ export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, E
                 <Forms.FormText style={styles.title}>{this.state.errName}</Forms.FormText>
                 <Forms.FormText style={styles.br}> </Forms.FormText>
                 <Codeblock selectable style={{ marginBottom: 5 }}>{this.state.errStack}</Codeblock>
-                <FormDivider />
+           
 
                 <Button
                     color={Button.Colors.RED}
@@ -57,7 +56,7 @@ export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, E
                     onPress={() => this.setState({ hasErr: false, errText: undefined })}
                     text="Retry"
                 />
-                <FormDivider />
+               
                  <Button
                     color={Button.Colors.BRAND}
                     size={Button.Sizes.MEDIUM}
@@ -65,7 +64,7 @@ export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, E
                     onPress={() => clipboard.setString("" + this.state.errStack)}
                     text="Copy Error to Clipboard"
                 />
-                <FormDivider />
+           
                     <Button
                     color={Button.Colors.BRAND}
                     size={Button.Sizes.MEDIUM}
