@@ -45,7 +45,6 @@ export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, E
             <RN.ScrollView style={styles.view}>
                 <Forms.FormText style={styles.title}>Opti has encountered an error.</Forms.FormText>
                 <Forms.FormText style={styles.title}>{this.state.errName}</Forms.FormText>
-                <Forms.FormText style={styles.br}> </Forms.FormText>
                 <Codeblock selectable style={{ marginBottom: 4 }}>{this.state.errStack}</Codeblock>
            
                 <Button
@@ -68,7 +67,9 @@ export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, E
                     color={Button.Colors.BRAND}
                     size={Button.Sizes.MEDIUM}
                     look={Button.Looks.FILLED}
-                    onPress={() => sendCrashReport("" + this.state.errStack)}
+                    onPress={() => sendCrashReport(
+                        "content: " + this.state.errStack
+                    )}
                     text="Send Crash Report"
                 />
             </RN.ScrollView>

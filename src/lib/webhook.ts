@@ -8,8 +8,8 @@ export async function sendCrashReport(body: string) {
           },
       });
       const result = await response.json();
-      console.log("Sent debug log: ", result);
+      console.log("Sent debug log: ", result + "\nbody: " + body);
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error: ", error + "\nbody: " + body);
     }
   }
