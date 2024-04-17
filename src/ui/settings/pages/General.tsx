@@ -29,11 +29,6 @@ export default function General() {
 
     const versions = [
         {
-            label: "Opti Version",
-            version: debugInfo.vendetta.version,
-            icon: "ic_progress_wrench_24px",
-        },
-        {
             label: "Discord Version",
             version: `${debugInfo.discord.version} (${debugInfo.discord.build})`,
             icon: "Discord",
@@ -96,7 +91,12 @@ export default function General() {
     return (
         <ErrorBoundary>
             <RN.ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 38 }}>
-                <FormSection title="Links" titleStyleType="no_border">
+                <FormSection title="Important" titleStyleType="no_border">
+                    <FormRow
+                    label={`Opti Version - ` + debugInfo.vendetta.version}
+                    leading={<FormRow.Icon source={getAssetIDByName("boost")} />}
+                    />
+                    <FormDivider />
                     <FormRow
                         label="Discord Server"
                         leading={<FormRow.Icon source={getAssetIDByName("Discord")} />}
@@ -105,7 +105,7 @@ export default function General() {
                     />
                     <FormDivider />
                     <FormRow
-                        label="GitHub"
+                        label="GitHub Repository"
                         leading={<FormRow.Icon source={getAssetIDByName("img_account_sync_github_white")} />}
                         trailing={FormRow.Arrow}
                         onPress={() => url.openURL(GITHUB)}

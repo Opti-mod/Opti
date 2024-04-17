@@ -43,7 +43,7 @@ export default function AssetBrowser() {
                     />
                      <FormDivider />
                     <FormRow
-                        label="Remove Chat Buttons"
+                        label={settings.tweaks.hideButtons?.valueOf() ? "Remove Chat Buttons (Enabled)" : "Remove Chat Buttons (Disabled)"}
                         subLabel={`Removes the Gift, Voice Message, and Activities buton.` }
                         leading={<FormRow.Icon source={getAssetIDByName("ic_trash_24px")} />}
                         onPress={() => {
@@ -55,7 +55,7 @@ export default function AssetBrowser() {
                     />
                     <FormDivider />
                     <FormRow
-                        label="Trust All URLs"
+                        label={settings.tweaks.trustURL?.valueOf() ? "Trust All URLs (Enabled)" : "Trust All URLs (Disabled)"}
                         subLabel={`Removes the "Trust This URL?" prompt.`}
                         leading={<FormRow.Icon source={getAssetIDByName("unlocked")} />}
                         onPress={() => {
@@ -67,7 +67,7 @@ export default function AssetBrowser() {
                     />
                     <FormDivider />
                     <FormRow
-                        label="Enable Staff Mode"
+                        label={settings.tweaks.experiments?.valueOf() ? "Staff Mode (Enabled)" : "Staff Mode (Disabled)"}
                         subLabel={`Enables Discord Experiments \n Port of EnableStaging made by acquitelol` }
                         leading={<FormRow.Icon source={getAssetIDByName("debug")} />}
                         onPress={() => {
@@ -79,7 +79,7 @@ export default function AssetBrowser() {
                     />
                      <FormDivider />
                      <FormRow
-                        label="Remove Message Delete Prompt"
+                        label={settings.tweaks.fastdelete?.valueOf() ? "Message Delete Prompt (Enabled)" : "Message Delete Prompt (Disabled)"}
                         subLabel={`Delete messages without the warning prompt.` }
                         leading={<FormRow.Icon source={getAssetIDByName("ic_message_delete")} />}
                         onPress={() => {
