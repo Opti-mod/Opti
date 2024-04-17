@@ -127,7 +127,7 @@ interface Plugin {
 interface ThemeData {
     name: string;
     description?: string;
-    authors?: Author[];
+    authors: Author[];
     spec: number;
     semanticColors?: Record<string, (string | false)[]>;
     rawColors?: Record<string, string>;

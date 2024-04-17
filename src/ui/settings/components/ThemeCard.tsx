@@ -1,5 +1,5 @@
 import { ButtonColors, Theme } from "@types";
-import { clipboard } from "@metro/common";
+import { AsyncUsers, Profiles, User, clipboard } from "@metro/common";
 import { fetchTheme, removeTheme, selectTheme } from "@lib/themes";
 import { useProxy } from "@lib/storage";
 import { BundleUpdaterManager } from "@lib/native";
@@ -36,6 +36,20 @@ export default function ThemeCard({ item: theme, index }: CardWrapper<Theme>) {
             }}
             overflowTitle={theme.data.name}
             overflowActions={[
+                {
+                    label: "View Creator Profile",
+                    icon: "ic_profile_24px",
+                    onPress: () => {
+                        if (!User.getUser(theme.data.authors[0]?.id)) {
+                        AsyncUsers.fetchProfile(theme.data.authors[0]?.id).then(() => {
+                            Profiles.showUserProfile({ userId: theme.data.authors[0]?.id });
+                        })}
+                        else
+                        {
+                            Profiles.showUserProfile({ userId: theme.data.authors[0]?.id });
+                        };
+                    }
+                },
                 {
                     icon: "ic_sync_24px",
                     label: "Refetch",

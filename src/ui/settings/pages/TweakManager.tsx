@@ -31,7 +31,7 @@ export default function AssetBrowser() {
                     />
                      <FormDivider />
                <FormRow
-                        label={`Silent Typing - ` + settings.tweaks.silentTyping.valueOf() ? "Enabled" : "Disabled"}
+                        label={settings.tweaks.silentTyping?.valueOf() ? "Silent Typing (Enabled)" : "Silent Typing (Disabled)"}
                         subLabel={`Hides that you are typing to other people.` }
                         leading={<FormRow.Icon source={getAssetIDByName("bell")} />}
                         onPress={() => {
@@ -43,7 +43,7 @@ export default function AssetBrowser() {
                     />
                      <FormDivider />
                     <FormRow
-                        label="Hide Chat Buttons"
+                        label="Remove Chat Buttons"
                         subLabel={`Removes the Gift, Voice Message, and Activities buton.` }
                         leading={<FormRow.Icon source={getAssetIDByName("ic_trash_24px")} />}
                         onPress={() => {
@@ -67,7 +67,7 @@ export default function AssetBrowser() {
                     />
                     <FormDivider />
                     <FormRow
-                        label="Enable Staff/Experiments Mode"
+                        label="Enable Staff Mode"
                         subLabel={`Enables Discord Experiments \n Port of EnableStaging made by acquitelol` }
                         leading={<FormRow.Icon source={getAssetIDByName("debug")} />}
                         onPress={() => {
