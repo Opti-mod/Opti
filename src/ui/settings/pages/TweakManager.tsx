@@ -31,7 +31,7 @@ export default function AssetBrowser() {
                     />
                      <FormDivider />
                <FormRow
-                        label="Silent Typing"
+                        label={`Silent Typing - ` + settings.tweaks.silentTyping.valueOf() ? "Enabled" : "Disabled"}
                         subLabel={`Hides that you are typing to other people.` }
                         leading={<FormRow.Icon source={getAssetIDByName("bell")} />}
                         onPress={() => {
