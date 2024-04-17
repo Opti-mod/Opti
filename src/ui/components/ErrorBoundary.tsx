@@ -46,9 +46,8 @@ export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, E
                 <Forms.FormText style={styles.title}>Opti has encountered an error.</Forms.FormText>
                 <Forms.FormText style={styles.title}>{this.state.errName}</Forms.FormText>
                 <Forms.FormText style={styles.br}> </Forms.FormText>
-                <Codeblock selectable style={{ marginBottom: 5 }}>{this.state.errStack}</Codeblock>
+                <Codeblock selectable style={{ marginBottom: 4 }}>{this.state.errStack}</Codeblock>
            
-
                 <Button
                     color={Button.Colors.RED}
                     size={Button.Sizes.MEDIUM}
