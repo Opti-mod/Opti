@@ -8,12 +8,12 @@ export default [
         name: 'debug',
         description: 'Prints Optis debug information to chat.',
         execute(_, ctx) {
-            const content = `**Opti Debug Info > **
+            const content = `** < Opti Debug Info > **
 
-            \nOpti Version: ${debugInfo.vendetta.version}
-            Discord Version: ${debugInfo.discord.version} (Build ${debugInfo.discord.build})
-            Device Brand: ${debugInfo.device.brand}
-            OS Name: ${debugInfo.os.name} ${debugInfo.os.version}
+            **Opti Version**: ${debugInfo.vendetta.version}
+            **Discord Version**: ${debugInfo.discord.version} (Build ${debugInfo.discord.build})
+            **Device Brand**: ${debugInfo.device.brand}
+            **OS Name**: ${debugInfo.os.name} ${debugInfo.os.version}
             Codename/Machine ID: ${debugInfo.device.codename}
             `
             Messages.sendMessage(ctx.channel.id, 
