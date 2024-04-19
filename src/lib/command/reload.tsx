@@ -5,9 +5,8 @@ import { BundleUpdaterManager } from "../native";
 
 export default [ 
     {
-        name: 'reloadie',
+        name: 'reload',
         description: 'Restarts discord.',
-        execute: BundleUpdaterManager.reload(),
     }
 ] as ApplicationCommand[]
 
