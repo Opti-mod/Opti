@@ -16,21 +16,22 @@ export function patchCommands() {
     };
 }
 
-export function registerCommand(command: ApplicationCommand): () => void {
+export function registerCommand(command: ApplicationCommand[]): void {
+    for(const commandE in command) {
         const builtInCommands = commandsModule.getBuiltInCommands(ApplicationCommandType.CHAT, true, false);
         builtInCommands.sort((a: ApplicationCommand, b: ApplicationCommand) => parseInt(b.id!) - parseInt(a.id!));
         const lastCommand = builtInCommands[builtInCommands.length - 1];
+        const cmd = command[commandE];
+        command[commandE] = {
+        id: (parseInt(lastCommand.id, 10) - 1).toString(),
+        displayName: lastCommand.name,
+        displayDescription: lastCommand.description,
+        inputType: ApplicationCommandInputType.BUILT_IN,
+        ...cmd,
+        }
 
-        command.id = (parseInt(lastCommand.id, 10) - 1).toString();
-        command.displayName ??= command.name;
-        command.displayDescription ??= command.description;
-        command.inputType = ApplicationCommandInputType.BUILT_IN;
-
-
-    
-    commands.push(command);
+    }
+    commands.push(...command);
     commands.push(...testing);
-
-    return () => (commands = commands.filter(({ id }) => id !== command.id));
 }
 

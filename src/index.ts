@@ -11,6 +11,7 @@ import { initBadges } from "@/lib/badge/badges";
 import logger from "@lib/logger";
 import windowObject from "@lib/windowObject";
 import { initTweaks } from "./lib/tweak";
+import { initCustomCommands } from "./lib/command";
 
 export default async () => {
     const unloads = await Promise.all([

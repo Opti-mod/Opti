@@ -6,7 +6,7 @@ export function initCustomCommands(): void {
         ...testing,
     ];
 
- //   registerCommand(customCommands);
+    registerCommand(customCommands);
 }
 
 export default { initCustomCommands };
