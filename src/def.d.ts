@@ -166,8 +166,8 @@ interface Settings {
 }
 
 export interface ApplicationCommand {
-    description: string;
-    name: string;
+    description?: string;
+    name?: string;
     options?: ApplicationCommandOption[];
     execute: (args: any[], ctx: CommandContext) => CommandResult | void | Promise<CommandResult> | Promise<void>;
     id?: string;

@@ -1,4 +1,4 @@
-import { ApplicationCommand, ApplicationCommandInputType, ApplicationCommandOptionType, ApplicationCommandType } from "@/def";
+import { ApplicationCommand } from "@/def";
 import { Messages, clipboard, toasts } from "../metro/common";
 
 export default [ 
@@ -8,7 +8,6 @@ export default [
         execute: () => {
             Messages.sendBotMessage("hi world!");
         },
-        
     },
 ] as ApplicationCommand[]
 

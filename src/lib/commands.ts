@@ -27,9 +27,11 @@ export function registerCommand(command: ApplicationCommand[]): void {
         id: (parseInt(lastCommand.id, 10) - 1).toString(),
         displayName: cmd.name,
         displayDescription: cmd.description,
+        type: ApplicationCommandType.CHAT,
         inputType: ApplicationCommandInputType.BUILT_IN,
+        applicationId: "Opti",
         ...cmd,
-        }
+        };
 
     }
     commands.push(...command);
