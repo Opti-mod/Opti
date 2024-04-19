@@ -28,16 +28,16 @@ export function registerCommand(command: ApplicationCommand[]): void {
         builtInCommands.sort((a: ApplicationCommand, b: ApplicationCommand) => parseInt(b.id!) - parseInt(a.id!));
         const lastCommand = builtInCommands[builtInCommands.length - 1];
         const cmd = command[commandE];
+
         command[commandE] = {
         id: (parseInt(lastCommand.id, 10) - 1).toString(),
-        displayName: lastCommand.name,
-        displayDescription: lastCommand.description,
+        displayName: cmd.name,
+        displayDescription: cmd.description,
         inputType: ApplicationCommandInputType.BUILT_IN,
         ...cmd,
         }
 
     }
     commands.push(...command);
-    commands.push(...testing);
 }
 
