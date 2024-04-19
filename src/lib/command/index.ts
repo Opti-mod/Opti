@@ -10,3 +10,5 @@ export function initCustomCommands(): void {
 
     registerCommand(customCommands);
 }
+
+export default { initCustomCommands };
