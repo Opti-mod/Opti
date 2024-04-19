@@ -14,11 +14,13 @@ import Version from "@ui/settings/components/Version";
 import { connectToDebugger } from "@lib/debug";
 import { getPlugins } from "@/lib/plugins";
 import { getThemes } from "@/lib/themes";
+import { clipboard } from "@metro/common";
 
 const { FormRow, FormSwitchRow, FormSection, FormDivider, FormInput  } = Forms;
 const { hideActionSheet } = findByProps("openLazy", "hideActionSheet");
 const { showSimpleActionSheet } = findByProps("showSimpleActionSheet");
 const debugInfo = getDebugInfo();
+
 
 export default function General() {
     const navigation = NavigationNative.useNavigation();
@@ -95,7 +97,9 @@ export default function General() {
                     <FormRow
                     label={`Opti Version - ` + debugInfo.vendetta.version}
                     leading={<FormRow.Icon source={getAssetIDByName("boost")} />}
+                    onPress={() => clipboard.setString(`Opti Version - ${debugInfo.vendetta.version}`)}
                     />
+                    
                     <FormDivider />
                     <FormRow
                         label="Discord Server"

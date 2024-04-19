@@ -165,7 +165,7 @@ interface Settings {
     };
 }
 
-interface ApplicationCommand {
+export interface ApplicationCommand {
     description: string;
     name: string;
     options: ApplicationCommandOption[];

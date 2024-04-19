@@ -14,7 +14,7 @@ export default function Themes() {
             items={themes}
             safeModeMessage={`You are in Safe Mode, meaning themes have been temporarily disabled.${settings.safeMode?.currentThemeId ? " If a theme appears to be causing the issue, you can press below to disable it." : ""}`}
             safeModeExtras={settings.safeMode?.currentThemeId ? <Button
-                text="Disable Theme"
+                text="Disable Shader"
                 color={ButtonColors.BRAND}
                 size="small"
                 onPress={() => {
