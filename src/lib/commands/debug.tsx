@@ -4,8 +4,8 @@ import { getAssetIDByName } from "@/ui/assets";
 
 export default [ 
     {
-        name: 'debug',
-        description: 'info'
+        name: 'balls',
+        description: 'this makes the balls ball'
     }
 ] as ApplicationCommand[]
 
