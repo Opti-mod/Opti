@@ -15,6 +15,7 @@ import { connectToDebugger } from "@lib/debug";
 import { getPlugins } from "@/lib/plugins";
 import { getThemes } from "@/lib/themes";
 import { clipboard } from "@metro/common";
+import { showToast } from "@/ui/toasts";
 
 const { FormRow, FormSwitchRow, FormSection, FormDivider, FormInput  } = Forms;
 const { hideActionSheet } = findByProps("openLazy", "hideActionSheet");
@@ -97,7 +98,11 @@ export default function General() {
                     <FormRow
                     label={`Opti Version - ` + debugInfo.vendetta.version}
                     leading={<FormRow.Icon source={getAssetIDByName("boost")} />}
-                    onPress={() => clipboard.setString(`Opti Version - ${debugInfo.vendetta.version}`)}
+                    onPress={() => {
+                        clipboard.setString(`Opti Version - ${debugInfo.vendetta.version}`);
+                        showToast("Copied Opti version to clipboard!", getAssetIDByName("Small"));
+                        }
+                    }
                     />
                     
                     <FormDivider />
