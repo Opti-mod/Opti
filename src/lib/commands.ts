@@ -7,7 +7,7 @@ let commands: ApplicationCommand[] = [];
 
 export function patchCommands() {
     const unpatch = after("getBuiltInCommands", commandsModule, ([type], res: ApplicationCommand[]) => {
-        if (type === ApplicationCommandType.CHAT) return res.concat(commands);
+        if (type === ApplicationCommandType.CHAT) return[...res, ...commands];
     });
 
     const customCommands = [

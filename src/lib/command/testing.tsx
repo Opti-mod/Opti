@@ -5,7 +5,7 @@ export default [
     {
         name: 'testing',
         description: 'this makes the balls ball',
-        execute:() => {
+        execute: () => {
             Messages.sendBotMessage("hi world!");
         },
         
