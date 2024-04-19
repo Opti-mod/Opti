@@ -168,14 +168,14 @@ interface Settings {
 export interface ApplicationCommand {
     description: string;
     name: string;
-    options: ApplicationCommandOption[];
+    options?: ApplicationCommandOption[];
     execute: (args: any[], ctx: CommandContext) => CommandResult | void | Promise<CommandResult> | Promise<void>;
     id?: string;
-    applicationId: string;
-    displayName: string;
-    displayDescription: string;
-    inputType: ApplicationCommandInputType;
-    type: ApplicationCommandType;
+    applicationId?: string;
+    displayName?: string;
+    displayDescription?: string;
+    inputType?: ApplicationCommandInputType;
+    type?: ApplicationCommandType;
 }
 
 export enum ApplicationCommandInputType {

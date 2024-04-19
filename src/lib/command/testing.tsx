@@ -4,9 +4,13 @@ import { getAssetIDByName } from "@/ui/assets";
 
 export default [ 
     {
-        name: 'balls',
+        name: 'testing',
         description: 'this makes the balls ball',
-        execute: Messages.sendBotMessage("hi world!")
+        execute() {
+            Messages.sendBotMessage("hi world!");
+        },
+        
+
     },
 ] as ApplicationCommand[]
 
