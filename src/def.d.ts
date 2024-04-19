@@ -186,13 +186,13 @@ export enum ApplicationCommandInputType {
     PLACEHOLDER,
 }
 
-interface ApplicationCommandOption {
+export interface ApplicationCommandOption {
     name: string;
     description: string;
     required?: boolean;
     type: ApplicationCommandOptionType;
-    displayName: string;
-    displayDescription: string;
+    displayName?: string;
+    displayDescription?: string;
 }
 
 export enum ApplicationCommandOptionType {

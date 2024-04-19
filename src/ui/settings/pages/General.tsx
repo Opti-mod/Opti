@@ -100,7 +100,7 @@ export default function General() {
                     leading={<FormRow.Icon source={getAssetIDByName("boost")} />}
                     onPress={() => {
                         clipboard.setString(`Opti Version - ${debugInfo.vendetta.version}`);
-                        showToast("Copied Opti version to clipboard!", getAssetIDByName("Small"));
+                        showToast("Copied Opti version to clipboard!", getAssetIDByName("link"));
                         }
                     }
                     />

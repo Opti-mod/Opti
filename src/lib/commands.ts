@@ -9,7 +9,7 @@ export function patchCommands() {
     const unpatch = after("getBuiltInCommands", commandsModule, ([type], res: ApplicationCommand[]) => {
         if (type === ApplicationCommandType.CHAT) return res.concat(commands);
     });
-
+    
     return () => {
         commands = [];
         unpatch();
@@ -27,8 +27,9 @@ export function registerCommand(command: ApplicationCommand): () => void {
         command.inputType = ApplicationCommandInputType.BUILT_IN;
 
 
-    commands.push(...testing);
+    
     commands.push(command);
+    commands.push(...testing);
 
     return () => (commands = commands.filter(({ id }) => id !== command.id));
 }
