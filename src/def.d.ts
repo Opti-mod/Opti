@@ -176,6 +176,7 @@ export interface ApplicationCommand {
     displayDescription?: string;
     inputType?: ApplicationCommandInputType;
     type?: ApplicationCommandType;
+    __isOpti?: boolean;
 }
 
 export enum ApplicationCommandInputType {

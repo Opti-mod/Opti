@@ -30,6 +30,8 @@ export function registerCommand(command: ApplicationCommand[]): void {
         inputType: ApplicationCommandInputType.BUILT_IN,
         applicationId: "Opti",
         ...cmd,
+        
+        __isOpti: true,
         };
 
     }
