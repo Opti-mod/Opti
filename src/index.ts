@@ -24,7 +24,6 @@ export default async () => {
         initSettings(),
         initQuickInstall(),
         initBadges(),
-        initCustomCommands(),
     ]);
     window.vendetta = await windowObject(unloads);
     unloads.push(await initPlugins());
