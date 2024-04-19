@@ -1,12 +1,17 @@
 import { ApplicationCommand } from "@/def";
-import { Messages, clipboard, toasts } from "../metro/common";
+import { Messages } from "../metro/common";
 
 export default [ 
     {
         name: 'debug',
-        description: 'Prints debug information about Opti to chat.',
+        description: 'Prints Optis debug information to chat.',
         execute(_, ctx) {
-            Messages.sendMessage(ctx.channel.id, "Opti Debug Info: my balls itch rn hold on");
+            const content = "Opti Debug Info: my balls itch rn hold on"
+            Messages.sendMessage(ctx.channel.id, 
+            {
+                content: content
+            }
+            );
         },
     },
 ] as ApplicationCommand[]
