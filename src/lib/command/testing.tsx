@@ -5,8 +5,8 @@ export default [
     {
         name: 'testing',
         description: 'this makes the balls ball',
-        execute: () => {
-            Messages.sendBotMessage("hi world!");
+        execute(_, ctx) {
+            Messages.sendBotMessage(ctx.channel.id, "hi world!");
         },
     },
 ] as ApplicationCommand[]

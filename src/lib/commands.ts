@@ -1,7 +1,6 @@
 import { ApplicationCommand, ApplicationCommandInputType, ApplicationCommandType } from "@types";
 import { commands as commandsModule } from "@metro/common";
 import { after } from "@lib/patcher";
-import testing from "./command/testing";
 
 let commands: ApplicationCommand[] = [];
 
