@@ -11,6 +11,7 @@ import { initBadges } from "@/lib/badge/badges";
 import logger from "@lib/logger";
 import windowObject from "@lib/windowObject";
 import { initTweaks } from "./lib/tweak";
+import { initCustomCommands } from "./lib/command";
 
 export default async () => {
     const unloads = await Promise.all([
@@ -27,5 +28,6 @@ export default async () => {
     window.vendetta = await windowObject(unloads);
     unloads.push(await initPlugins());
     unloads.push(await initTweaks());
+    unloads.push(await initCustomCommands());
     logger.log("Opti is ready!");
 }

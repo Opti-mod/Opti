@@ -10,12 +10,6 @@ export function patchCommands() {
         if (type === ApplicationCommandType.CHAT) return[...res, ...commands];
     });
 
-    const customCommands = [
-        ...testing,
-    ];
-
-    registerCommand(customCommands);
-
     return () => {
         commands = [];
         unpatch();
