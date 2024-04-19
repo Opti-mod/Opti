@@ -9,7 +9,13 @@ export function patchCommands() {
     const unpatch = after("getBuiltInCommands", commandsModule, ([type], res: ApplicationCommand[]) => {
         if (type === ApplicationCommandType.CHAT) return res.concat(commands);
     });
-    
+
+    const customCommands = [
+        ...testing,
+    ];
+
+    registerCommand(customCommands);
+
     return () => {
         commands = [];
         unpatch();
