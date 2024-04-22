@@ -23,7 +23,7 @@ export default async () => {
         initSafeMode(),
         initSettings(),
         initQuickInstall(),
-        patchBadges(), // this is SO gonna break lmao
+        patchBadges(), 
     ]);
     window.vendetta = await windowObject(unloads);
     unloads.push(await initPlugins());

@@ -69,7 +69,7 @@ export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, E
                     size={Button.Sizes.SMALL}
                     look={Button.Looks.FILLED}
                     onPress={() => {                       
-                                sendCrashReport("This is a placeholder.");
+                        sendCrashReport("This is a placeholder.");
                     }}
                     text="Send Crash Report"
                 />
