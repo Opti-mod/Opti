@@ -28,7 +28,7 @@ interface Badge {
     text: string;
 }
 
-const roles : any = {
+const roles = {
     "developer":  {
         "url": "https://raw.githubusercontent.com/Opti-mod/assets/main/opti_cog.PNG",
         "text": "Opti Developer"
@@ -69,7 +69,7 @@ export function patchBadges()
             fetch(`${url}/${user.id}.json`)
                 .then(r => r.json())
                 .then((badges: BadgeOwner) => {
-                    cache[user.id] = [...badges.roles.map(it => roles[it]), ...(badges.custom ?? [])];
+                    cache[user.id] = [...badges.roles.map(it => roles["developer"]), ...(badges.custom ?? [])];
                     cache[user.id].length && forceUpdate();
                 });
             return;
