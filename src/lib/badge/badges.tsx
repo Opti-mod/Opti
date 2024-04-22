@@ -56,45 +56,15 @@ export function patchBadges()
         }
     });
 
-    const cache: Record<string, Badge[]> = {};
-
     after(ProfileBadges, "default", (_, ctx) => {
         console.log("ctx thing " + ctx);
-        const [, forceUpdate] = React.useReducer(x => x = !x, false);
-
-        const user = ctx.args[0]?.user;
-        if (user === undefined) return;
-
-        const badges = cache[user.id];
-        if (badges === undefined) {
-            console.log("uhhhhh sometihng");
-            try {
-            fetch(`${url}/${user.id}.json`)
-                .then(r => r.json())
-                .then((badges: BadgeOwner) => {
-                    cache[user.id].length && forceUpdate();
-                    console.log(cache[user.id]);
-                });
-                
-            return;
-            }
-            catch {
-                return;
-            }
-        }
 
         const renderedBadgesView = (
             <View key="opti-badges" style={styles.container}>
-                {badges.map(badge => (
-                    <TouchableOpacity key={badge.url} onPress={() => {
-                        toasts.open({
-                            content: "" + badge.text,
-                            source: { uri: badge.url }
-                        });
+                    <TouchableOpacity key={'https://raw.githubusercontent.com/Opti-mod/assets/main/opti_cog.PNG'} onPress={() => {
                     }}>
-                        <Image source={{ uri: badge.url }} style={styles.img} />
+                        <Image source={{ uri: 'https://raw.githubusercontent.com/Opti-mod/assets/main/opti_cog.PNG' }} style={styles.img} />
                     </TouchableOpacity>
-                ))}
             </View>
         );
 
