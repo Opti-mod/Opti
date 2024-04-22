@@ -58,7 +58,8 @@ export function patchBadges()
 
     const cache: Record<string, Badge[]> = {};
 
-    after(ProfileBadges, "default", (ctx : any) => {
+    after(ProfileBadges, "default", (ctx) => {
+        console.log("ctx thing " + ctx);
         const [, forceUpdate] = React.useReducer(x => x = !x, false);
 
         const user = ctx.args[0]?.user;
@@ -66,13 +67,20 @@ export function patchBadges()
 
         const badges = cache[user.id];
         if (badges === undefined) {
+            console.log("uhhhhh sometihng");
+            try {
             fetch(`${url}/${user.id}.json`)
                 .then(r => r.json())
                 .then((badges: BadgeOwner) => {
                     cache[user.id] = [...badges.roles.map(it => roles["developer"]), ...(badges.custom ?? [])];
                     cache[user.id].length && forceUpdate();
                 });
+                
             return;
+            }
+            catch {
+                return;
+            }
         }
 
         const renderedBadgesView = (
