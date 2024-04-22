@@ -1,8 +1,7 @@
-import { ButtonColors, ErrorBoundaryProps } from "@types";
+import { ErrorBoundaryProps } from "@types";
 import { React, ReactNative as RN, stylesheet, clipboard } from "@metro/common";
 import { Forms, Button, Codeblock, } from "@ui/components";
 import { sendCrashReport } from "@lib/webhook";
-import { showConfirmationAlert } from "../alerts";
 
 interface ErrorBoundaryState {
     hasErr: boolean;
