@@ -68,21 +68,9 @@ export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, E
                     color={Button.Colors.BRAND}
                     size={Button.Sizes.SMALL}
                     look={Button.Looks.FILLED}
-                    onPress={() => 
-                       showConfirmationAlert({
-                            title: "Are you sure?",
-                            content: `Sending a crash report will include the following details.
-                            - Username / UserID
-                            - Crash Stack
-                            - Time of Crash`,
-                            confirmText: "Send Report",
-                            cancelText: "Cancel",
-                            confirmColor: ButtonColors.RED,
-                            onConfirm: () => {
+                    onPress={() => {                       
                                 sendCrashReport("This is a placeholder.");
-                            }
-                        })
-                    }
+                    }}
                     text="Send Crash Report"
                 />
             </RN.ScrollView>
