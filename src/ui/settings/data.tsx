@@ -41,8 +41,14 @@ export const getScreens = (youKeys = false): Screen[] => [
     {
         key: formatKey("VendettaSettings", youKeys),
         title: "Opti",
-        leading:  <FormRow.Icon source={{ uri: 'https://raw.githubusercontent.com/Opti-mod/assets/main/Opti%202.png' }} />,
+        icon: 'https://raw.githubusercontent.com/Opti-mod/assets/main/Opti%202.png',
         render: General,
+    },
+    {
+        key: formatKey("VendettaCustomPage", youKeys),
+        title: "Tweak Manager (broken)",
+        icon: "ic_hammer_and_chisel_24px",
+        render: TweakManager,
     },
     {
         key: formatKey("VendettaPlugins", youKeys),

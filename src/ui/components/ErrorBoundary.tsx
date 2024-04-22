@@ -68,7 +68,7 @@ export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, E
                     size={Button.Sizes.SMALL}
                     look={Button.Looks.FILLED}
                     onPress={() => sendCrashReport(
-                        "" + this.state.errStack
+                        "Crash Report Caused: " + this.state.errStack
                     )}
                     text="Send Crash Report"
                 />
