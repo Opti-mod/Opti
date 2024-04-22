@@ -103,8 +103,7 @@ export default function General() {
                         showToast("Copied Opti version to clipboard!", getAssetIDByName("ic_badge_staff"));
                         }
                     }
-                    />
-                    
+                    /> 
                     <FormDivider />
                     <FormRow
                         label="Discord Server"
@@ -121,18 +120,6 @@ export default function General() {
                     />
                 </FormSection>
                 <FormSection title="Actions">
-                <FormRow
-                        label="Tweak Manager"
-                        subLabel={`Manage Opti's built in tweaks.`}
-                        leading={<FormRow.Icon source={{ uri: 'https://raw.githubusercontent.com/Opti-mod/assets/main/Opti%202.png' }} /> }
-                        onPress={() => 
-                            navigation.push("VendettaCustomPage", {
-                                title: "Tweak Manager",
-                                render: TweakManager,
-                            })
-                        }
-                    />
-                <FormDivider />
                     <FormRow
                         label="Reload Discord"
                         subLabel={`This has a chance of crashing instead of directly reloading.`}

@@ -1,7 +1,8 @@
-import { ErrorBoundaryProps } from "@types";
+import { ButtonColors, ErrorBoundaryProps } from "@types";
 import { React, ReactNative as RN, stylesheet, clipboard } from "@metro/common";
 import { Forms, Button, Codeblock, } from "@ui/components";
 import { sendCrashReport } from "@lib/webhook";
+import { showConfirmationAlert } from "../alerts";
 
 interface ErrorBoundaryState {
     hasErr: boolean;
@@ -54,7 +55,7 @@ export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, E
                     onPress={() => this.setState({ hasErr: false, errText: undefined })}
                     text="Retry"
                 />
-               
+                 <Forms.FormText style={styles.br}> </Forms.FormText>
                  <Button
                     color={Button.Colors.BRAND}
                     size={Button.Sizes.MEDIUM}
@@ -62,14 +63,26 @@ export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, E
                     onPress={() => clipboard.setString("" + this.state.errStack)}
                     text="Copy Error to Clipboard"
                 />
-           
+             <Forms.FormText style={styles.br}> </Forms.FormText>
                     <Button
                     color={Button.Colors.BRAND}
                     size={Button.Sizes.SMALL}
                     look={Button.Looks.FILLED}
-                    onPress={() => sendCrashReport(
-                        "Crash Report Caused: " + this.state.errStack
-                    )}
+                    onPress={() => 
+                       showConfirmationAlert({
+                            title: "Are you sure?",
+                            content: `Sending a crash report will include the following details.
+                            - Username / UserID
+                            - Crash Stack
+                            - Time of Crash`,
+                            confirmText: "Send Report",
+                            cancelText: "Cancel",
+                            confirmColor: ButtonColors.RED,
+                            onConfirm: () => {
+                                sendCrashReport("This is a placeholder.");
+                            }
+                        })
+                    }
                     text="Send Crash Report"
                 />
             </RN.ScrollView>

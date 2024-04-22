@@ -7,7 +7,7 @@ import initQuickInstall from "@ui/quickInstall";
 import initSafeMode from "@ui/safeMode";
 import initSettings from "@ui/settings";
 import initFixes from "@lib/fixes";
-import { initBadges } from "@/lib/badge/badges";
+import { patchBadges } from "@/lib/badge/badges";
 import logger from "@lib/logger";
 import windowObject from "@lib/windowObject";
 import { initTweaks } from "./lib/tweak";
@@ -23,7 +23,7 @@ export default async () => {
         initSafeMode(),
         initSettings(),
         initQuickInstall(),
-        initBadges(),
+        patchBadges(), // this is SO gonna break lmao
     ]);
     window.vendetta = await windowObject(unloads);
     unloads.push(await initPlugins());
