@@ -29,5 +29,5 @@ export default async () => {
     unloads.push(await initTweaks());
     unloads.push(await initCustomCommands());
     unloads.push(await patchBadges());
-    logger.log("Opti is ready!");
+    logger.log("Opti has loaded!");
 }

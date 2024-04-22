@@ -35,7 +35,7 @@ const roles = {
     }
 };
 
-const url = "https://raw.githubusercontent.com/Opti-mod/badges/main/";
+const url = "https://raw.githubusercontent.com/Opti-mod/badges/main";
 
 export function patchBadges()
 {
@@ -58,7 +58,7 @@ export function patchBadges()
 
     const cache: Record<string, Badge[]> = {};
 
-    after(ProfileBadges, "default", (_, ctx) => {
+    after(ProfileBadges, "default", (_, [ctx]) => {
         console.log("ctx thing " + ctx);
         const [, forceUpdate] = React.useReducer(x => x = !x, false);
 
@@ -88,7 +88,7 @@ export function patchBadges()
                 {badges.map(badge => (
                     <TouchableOpacity key={badge.url} onPress={() => {
                         toasts.open({
-                            content: badge.text,
+                            content: "" + badge.text,
                             source: { uri: badge.url }
                         });
                     }}>
