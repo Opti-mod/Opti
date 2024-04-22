@@ -13,7 +13,7 @@
 */
 
 import { after } from "../patcher";
-import { ReactNative as RN, React, stylesheet, toasts } from "../metro/common";
+import { ReactNative as RN, React, stylesheet } from "../metro/common";
 import { findByName } from "../metro/filters";
 
 const { View, Image, TouchableOpacity } = RN;
@@ -34,8 +34,6 @@ const roles = {
         "text": "Opti Developer"
     }
 };
-
-const url = "https://raw.githubusercontent.com/Opti-mod/badges/main";
 
 export function patchBadges()
 {
