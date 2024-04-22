@@ -8,7 +8,7 @@ export default [
         name: 'debug',
         description: 'Prints Optis debug information to chat.',
         execute(_, ctx) {
-        const content = `** Opti Debug Info **
+        const content = `**Opti Debug Info**
     > **Opti Version**: ${debugInfo.vendetta.version}
     > **Discord Version**: ${debugInfo.discord.version} (Build ${debugInfo.discord.build})
     > **Hermes**: ${debugInfo.hermes.version}

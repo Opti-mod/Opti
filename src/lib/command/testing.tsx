@@ -6,7 +6,7 @@ export default [
         name: 'testing',
         description: 'this makes my balls ball',
         execute(_, ctx) {
-            Messages.sendBotMessage(ctx.channel.id, "hello world!");
+            Messages.sendBotMessage(ctx.channel.id, "i am the hello world!");
         },
     },
 ] as ApplicationCommand[]
