@@ -58,6 +58,7 @@ interface CardProps {
     actions?: Action[];
     overflowTitle?: string;
     overflowActions?: OverflowAction[];
+    color?: string;
 }
 
 export default function Card(props: CardProps) {
