@@ -1,8 +1,6 @@
 import { ClientInfoManager } from "@lib/native";
 
 console.log("Opti has loaded!");
-
-// Make 'freeze' and 'seal' do nothing
 Object.freeze = Object;
 Object.seal = Object;
 
@@ -10,7 +8,7 @@ Object.seal = Object;
 import(".").then((m) => m.default()).catch((e) => {
     console.log(e?.stack ?? e.toString());
     alert([
-        "Opti failed to initialize and plugins will not be loaded.\n",
+        "Opti failed to initialize and some parts may not function properly.\n",
         `Build Number: ${ClientInfoManager.Build}`,
         `Opti Version: ${__vendettaVersion}`,
         e?.stack || e.toString(),
