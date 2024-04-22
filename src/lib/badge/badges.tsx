@@ -28,11 +28,11 @@ interface Badge {
     text: string;
 }
 
-const roles = {
-    "developer": {
+const roles : any = {
+    "developer":  {
         "url": "https://raw.githubusercontent.com/Opti-mod/assets/main/opti_cog.PNG",
         "text": "Opti Developer"
-    },
+    }
 };
 
 const url = "https://raw.githubusercontent.com/Opti-mod/Opti/rewrite/src/lib/badge/users.ts";
