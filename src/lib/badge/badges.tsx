@@ -35,7 +35,7 @@ const roles : any = {
     }
 };
 
-const url = "https://raw.githubusercontent.com/Opti-mod/Opti/rewrite/src/lib/badge/users.ts";
+const url = "https://raw.githubusercontent.com/Opti-mod/badges/main/";
 
 export function patchBadges()
 {
@@ -66,7 +66,7 @@ export function patchBadges()
 
         const badges = cache[user.id];
         if (badges === undefined) {
-            fetch(`${url}/users/${user.id}.json`)
+            fetch(`${url}/${user.id}.json`)
                 .then(r => r.json())
                 .then((badges: BadgeOwner) => {
                     cache[user.id] = [...badges.roles.map(it => roles[it]), ...(badges.custom ?? [])];
