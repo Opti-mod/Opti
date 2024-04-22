@@ -58,7 +58,7 @@ export function patchBadges()
 
     const cache: Record<string, Badge[]> = {};
 
-    after(ProfileBadges, "default", (ctx) => {
+    after(ProfileBadges, "default", (_, ctx) => {
         console.log("ctx thing " + ctx);
         const [, forceUpdate] = React.useReducer(x => x = !x, false);
 

@@ -23,11 +23,11 @@ export default async () => {
         initSafeMode(),
         initSettings(),
         initQuickInstall(),
-        patchBadges(), 
     ]);
     window.vendetta = await windowObject(unloads);
     unloads.push(await initPlugins());
     unloads.push(await initTweaks());
     unloads.push(await initCustomCommands());
+    unloads.push(await patchBadges());
     logger.log("Opti is ready!");
 }
