@@ -1,4 +1,4 @@
-import { ReactNative as RN, stylesheet } from "@metro/common";
+import { ReactNative as RN, constants, stylesheet } from "@metro/common";
 import { findByProps } from "@metro/filters";
 import { getAssetIDByName } from "@ui/assets";
 import { semanticColors } from "@ui/color";
@@ -19,7 +19,12 @@ const styles = stylesheet.createThemedStyleSheet({
         backgroundColor: semanticColors?.PRIMARY_DARK_800,
         borderTopLeftRadius: 5,
         borderTopRightRadius: 5,
+        fontFamily: constants.Fonts.PRIMARY_SEMIBOLD, 
     },
+    description: {
+        color: semanticColors?.HEADER_SECONDARY,
+        fontSize: 14,
+      },
     actions: {
         flexDirection: "row-reverse",
         alignItems: "center",
@@ -89,6 +94,7 @@ export default function Card(props: CardProps) {
                 )}
             />
             <FormRow
+                style={styles.description}
                 label={props.descriptionLabel}
                 trailing={
                     <RN.View style={styles.actions}>
