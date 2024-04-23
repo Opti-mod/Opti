@@ -23,15 +23,14 @@ export function registerCommand(command: ApplicationCommand[]): void {
         const cmd = command[commandE];
 
         command[commandE] = {
-        id: (parseInt(lastCommand.id, 10) - 1).toString(),
-        displayName: cmd.name,
-        displayDescription: cmd.description,
-        type: ApplicationCommandType.CHAT,
-        inputType: ApplicationCommandInputType.BUILT_IN,
-        applicationId: "Opti",
-        ...cmd,
-        
-        __isOpti: true,
+            id: (parseInt(lastCommand.id, 10) - 1).toString(),
+            displayName: cmd.name,
+            displayDescription: cmd.description,
+            type: ApplicationCommandType.CHAT,
+            inputType: ApplicationCommandInputType.BUILT_IN,
+            applicationId: "Opti",
+            ...cmd,
+            __isOpti: true,
         };
 
     }

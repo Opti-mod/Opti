@@ -8,7 +8,7 @@ Object.seal = Object;
 import(".").then((m) => m.default()).catch((e) => {
     console.log(e?.stack ?? e.toString());
     alert([
-        "Opti failed to initialize and some parts may not function properly.\n",
+        "Opti failed to initialize. Some parts may not function properly.\n",
         `Build Number: ${ClientInfoManager.Build}`,
         `Opti Version: ${__vendettaVersion}`,
         e?.stack || e.toString(),

@@ -23,11 +23,7 @@ export default function AssetBrowser() {
             <RN.View style={{ flex: 1 }}>
             <FormRow
                         label="Tweaks"
-                        subLabel={`Right now most tweaks are ported Vendetta plugins, when Opti rewrites, this will change.\nWant yours removed? Contact me I'll remove it ASAP.` }
-                        onPress={() => {
-                                console.log("hi")
-                            }
-                        }
+                        subLabel={`Right now most tweaks are ported Vendetta plugins. When Opti rewrites, this will change.\nWant yours removed? Contact me and I'll remove it ASAP.` }
                     />
                      <FormDivider />
                <FormRow

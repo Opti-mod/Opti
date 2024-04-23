@@ -19,12 +19,11 @@ const styles = stylesheet.createThemedStyleSheet({
         backgroundColor: semanticColors.PRIMARY_DARK_800,
         borderTopLeftRadius: 5,
         borderTopRightRadius: 5,
-        fontFamily: constants.Fonts.PRIMARY_BOLD 
-        
+        fontFamily: constants.Fonts.PRIMARY_BOLD, 
     },
     description: {
         color: semanticColors.TEXT_MUTED,
-        fontSize: 12,
+        backgroundColor: semanticColors.PRIMARY_DARK_800,
       },
     actions: {
         flexDirection: "row-reverse",

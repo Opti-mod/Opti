@@ -1,8 +1,6 @@
 # Opti
 A more optimized Discord experience.
 
-
-
 ## Installing
 
 ### Android

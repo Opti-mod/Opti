@@ -7,6 +7,7 @@ import { removeDeletePrompt, unloadRemoveDelete } from "./tweak/removeDelete";
 
 export function initTweaks()
 {
+    //@ts-ignore
     settings.tweaks ??= {};
     
     console.log("TweakManager has initialized.");
