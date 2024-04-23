@@ -4,7 +4,6 @@ import { getAssetIDByName } from "@ui/assets";
 import { semanticColors } from "@ui/color";
 import { Forms } from "@ui/components";
 
-const { Fonts } = constants;
 const { FormRow, FormSwitch, FormRadio } = Forms;
 const { hideActionSheet } = findByProps("openLazy", "hideActionSheet");
 const { showSimpleActionSheet } = findByProps("showSimpleActionSheet");
@@ -12,19 +11,19 @@ const { showSimpleActionSheet } = findByProps("showSimpleActionSheet");
 // TODO: These styles work weirdly. iOS has cramped text, Android with low DPI probably does too. Fix?
 const styles = stylesheet.createThemedStyleSheet({
     card: {
-        backgroundColor: semanticColors?.BACKGROUND_SECONDARY,
+        backgroundColor: semanticColors.BACKGROUND_SECONDARY,
         borderRadius: 7,
     },
     header: {
         padding: 0,
-        backgroundColor: semanticColors?.PRIMARY_DARK_800,
+        backgroundColor: semanticColors.PRIMARY_DARK_800,
         borderTopLeftRadius: 5,
         borderTopRightRadius: 5,
-        fontFamily: Fonts?.PRIMARY_BOLD, 
-        fontWeight: "500",
+        fontFamily: constants.Fonts.PRIMARY_BOLD 
+        
     },
     description: {
-        color: semanticColors?.HEADER_SECONDARY,
+        color: semanticColors.TEXT_MUTED,
         fontSize: 12,
       },
     actions: {
