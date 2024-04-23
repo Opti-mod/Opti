@@ -4,6 +4,7 @@ import { getAssetIDByName } from "@ui/assets";
 import { semanticColors } from "@ui/color";
 import { Forms } from "@ui/components";
 
+const { Fonts } = constants;
 const { FormRow, FormSwitch, FormRadio } = Forms;
 const { hideActionSheet } = findByProps("openLazy", "hideActionSheet");
 const { showSimpleActionSheet } = findByProps("showSimpleActionSheet");
@@ -19,11 +20,11 @@ const styles = stylesheet.createThemedStyleSheet({
         backgroundColor: semanticColors?.PRIMARY_DARK_800,
         borderTopLeftRadius: 5,
         borderTopRightRadius: 5,
-        fontFamily: constants.Fonts.PRIMARY_SEMIBOLD, 
+        fontFamily: Fonts.PRIMARY_BOLD, 
     },
     description: {
         color: semanticColors?.HEADER_SECONDARY,
-        fontSize: 14,
+        fontSize: 12,
       },
     actions: {
         flexDirection: "row-reverse",
