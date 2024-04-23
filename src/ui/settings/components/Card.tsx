@@ -8,6 +8,7 @@ const { FormRow, FormSwitch, FormRadio } = Forms;
 const { hideActionSheet } = findByProps("openLazy", "hideActionSheet");
 const { showSimpleActionSheet } = findByProps("showSimpleActionSheet");
 
+// TODO: These styles do NOT WORK AT ALL!
 // TODO: These styles work weirdly. iOS has cramped text, Android with low DPI probably does too. Fix?
 const styles = stylesheet.createThemedStyleSheet({
     card: {
@@ -17,13 +18,13 @@ const styles = stylesheet.createThemedStyleSheet({
     header: {
         padding: 0,
         backgroundColor: semanticColors.PRIMARY_DARK_800,
+        color: semanticColors.HEADER_PRIMARY,
         borderTopLeftRadius: 5,
         borderTopRightRadius: 5,
         fontFamily: constants.Fonts.PRIMARY_BOLD, 
     },
     description: {
         color: semanticColors.TEXT_MUTED,
-        backgroundColor: semanticColors.PRIMARY_DARK_800,
       },
     actions: {
         flexDirection: "row-reverse",
@@ -86,7 +87,6 @@ export default function Card(props: CardProps) {
                         pressableState = !pressableState;
                         props.onToggleChange?.(pressableState)
                     }}>
-                        {/* TODO: Look into making this respect brand color */}
                         <FormRadio 
                         selected={props.toggleValue} 
                         />
