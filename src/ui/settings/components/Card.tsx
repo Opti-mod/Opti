@@ -20,7 +20,8 @@ const styles = stylesheet.createThemedStyleSheet({
         backgroundColor: semanticColors?.PRIMARY_DARK_800,
         borderTopLeftRadius: 5,
         borderTopRightRadius: 5,
-        fontFamily: Fonts.PRIMARY_BOLD, 
+        fontFamily: Fonts?.PRIMARY_BOLD, 
+        fontWeight: "500",
     },
     description: {
         color: semanticColors?.HEADER_SECONDARY,
@@ -55,7 +56,7 @@ export interface CardWrapper<T> {
 
 interface CardProps {
     index?: number;
-    headerLabel: string | React.ComponentType;
+    headerLabel: string | React.ComponentType | (string | JSX.Element)[];
     headerIcon?: string;
     toggleType?: "switch" | "radio";
     toggleValue?: boolean;
