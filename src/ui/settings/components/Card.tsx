@@ -14,10 +14,12 @@ const styles = stylesheet.createThemedStyleSheet({
     card: {
         backgroundColor: semanticColors.BACKGROUND_SECONDARY,
         borderRadius: 7,
+        borderColor: semanticColors.BACKGROUND_TERTIARY,
+        borderWidth: 1,
     },
     header: {
         padding: 0,
-        backgroundColor: semanticColors.PRIMARY_DARK_800,
+        backgroundColor: semanticColors.PRIMARY_DARK,
         color: semanticColors.HEADER_PRIMARY,
         borderTopLeftRadius: 5,
         borderTopRightRadius: 5,
@@ -34,7 +36,7 @@ const styles = stylesheet.createThemedStyleSheet({
         width: 22,
         height: 22,
         marginLeft: 5,
-        tintColor: semanticColors?.INTERACTIVE_NORMAL,
+        tintColor: semanticColors.INTERACTIVE_NORMAL,
     },
 })
 

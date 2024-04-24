@@ -25,6 +25,7 @@ interface Screen {
     key: string;
     title: string;
     icon?: string;
+    trailing?: string;
     shouldRender?: () => boolean;
     options?: Record<string, any>;
     render: React.ComponentType<any>;
