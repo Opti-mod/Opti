@@ -8,7 +8,6 @@ const { FormRow, FormSwitch, FormRadio } = Forms;
 const { hideActionSheet } = findByProps("openLazy", "hideActionSheet");
 const { showSimpleActionSheet } = findByProps("showSimpleActionSheet");
 
-// TODO: These styles do NOT WORK AT ALL!
 // TODO: These styles work weirdly. iOS has cramped text, Android with low DPI probably does too. Fix?
 const styles = stylesheet.createThemedStyleSheet({
     card: {
@@ -19,7 +18,7 @@ const styles = stylesheet.createThemedStyleSheet({
     },
     header: {
         padding: 0,
-        backgroundColor: semanticColors.PRIMARY_DARK,
+        backgroundColor: semanticColors.HEADER_PRIMARY,
         color: semanticColors.HEADER_PRIMARY,
         borderTopLeftRadius: 5,
         borderTopRightRadius: 5,
@@ -27,6 +26,8 @@ const styles = stylesheet.createThemedStyleSheet({
     },
     description: {
         color: semanticColors.TEXT_MUTED,
+        fontFamily: constants.Fonts.CODE_SEMIBOLD,
+        fontSize: 14,
       },
     actions: {
         flexDirection: "row-reverse",

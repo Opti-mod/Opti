@@ -8,7 +8,6 @@ import PluginCard from "@ui/settings/components/PluginCard";
 import { Button, ErrorBoundary } from "@/ui/components";
 import { ReactNative as RN } from "@metro/common";
 import ThemeCard from "../components/ThemeCard";
-import { useState } from "react";
 
 export default function Addons() {
     //@ts-ignore
@@ -25,7 +24,7 @@ export default function Addons() {
     }
 
     return (
-        <RN.View style={{ flexDirection:"row",  marginTop: 5, padding: 2, }}>
+        <RN.View style={{ flexDirection:"row",  marginTop: 5, padding: 5, zIndex: 3, }}>
                 <Button
                     color={Button.Colors.BRAND}
                     size={Button.Sizes.MEDIUM}
