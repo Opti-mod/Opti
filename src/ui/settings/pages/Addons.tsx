@@ -13,7 +13,8 @@ import { useState } from "react";
 export default function Addons() {
     //@ts-ignore
     useProxy(settings)
-    const [selectedTab, setSelectedTab] = useState("Plugins");
+    const [selectedTab, setSelectedTab] = useState("");
+
     const SelectedTab = () => {
         switch (selectedTab) {
             case 'Plugins':
@@ -26,8 +27,6 @@ export default function Addons() {
     }
 
     return (
-
-        <ErrorBoundary>
             <RN.View>
             <RN.View style={{ flex: 1 }}>
                 <Button
@@ -54,6 +53,5 @@ export default function Addons() {
             </RN.View>
             {SelectedTab()}
         </RN.View>
-        </ErrorBoundary>
     )
 }
