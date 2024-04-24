@@ -25,7 +25,7 @@ export default function Addons() {
     }
 
     return (
-        <RN.View style={{ flex: 1 }}>
+        <RN.View style={{ flexDirection:"row" }}>
                 <Button
                     color={Button.Colors.BRAND}
                     size={Button.Sizes.MEDIUM}
