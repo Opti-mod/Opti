@@ -221,7 +221,7 @@ export default function General() {
                             })}
                         />
                     </>}
-                {window.__vendetta_loader?.features.loaderConfig && <FormSection title="Developer">
+                {window.__vendetta_loader?.features.loaderConfig && <>
                     <FormSwitchRow
                         label="Load from custom url"
                         subLabel={"Load Vendetta from a custom endpoint."}
@@ -251,7 +251,7 @@ export default function General() {
                         }}
                     />}
                     <FormDivider />
-                </FormSection>}
+                </>}
 
                 </FormSection>
                 

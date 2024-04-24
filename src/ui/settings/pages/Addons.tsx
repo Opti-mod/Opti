@@ -21,7 +21,7 @@ export default function Addons() {
             case 'Shaders':
                 return <AddonPage<Theme> items={themes} card={ThemeCard}></AddonPage>
             default:
-                return
+                return <RN.View> <RN.Text>Placeholder.</RN.Text></RN.View>
         }
     }
 
