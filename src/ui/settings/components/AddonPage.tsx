@@ -30,7 +30,7 @@ export default function AddonPage<T>({ items, safeModeMessage, safeModeExtras, c
                         placeholder="Search"
                     />
                 </>}
-                style={{ paddingHorizontal: 10, paddingTop: 25 }}
+                style={{ paddingHorizontal: 10, paddingTop: 20 }}
                 contentContainerStyle={{ paddingBottom: 20 }}
                 data={Object.values(items).filter(i => i.id?.toLowerCase().includes(search))}
                 renderItem={({ item, index }) => <CardComponent item={item} index={index} />}

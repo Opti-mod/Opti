@@ -27,8 +27,8 @@ const styles = stylesheet.createThemedStyleSheet({
     description: {
         color: semanticColors.TEXT_MUTED,
         fontFamily: constants.Fonts.CODE_SEMIBOLD,
-        fontSize: 13,
-      },
+        fontSize: 12,
+    },
     actions: {
         flexDirection: "row-reverse",
         alignItems: "center",
