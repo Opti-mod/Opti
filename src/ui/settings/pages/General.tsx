@@ -96,7 +96,8 @@ export default function General() {
             <RN.ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 38 }}>
                 <FormSection title="Important" titleStyleType="no_border">
                     <FormRow
-                    label={`Opti Version - ` + debugInfo.vendetta.version}
+                    label={`Opti Version`}
+                    version={debugInfo.vendetta.version}
                     leading={<FormRow.Icon source={getAssetIDByName("boost")} />}
                     onPress={() => {
                         clipboard.setString(`Opti Version - ${debugInfo.vendetta.version}`);

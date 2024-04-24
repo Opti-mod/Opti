@@ -16,6 +16,7 @@ import { PROXY_PREFIX } from "@/lib/constants";
 import TweakManager from "@ui/settings/pages/TweakManager";
 import { Forms } from "@ui/components";
 import Addons  from "@ui/settings/pages/Addons"
+import { getDebugInfo } from "@/lib/debug";
 
 const { FormRow, FormSwitchRow, FormSection, FormDivider, FormInput  } = Forms;
 
@@ -43,18 +44,21 @@ export const getScreens = (youKeys = false): Screen[] => [
         key: formatKey("VendettaSettings", youKeys),
         title: "Opti",
         icon: 'https://raw.githubusercontent.com/Opti-mod/assets/main/Opti%202.png',
+        version: getDebugInfo().vendetta.version,
         render: General,
     },
     {
         key: formatKey("VendettaSettingsTM", youKeys),
         title: "Tweaks",
         icon: "ic_hammer_and_chisel_24px",
+        version: "5",
         render: TweakManager,
     },
     {
         key: formatKey("VendettaAddons", youKeys),
         title: "Addons",
         icon: 'screenshare',
+        version: "0",
         render: Addons,
     },
     {

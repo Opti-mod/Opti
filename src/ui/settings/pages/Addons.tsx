@@ -46,7 +46,6 @@ export default function Addons() {
                     text="Shaders"
                 />
             
-
             <RN.View>
             {SelectedTab()}
             </RN.View>
