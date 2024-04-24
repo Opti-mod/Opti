@@ -18,7 +18,7 @@ const styles = stylesheet.createThemedStyleSheet({
     },
     header: {
         padding: 0,
-        backgroundColor: semanticColors.HEADER_PRIMARY,
+        backgroundColor: semanticColors.PRIMARY_DARK,
         color: semanticColors.HEADER_PRIMARY,
         borderTopLeftRadius: 5,
         borderTopRightRadius: 5,
@@ -27,7 +27,7 @@ const styles = stylesheet.createThemedStyleSheet({
     description: {
         color: semanticColors.TEXT_MUTED,
         fontFamily: constants.Fonts.CODE_SEMIBOLD,
-        fontSize: 14,
+        fontSize: 13,
       },
     actions: {
         flexDirection: "row-reverse",
