@@ -45,13 +45,13 @@ export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, E
             <RN.ScrollView style={styles.view}>
                 <Forms.FormText style={styles.title}>Opti has encountered an error.</Forms.FormText>
                 <Forms.FormText style={styles.title}>{this.state.errName}</Forms.FormText>
-                <Codeblock selectable style={{ marginBottom: 4 }}>{this.state.errStack}</Codeblock>
+                <Codeblock selectable style={{ marginBottom: 5, maxHeight: 500 }}>{this.state.errStack}</Codeblock>
                 <Forms.FormText style={styles.br}> </Forms.FormText>
                 <Button
                     color={Button.Colors.RED}
                     size={Button.Sizes.MEDIUM}
                     look={Button.Looks.FILLED}
-                    onPress={() => this.setState({ hasErr: false, errText: undefined })}
+                    onPress={() => this.setState({ hasErr: false })}
                     text="Retry"
                 />
                  <Forms.FormText style={styles.br}> </Forms.FormText>
@@ -60,17 +60,7 @@ export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, E
                     size={Button.Sizes.MEDIUM}
                     look={Button.Looks.FILLED}
                     onPress={() => clipboard.setString("" + this.state.errStack)}
-                    text="Copy Error to Clipboard"
-                />
-             <Forms.FormText style={styles.br}> </Forms.FormText>
-                    <Button
-                    color={Button.Colors.BRAND}
-                    size={Button.Sizes.SMALL}
-                    look={Button.Looks.FILLED}
-                    onPress={() => {                       
-                        sendCrashReport("This is a placeholder.");
-                    }}
-                    text="Send Report"
+                    text="Copy"
                 />
             </RN.ScrollView>
         )

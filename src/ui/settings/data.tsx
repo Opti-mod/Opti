@@ -15,6 +15,7 @@ import Themes from "@ui/settings/pages/Themes";
 import { PROXY_PREFIX } from "@/lib/constants";
 import TweakManager from "@ui/settings/pages/TweakManager";
 import { Forms } from "@ui/components";
+import Addons  from "@ui/settings/pages/Addons"
 
 const { FormRow, FormSwitchRow, FormSection, FormDivider, FormInput  } = Forms;
 
@@ -49,6 +50,12 @@ export const getScreens = (youKeys = false): Screen[] => [
         title: "Tweaks",
         icon: "ic_hammer_and_chisel_24px",
         render: TweakManager,
+    },
+    {
+        key: formatKey("VendettaAddons", youKeys),
+        title: "Addons",
+        icon: 'screenshare',
+        render: Addons,
     },
     {
         key: formatKey("VendettaPlugins", youKeys),

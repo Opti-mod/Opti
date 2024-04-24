@@ -6,7 +6,7 @@ import settings from "@lib/settings";
 
 interface AddonPageProps<T> {
     items: Record<string, T & { id: string }>;
-    safeModeMessage: string;
+    safeModeMessage?: string;
     safeModeExtras?: JSX.Element | JSX.Element[];
     card: React.ComponentType<CardWrapper<T>>;
 }
