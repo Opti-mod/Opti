@@ -24,9 +24,9 @@ const styles = stylesheet.createThemedStyleSheet({
     },
     br: {
         fontSize: 0,
-        paddingTop: 20,
-        paddingLeft: 20,
-        paddingRight: 20
+        paddingTop: 10,
+        paddingLeft: 10,
+        paddingRight: 10
       },
 });
 
@@ -45,7 +45,7 @@ export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, E
             <RN.ScrollView style={styles.view}>
                 <Forms.FormText style={styles.title}>Opti has encountered an error.</Forms.FormText>
                 <Forms.FormText style={styles.title}>{this.state.errName}</Forms.FormText>
-                <Codeblock selectable style={{ marginBottom: 5, maxHeight: 500 }}>{this.state.errStack}</Codeblock>
+                <Codeblock selectable style={{ marginBottom: 5, maxHeight: 400 }}>{this.state.errStack}</Codeblock>
                 <Forms.FormText style={styles.br}> </Forms.FormText>
                 <Button
                     color={Button.Colors.RED}

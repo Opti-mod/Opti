@@ -13,7 +13,7 @@ import { useState } from "react";
 export default function Addons() {
     //@ts-ignore
     useProxy(settings)
-    const [selectedTab, setSelectedTab] = useState('');
+    const [selectedTab, setSelectedTab] = useState("Plugins");
     const SelectedTab = () => {
         switch (selectedTab) {
             case 'Plugins':
