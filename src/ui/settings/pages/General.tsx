@@ -95,15 +95,10 @@ export default function General() {
         <ErrorBoundary>
             <RN.ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 38 }}>
                 <FormSection title="Important" titleStyleType="no_border">
-                    <FormRow
+                    <Version
                     label={`Opti Version`}
                     version={debugInfo.vendetta.version}
-                    leading={<FormRow.Icon source={getAssetIDByName("boost")} />}
-                    onPress={() => {
-                        clipboard.setString(`Opti Version - ${debugInfo.vendetta.version}`);
-                        showToast("Copied Opti version to clipboard!", getAssetIDByName("ic_badge_staff"));
-                        }
-                    }
+                    icon="boost"
                     /> 
                     <FormDivider />
                     <FormRow
