@@ -12,6 +12,7 @@ import ThemeCard from "../components/ThemeCard";
 export default function Addons() {
     useProxy(settings)
     let plugin = true;
+    let shaders = false;
 
     return (
         
@@ -21,8 +22,23 @@ export default function Addons() {
                     color={Button.Colors.BRAND}
                     size={Button.Sizes.MEDIUM}
                     look={Button.Looks.FILLED}
-                    onPress={() => console.log("hi")}
-                    text="Switch"
+                    onPress={() =>  {
+                        plugin = false;
+                        shaders = true;
+                    }
+                    }
+                    text="Shaders"
+                />
+                  <Button
+                    color={Button.Colors.BRAND}
+                    size={Button.Sizes.MEDIUM}
+                    look={Button.Looks.FILLED}
+                    onPress={() =>  {
+                        plugin = true;
+                        shaders = false;
+                    }
+                    }
+                    text="Plugins"
                 />
 
         {plugin &&
@@ -31,10 +47,11 @@ export default function Addons() {
             card={PluginCard}
         />}
 
+        {shaders && 
         <AddonPage<Theme>
         items={themes}
         card={ThemeCard}
-        />
+        />}
         
         </RN.View>
         </ErrorBoundary>
