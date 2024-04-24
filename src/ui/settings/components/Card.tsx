@@ -37,7 +37,7 @@ const styles = stylesheet.createThemedStyleSheet({
         width: 22,
         height: 22,
         marginLeft: 5,
-        tintColor: semanticColors.INTERACTIVE_NORMAL,
+        tintColor: semanticColors?.INTERACTIVE_NORMAL,
     },
 })
 
