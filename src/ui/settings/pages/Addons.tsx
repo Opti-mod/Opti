@@ -13,7 +13,7 @@ import { useState } from "react";
 export default function Addons() {
     //@ts-ignore
     useProxy(settings)
-    const [selectedTab, setSelectedTab] = useState("");
+    const [selectedTab, setSelectedTab] = React.useState("");
 
     const SelectedTab = () => {
         switch (selectedTab) {
@@ -22,7 +22,7 @@ export default function Addons() {
             case 'Shaders':
                 return <AddonPage<Theme> items={themes} card={ThemeCard}></AddonPage>
             default:
-                return <RN.View> <RN.Text>Placeholder.</RN.Text></RN.View>
+                return
         }
     }
 
