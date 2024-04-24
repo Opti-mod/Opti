@@ -21,21 +21,17 @@ export default function Addons() {
                 return <AddonPage<Plugin> items={plugins} card={PluginCard}></AddonPage>
             case 'Shaders':
                 return <AddonPage<Theme> items={themes} card={ThemeCard}></AddonPage>
-            default:
-                return
         }
     }
 
     return (
-            <RN.View>
-            <RN.View style={{ flex: 1 }}>
+        <RN.View style={{ flex: 1 }}>
                 <Button
                     color={Button.Colors.BRAND}
                     size={Button.Sizes.MEDIUM}
                     look={Button.Looks.FILLED}
-                    onPress={() => {
+                    onPress={() =>
                         setSelectedTab('Plugins')
-                    }
                     }
                     text="Plugins"
                 />
@@ -44,14 +40,16 @@ export default function Addons() {
                     color={Button.Colors.BRAND}
                     size={Button.Sizes.MEDIUM}
                     look={Button.Looks.FILLED}
-                    onPress={() => {
+                    onPress={() =>
                         setSelectedTab('Shaders')
-                    }
                     }
                     text="Shaders"
                 />
-            </RN.View>
+            
+
+            <RN.View>
             {SelectedTab()}
-        </RN.View>
+            </RN.View>
+            </RN.View>
     )
 }
