@@ -10,9 +10,10 @@ import { ReactNative as RN } from "@metro/common";
 import ThemeCard from "../components/ThemeCard";
 
 export default function Addons() {
+    //@ts-ignore
     useProxy(settings)
-    let plugin = true;
-    let shaders = false;
+    let plugin;
+    let shaders;
 
     return (
         
@@ -23,22 +24,23 @@ export default function Addons() {
                     size={Button.Sizes.MEDIUM}
                     look={Button.Looks.FILLED}
                     onPress={() =>  {
-                        plugin = false;
-                        shaders = true;
-                    }
-                    }
-                    text="Shaders"
-                />
-                  <Button
-                    color={Button.Colors.BRAND}
-                    size={Button.Sizes.MEDIUM}
-                    look={Button.Looks.FILLED}
-                    onPress={() =>  {
                         plugin = true;
                         shaders = false;
                     }
                     }
                     text="Plugins"
+                />
+                
+        <Button
+                    color={Button.Colors.BRAND}
+                    size={Button.Sizes.MEDIUM}
+                    look={Button.Looks.FILLED}
+                    onPress={() =>  {
+                        plugin = false;
+                        shaders = true;
+                    }
+                    }
+                    text="Shaders"
                 />
 
         {plugin &&
@@ -52,7 +54,7 @@ export default function Addons() {
         items={themes}
         card={ThemeCard}
         />}
-        
+
         </RN.View>
         </ErrorBoundary>
     )
