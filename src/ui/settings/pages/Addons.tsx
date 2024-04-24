@@ -8,53 +8,51 @@ import PluginCard from "@ui/settings/components/PluginCard";
 import { Button, ErrorBoundary } from "@/ui/components";
 import { ReactNative as RN } from "@metro/common";
 import ThemeCard from "../components/ThemeCard";
+import { useState } from "react";
 
 export default function Addons() {
     //@ts-ignore
     useProxy(settings)
-    let plugin;
-    let shaders;
+    const [selectedTab, setSelectedTab] = useState('');
+    const SelectedTab = () => {
+        switch (selectedTab) {
+            case 'Plugins':
+                return <AddonPage<Plugin> items={plugins} card={PluginCard}></AddonPage>
+            case 'Shaders':
+                return <AddonPage<Theme> items={themes} card={ThemeCard}></AddonPage>
+            default:
+                return
+        }
+    }
 
     return (
-        
+
         <ErrorBoundary>
-        <RN.View style={{ flex: 1 }}>
-        <Button
+            <RN.View>
+            <RN.View style={{ flex: 1 }}>
+                <Button
                     color={Button.Colors.BRAND}
                     size={Button.Sizes.MEDIUM}
                     look={Button.Looks.FILLED}
-                    onPress={() =>  {
-                        plugin = true;
-                        shaders = false;
+                    onPress={() => {
+                        setSelectedTab('Plugins')
                     }
                     }
                     text="Plugins"
                 />
-                
-        <Button
+
+                <Button
                     color={Button.Colors.BRAND}
                     size={Button.Sizes.MEDIUM}
                     look={Button.Looks.FILLED}
-                    onPress={() =>  {
-                        plugin = false;
-                        shaders = true;
+                    onPress={() => {
+                        setSelectedTab('Shaders')
                     }
                     }
                     text="Shaders"
                 />
-
-        {plugin &&
-            <AddonPage<Plugin> 
-            items={plugins}
-            card={PluginCard}
-        />}
-
-        {shaders && 
-        <AddonPage<Theme>
-        items={themes}
-        card={ThemeCard}
-        />}
-
+            </RN.View>
+            {SelectedTab()}
         </RN.View>
         </ErrorBoundary>
     )
