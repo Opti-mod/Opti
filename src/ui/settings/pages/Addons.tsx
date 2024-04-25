@@ -19,16 +19,21 @@ export default function Addons() {
 
     const tabs = [
         {
-            id: 'plugins',
+            id: "plugins",
             title: 'Plugins',
             page: () => <AddonPage<Plugin> items={plugins} card={PluginCard} />
         },
         {
-            id: 'shaders',
+            id: "shaders",
             title: 'Shaders',
             page: () => <AddonPage<Theme> items={themes} card={ThemeCard} />
         }
     ];
+
+    if(activeTab === undefined)
+    {
+        setActiveTab("plugins")
+    }
 
 
     return <>
