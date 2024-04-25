@@ -8,40 +8,35 @@ import PluginCard from "@ui/settings/components/PluginCard";
 import { Button, ErrorBoundary } from "@/ui/components";
 import { ReactNative as RN } from "@metro/common";
 import ThemeCard from "../components/ThemeCard";
+import { findByProps } from "@/lib/metro/filters";
+
+const { BadgableTabBar } = findByProps("BadgableTabBar");
 
 export default function Addons() {
     //@ts-ignore
     useProxy(settings)
-    const [selectedTab, setSelectedTab] = React.useState("");
+    const [activeTab, setActiveTab] = React.useState("Plugins");
 
-    const SelectedTab = () => {
-        switch (selectedTab) {
-            case 'Plugins':
-                return <AddonPage<Plugin> items={plugins} card={PluginCard}></AddonPage>
-            case 'Shaders':
-                return <AddonPage<Theme> items={themes} card={ThemeCard}></AddonPage>
+    const tabs = [
+        {
+            id: 'plugins',
+            title: 'Plugins',
+            page: () => <AddonPage<Plugin> items={plugins} card={PluginCard} />
+        },
+        {
+            id: 'shaders',
+            title: 'Shaders',
+            page: () => <AddonPage<Theme> items={themes} card={ThemeCard} />
         }
-    }
+    ];
 
-    return (
-        <RN.View style={{ flexDirection:"row",  marginTop: 5, padding: 5, zIndex: 3, }}>
-                <Button
-                    color={Button.Colors.BRAND}
-                    size={Button.Sizes.MEDIUM}
-                    look={Button.Looks.FILLED}
-                    onPress={() => setSelectedTab('Plugins') }
-                    text="Plugins"
-                />
-                <Button
-                    color={Button.Colors.BRAND}
-                    size={Button.Sizes.MEDIUM}
-                    look={Button.Looks.FILLED}
-                    onPress={() => setSelectedTab('Shaders') }
-                    text="Shaders"
-                />
-            <RN.View>
-            {SelectedTab()}
-            </RN.View>
-            </RN.View>
-    )
+
+    return <>
+    <BadgableTabBar
+        tabs={tabs}
+        activeTab={activeTab}
+        onTabSelected={(tab: string) => setActiveTab(tab)}
+    />
+    {React.createElement(tabs[activeTab].page)}
+</>
 }
