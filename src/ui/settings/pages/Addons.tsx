@@ -15,7 +15,7 @@ const { BadgableTabBar } = findByProps("BadgableTabBar");
 export default function Addons() {
     //@ts-ignore
     useProxy(settings)
-    const [activeTab, setActiveTab] = React.useState("Plugins");
+    const [activeTab, setActiveTab] = React.useState("plugins");
 
     const tabs = [
         {
