@@ -52,14 +52,12 @@ export const getScreens = (youKeys = false): Screen[] => [
         key: formatKey("VendettaSettingsTM", youKeys),
         title: "Tweaks",
         icon: "ic_hammer_and_chisel_24px",
-        trailing: "5",
         render: TweakManager,
     },
     {
         key: formatKey("VendettaAddons", youKeys),
         title: "Addons",
         icon: 'screenshare',
-        trailing: "0",
         render: Addons,
     },
     {
