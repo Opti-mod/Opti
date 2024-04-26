@@ -9,11 +9,10 @@ import ThemeCard from "@ui/settings/components/ThemeCard";
 export default function Themes() {
     //@ts-ignore
     useProxy(settings);
-
     return (
         <AddonPage<Theme>
             items={themes}
-            safeModeMessage={`You are in Safe Mode, meaning themes have been temporarily disabled.${settings.safeMode?.currentThemeId ? " If a theme appears to be causing the issue, you can press below to disable it." : ""}`}
+            safeModeMessage={`You are in Safe Mode. Shaders have been temporarily disabled. ${settings.safeMode?.currentThemeId}`}
             safeModeExtras={settings.safeMode?.currentThemeId ? <Button
                 text="Disable Shader"
                 color={ButtonColors.BRAND}

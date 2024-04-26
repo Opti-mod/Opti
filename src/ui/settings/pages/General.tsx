@@ -162,13 +162,15 @@ export default function General() {
                     </Summary>
                     <FormDivider />
                     <Summary label="Opti Stats" icon="ic_list">
-                    <FormRow
-                        label={"Enabled Plugins: " + getPlugins()}
-                        leading={<FormRow.Icon source={getAssetIDByName("ic_download_24px")} />}
+                    <Version
+                        label={"Enabled Plugins " }
+                        version={"" + getPlugins()}
+                        icon={"" + getAssetIDByName("ic_download_24px")}
                     />
-                    <FormRow
-                        label={"Enabled Themes: " + getThemes()}
-                        leading={<FormRow.Icon source={getAssetIDByName("ic_paint_brush")} />}
+                    <Version
+                        label={"Shaders " + getThemes()}
+                        version= {"" + getThemes()}
+                        icon={"" + getAssetIDByName("ic_paint_brush")}
                     />
                     </Summary>
 

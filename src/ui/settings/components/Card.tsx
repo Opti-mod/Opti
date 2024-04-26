@@ -20,9 +20,10 @@ const styles = stylesheet.createThemedStyleSheet({
         padding: 0,
         backgroundColor: semanticColors.PRIMARY_DARK,
         color: semanticColors.HEADER_PRIMARY,
-        borderTopLeftRadius: 5,
-        borderTopRightRadius: 5,
+        borderTopLeftRadius: 6,
+        borderTopRightRadius: 6,
         fontFamily: constants.Fonts.PRIMARY_BOLD, 
+        fontSize: 15,
     },
     description: {
         color: semanticColors.TEXT_MUTED,
@@ -99,7 +100,7 @@ export default function Card(props: CardProps) {
              <FormDivider />
             <FormRow
                 style={styles.description}
-                label={props.descriptionLabel}
+                label={`${props.descriptionLabel}`}
                 trailing={
                     <RN.View style={styles.actions}>
                         {props.overflowActions && <RN.TouchableOpacity

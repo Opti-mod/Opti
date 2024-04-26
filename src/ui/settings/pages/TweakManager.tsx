@@ -1,5 +1,5 @@
 import { ReactNative as RN } from "@metro/common";
-import { Forms, Search, ErrorBoundary } from "@ui/components";
+import { Forms, ErrorBoundary } from "@ui/components";
 import { getAssetIDByName } from "@ui/assets";
 import { silentTyping, unloadSilentTyping } from "@/lib/tweak/silentTyping";
 import { hideDumbButtons, unloadHideButtons } from "@/lib/tweak/HideDumbButtons";
@@ -12,7 +12,6 @@ import { removeDeletePrompt, unloadRemoveDelete } from "@/lib/tweak/removeDelete
 const { FormDivider, FormRow } = Forms;
 
 export default function AssetBrowser() {
-    const [search, setSearch] = React.useState("");
     //@ts-ignore
     useProxy(settings);
     //@ts-ignore
@@ -23,7 +22,7 @@ export default function AssetBrowser() {
             <RN.View style={{ flex: 1 }}>
             <FormRow
                         label="Tweaks"
-                        subLabel={`Right now most tweaks are ported Vendetta plugins.\nWant yours removed? Contact me and I'll remove it ASAP.` }
+                        subLabel={`Right now most tweaks are ported Vendetta plugins and are actively being improved on.\nWant yours removed? Contact me and I'll remove it ASAP.` }
                     />
                      <FormDivider />
                <FormRow

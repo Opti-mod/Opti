@@ -5,8 +5,6 @@ import { themes } from "@lib/themes";
 import settings from "@lib/settings";
 import AddonPage from "@ui/settings/components/AddonPage";
 import PluginCard from "@ui/settings/components/PluginCard";
-import { Button, ErrorBoundary } from "@/ui/components";
-import { ReactNative as RN } from "@metro/common";
 import ThemeCard from "../components/ThemeCard";
 import { findByProps } from "@/lib/metro/filters";
 
@@ -33,7 +31,7 @@ export default function Addons() {
 
     return <>
     <BadgableTabBar
-        style= {{padding: 14 }}
+        style= {{padding: 14, }}
         tabs={tabs}
         activeTab={activeTab}
         onTabSelected={(tab: string) => setActiveTab(tab)}

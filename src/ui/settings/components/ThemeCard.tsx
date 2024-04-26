@@ -15,18 +15,17 @@ async function selectAndReload(value: boolean, id: string) {
 }
 
 export default function ThemeCard({ item: theme, index }: CardWrapper<Theme>) {
+    //@ts-ignore
     useProxy(settings);
     const [removed, setRemoved] = React.useState(false);
-
-    // This is needed because of React™
+    const authors = theme.data.authors;
     if (removed) return null;
 
-    const authors = theme.data.authors;
-
+    //  ${authors ? `\nby ${authors.map(i => i.name).join(", ")}` : ""}
     return (
         <Card
             index={index}
-            headerLabel={`${theme.data.name} ${authors ? `\nby ${authors.map(i => i.name).join(", ")}` : ""}`}
+            headerLabel={`${theme.data.name}`}
             headerIcon={"ic_theme_24px"}
             descriptionLabel={theme.data.description ?? "No description."}
             toggleType={!settings.safeMode?.enabled ? "switch" : undefined}
@@ -77,7 +76,7 @@ export default function ThemeCard({ item: theme, index }: CardWrapper<Theme>) {
                     label: "Copy URL",
                     onPress: () => {
                         clipboard.setString(theme.id);
-                        showToast("Copied theme URL to clipboard.", getAssetIDByName("toast_copy_link"));
+                        showToast("Copied shader URL to clipboard.", getAssetIDByName("toast_copy_link"));
                     }
                 },
                 {

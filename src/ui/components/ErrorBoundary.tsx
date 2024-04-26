@@ -24,7 +24,7 @@ const styles = stylesheet.createThemedStyleSheet({
     },
     br: {
         fontSize: 0,
-        padding: 2
+        padding: 1
       },
 });
 
