@@ -110,6 +110,7 @@ interface PluginManifest {
     authors: Author[];
     main: string;
     hash: string;
+    version?: string;
     // Vendor-specific field, contains our own data
     vendetta?: {
         icon?: string;

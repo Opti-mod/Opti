@@ -12,6 +12,7 @@ interface AddonPageProps<T> {
 }
 
 export default function AddonPage<T>({ items, safeModeMessage, safeModeExtras, card: CardComponent }: AddonPageProps<T>) {
+    //@ts-ignore
     useProxy(settings)
     useProxy(items);
     const [search, setSearch] = React.useState("");

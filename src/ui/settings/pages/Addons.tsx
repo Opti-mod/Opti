@@ -33,7 +33,7 @@ export default function Addons() {
 
     return <>
     <BadgableTabBar
-        style= {{padding: 10 }}
+        style= {{padding: 14 }}
         tabs={tabs}
         activeTab={activeTab}
         onTabSelected={(tab: string) => setActiveTab(tab)}

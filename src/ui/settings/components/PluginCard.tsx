@@ -18,12 +18,14 @@ export default function PluginCard({ item: plugin, index }: CardWrapper<Plugin>)
     const settings = getSettings(plugin.id);
     const navigation = NavigationNative.useNavigation();
     const [removed, setRemoved] = React.useState(false);
+    const authors = plugin.manifest.authors;
     if (removed) return null;
 
+    // \nby ${plugin.manifest.authors.map(i => i.name).join(", ")}
     return (
         <Card
             index={index}
-            headerLabel={`${plugin.manifest.name} \nby ${plugin.manifest.authors.map(i => i.name).join(", ")}`}
+            headerLabel={`${plugin.manifest.name}`}
             headerIcon={plugin.manifest.vendetta?.icon || "ic_application_command_24px"}
             toggleType="switch"
             toggleValue={plugin.enabled}

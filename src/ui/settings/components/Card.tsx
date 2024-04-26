@@ -4,7 +4,7 @@ import { getAssetIDByName } from "@ui/assets";
 import { semanticColors } from "@ui/color";
 import { Forms } from "@ui/components";
 
-const { FormRow, FormSwitch, FormRadio } = Forms;
+const { FormRow, FormSwitch, FormRadio, FormDivider } = Forms;
 const { hideActionSheet } = findByProps("openLazy", "hideActionSheet");
 const { showSimpleActionSheet } = findByProps("showSimpleActionSheet");
 
@@ -96,6 +96,7 @@ export default function Card(props: CardProps) {
                     </RN.Pressable>)
                 )}
             />
+             <FormDivider />
             <FormRow
                 style={styles.description}
                 label={props.descriptionLabel}
