@@ -163,14 +163,14 @@ export default function General() {
                     <FormDivider />
                     <Summary label="Opti Stats" icon="ic_list">
                     <Version
-                        label={"Enabled Plugins " }
+                        label={"Enabled Plugins"}
                         version={"" + getPlugins()}
-                        icon={"" + getAssetIDByName("ic_download_24px")}
+                        icon={"ic_download_24px"}
                     />
                     <Version
-                        label={"Shaders " + getThemes()}
+                        label={"Shaders"}
                         version= {"" + getThemes()}
-                        icon={"" + getAssetIDByName("ic_paint_brush")}
+                        icon={"ic_paint_brush"}
                     />
                     </Summary>
 
