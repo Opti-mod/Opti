@@ -50,12 +50,6 @@ export const getScreens = (youKeys = false): Screen[] => [
         render: General,
     },
     {
-        key: formatKey("VendettaSettingsTM", youKeys),
-        title: "Tweaks",
-        icon: "ic_hammer_and_chisel_24px",
-        render: TweakManager,
-    },
-    {
         key: formatKey("VendettaAddons", youKeys),
         title: "Addons",
         icon: 'screenshare',
@@ -65,6 +59,10 @@ export const getScreens = (youKeys = false): Screen[] => [
                 <InstallButton
                     alertTitle="Install Addon"
                     installFunction={async (input) => {
+
+                        if(input.endsWith(".json")) {
+                            return await installTheme(input);
+                        }
                         if (!input.startsWith(PROXY_PREFIX))
                             setImmediate(() => showConfirmationAlert({
                                 title: "Unproxied Plugin",
@@ -81,6 +79,12 @@ export const getScreens = (youKeys = false): Screen[] => [
                 />
             ),
         }
+    },
+    {
+        key: formatKey("VendettaSettingsTM", youKeys),
+        title: "Tweaks",
+        icon: "ic_hammer_and_chisel_24px",
+        render: TweakManager,
     },
     {
         key: formatKey("VendettaCustomPage", youKeys),
