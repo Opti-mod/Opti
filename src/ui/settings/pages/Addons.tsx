@@ -30,11 +30,6 @@ export default function Addons() {
         }
     ];
 
-    if(activeTab === undefined)
-    {
-        setActiveTab("plugins")
-    }
-
 
     return <>
     <BadgableTabBar
@@ -42,6 +37,6 @@ export default function Addons() {
         activeTab={activeTab}
         onTabSelected={(tab: string) => setActiveTab(tab)}
     />
-    {React.createElement(tabs[activeTab].page)}
+    {React.createElement(tabs.find(tab => tab.id === activeTab).page)}
 </>
 }
