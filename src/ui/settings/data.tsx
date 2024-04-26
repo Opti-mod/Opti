@@ -40,6 +40,7 @@ const formatKey = (key: string, youKeys: boolean) => youKeys ? lodash.snakeCase(
 // Answer: Maybe.
 const keyMap = (screens: Screen[], data: string | ((s: Screen) => any) | null) => Object.fromEntries(screens.map(s => [s.key, typeof data === "function" ? data(s) : typeof data === "string" ? s[data] : data]));
 
+//TODO:    headerRight: () => !settings.safeMode?.enabled && <InstallButton alertTitle="Install Theme" installFunction={installTheme} />,
 export const getScreens = (youKeys = false): Screen[] => [
     {
         key: formatKey("VendettaSettings", youKeys),
@@ -59,15 +60,10 @@ export const getScreens = (youKeys = false): Screen[] => [
         title: "Addons",
         icon: 'screenshare',
         render: Addons,
-    },
-    {
-        key: formatKey("VendettaPlugins", youKeys),
-        title: "Plugins",
-        icon: "ic_behavior_24px",
-        options: {
+        options: { 
             headerRight: () => (
                 <InstallButton
-                    alertTitle="Install Plugin"
+                    alertTitle="Install Addon"
                     installFunction={async (input) => {
                         if (!input.startsWith(PROXY_PREFIX))
                             setImmediate(() => showConfirmationAlert({
@@ -84,18 +80,7 @@ export const getScreens = (youKeys = false): Screen[] => [
                     }}
                 />
             ),
-        },
-        render: Plugins,
-    },
-    {
-        key: formatKey("VendettaThemes", youKeys),
-        title: "Shaders",
-        icon: "ic_theme_24px",
-        shouldRender: () => window.__vendetta_loader?.features.hasOwnProperty("themes") ?? true,
-        options: {
-            headerRight: () => !settings.safeMode?.enabled && <InstallButton alertTitle="Install Theme" installFunction={installTheme} />,
-        },
-        render: Themes,
+        }
     },
     {
         key: formatKey("VendettaCustomPage", youKeys),
