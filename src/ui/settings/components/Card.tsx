@@ -25,7 +25,7 @@ const styles = stylesheet.createThemedStyleSheet({
     },
     headertitle: {
         fontFamily: constants.Fonts.PRIMARY_BOLD, 
-        fontSize: 15,
+        fontSize: 18,
         color: semanticColors.HEADER_PRIMARY,
     },
     description: {
