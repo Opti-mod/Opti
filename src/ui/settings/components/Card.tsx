@@ -22,8 +22,11 @@ const styles = stylesheet.createThemedStyleSheet({
         color: semanticColors.HEADER_PRIMARY,
         borderTopLeftRadius: 6,
         borderTopRightRadius: 6,
+    },
+    headertitle: {
         fontFamily: constants.Fonts.PRIMARY_BOLD, 
         fontSize: 15,
+        color: semanticColors.HEADER_PRIMARY,
     },
     description: {
         color: semanticColors.TEXT_MUTED,
@@ -77,7 +80,12 @@ export default function Card(props: CardProps) {
         <RN.View style={[styles.card, { marginTop: props.index !== 0 ? 10 : 0 }]}>
             <FormRow
                 style={styles.header}
-                label={props.headerLabel}
+                label={() => <RN.View>
+                     <RN.Text
+                   style={styles.headertitle}>
+                    {props.headerLabel}
+                   </RN.Text>
+                    </RN.View>}
                 leading={props.headerIcon && <FormRow.Icon source={getAssetIDByName(props.headerIcon)} />}
                 trailing={props.toggleType && (props.toggleType === "switch" ? 
                     (<FormSwitch
