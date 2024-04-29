@@ -4,7 +4,6 @@ import { removePlugin, startPlugin, stopPlugin, getSettings, fetchPlugin } from 
 import { MMKVManager } from "@lib/native";
 import { getAssetIDByName } from "@ui/assets";
 import { showToast } from "@ui/toasts";
-import { ReactNative as RN, constants, stylesheet } from "@metro/common";
 import { showConfirmationAlert } from "@ui/alerts";
 import Card, { CardWrapper } from "@ui/settings/components/Card";
 import { semanticColors } from "@/ui/color";
@@ -20,6 +19,8 @@ export default function PluginCard({ item: plugin, index }: CardWrapper<Plugin>)
     const navigation = NavigationNative.useNavigation();
     const [removed, setRemoved] = React.useState(false);
     const authors = plugin.manifest.authors;
+   
+    
     if (removed) return null;
 
     // \nby ${plugin.manifest.authors.map(i => i.name).join(", ")}
@@ -37,18 +38,7 @@ export default function PluginCard({ item: plugin, index }: CardWrapper<Plugin>)
                     showToast((e as Error).message, getAssetIDByName("Small"));
                 }
             }}
-            descriptionLabel={() => 
-                <RN.View>
-                    <RN.Text>
-                    ${plugin.manifest.description}
-                    </RN.Text>
-            
-                <RN.View>
-                    <RN.Text>
-                    \n\nAuthors: ${authors.map(i => i.name).join(", ")}
-                    </RN.Text>
-                </RN.View>
-                </RN.View>}
+            descriptionLabel={`${plugin.manifest.description} \n\nAuthors: ${authors.map(i => i.name).join(", ")}}`}
             overflowTitle={plugin.manifest.name}
             overflowActions={[
                 {

@@ -3,6 +3,7 @@ import { findByProps } from "@metro/filters";
 import { getAssetIDByName } from "@ui/assets";
 import { semanticColors } from "@ui/color";
 import { Forms } from "@ui/components";
+import PluginCard from "./PluginCard";
 
 const { FormRow, FormSwitch, FormRadio, FormDivider } = Forms;
 const { hideActionSheet } = findByProps("openLazy", "hideActionSheet");
@@ -31,6 +32,10 @@ const styles = stylesheet.createThemedStyleSheet({
     description: {
         color: semanticColors.TEXT_MUTED,
         fontSize: 13,
+    },
+    authors: {
+        color: semanticColors.HEADER_SECONDARY,
+        fontSize: 14,
     },
     actions: {
         flexDirection: "row-reverse",
@@ -71,6 +76,7 @@ interface CardProps {
     overflowTitle?: string;
     overflowActions?: OverflowAction[];
     color?: string;
+    
 }
 
 export default function Card(props: CardProps) {
@@ -111,10 +117,8 @@ export default function Card(props: CardProps) {
                    <RN.Text
                    style={styles.description}>
                     {props.descriptionLabel}
-                   </RN.Text>
-                    </RN.View>
-                    
-                    }
+                   </RN.Text>              
+                   </RN.View>} 
                 trailing={
                     <RN.View style={styles.actions}>
                         {props.overflowActions && <RN.TouchableOpacity
