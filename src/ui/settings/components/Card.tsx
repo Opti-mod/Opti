@@ -20,8 +20,8 @@ const styles = stylesheet.createThemedStyleSheet({
         padding: 0,
         backgroundColor: semanticColors.PRIMARY_DARK,
         color: semanticColors.HEADER_PRIMARY,
-        borderTopLeftRadius: 6,
-        borderTopRightRadius: 6,
+        borderTopLeftRadius: 5,
+        borderTopRightRadius: 5,
     },
     headertitle: {
         fontFamily: constants.Fonts.PRIMARY_BOLD, 
