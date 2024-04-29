@@ -38,7 +38,7 @@ export default function PluginCard({ item: plugin, index }: CardWrapper<Plugin>)
                     showToast((e as Error).message, getAssetIDByName("Small"));
                 }
             }}
-            descriptionLabel={`${plugin.manifest.description} \n\nAuthors: ${authors.map(i => i.name).join(", ")}}`}
+            descriptionLabel={`${plugin.manifest.description} \n\nAuthors: ${authors.map(i => i.name).join(", ")}`}
             overflowTitle={plugin.manifest.name}
             overflowActions={[
                 {
