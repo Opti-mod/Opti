@@ -4,6 +4,7 @@ import { removePlugin, startPlugin, stopPlugin, getSettings, fetchPlugin } from 
 import { MMKVManager } from "@lib/native";
 import { getAssetIDByName } from "@ui/assets";
 import { showToast } from "@ui/toasts";
+import { ReactNative as RN, constants, stylesheet } from "@metro/common";
 import { showConfirmationAlert } from "@ui/alerts";
 import Card, { CardWrapper } from "@ui/settings/components/Card";
 import { semanticColors } from "@/ui/color";
@@ -36,7 +37,18 @@ export default function PluginCard({ item: plugin, index }: CardWrapper<Plugin>)
                     showToast((e as Error).message, getAssetIDByName("Small"));
                 }
             }}
-            descriptionLabel={`${plugin.manifest.description} \n\nby ${authors.map(i => i.name).join(", ")}`}
+            descriptionLabel={() => 
+                <RN.View>
+                    <RN.Text>
+                    ${plugin.manifest.description}
+                    </RN.Text>
+            
+                <RN.View>
+                    <RN.Text>
+                    \n\nAuthors: ${authors.map(i => i.name).join(", ")}
+                    </RN.Text>
+                </RN.View>
+                </RN.View>}
             overflowTitle={plugin.manifest.name}
             overflowActions={[
                 {

@@ -25,12 +25,12 @@ const styles = stylesheet.createThemedStyleSheet({
     },
     headertitle: {
         fontFamily: constants.Fonts.PRIMARY_BOLD, 
-        fontSize: 18,
+        fontSize: 17,
         color: semanticColors.HEADER_PRIMARY,
     },
     description: {
         color: semanticColors.TEXT_MUTED,
-        fontSize: 12,
+        fontSize: 13,
     },
     actions: {
         flexDirection: "row-reverse",
