@@ -52,7 +52,7 @@ export const getScreens = (youKeys = false): Screen[] => [
     {
         key: formatKey("VendettaAddons", youKeys),
         title: "Addons",
-        icon: 'screenshare',
+        icon: 'CirclePlusIcon-primary',
         render: Addons,
         options: { 
             headerRight: () => (

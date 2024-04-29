@@ -27,7 +27,6 @@ const styles = stylesheet.createThemedStyleSheet({
     },
     description: {
         color: semanticColors.TEXT_MUTED,
-        fontFamily: constants.Fonts.CODE_SEMIBOLD,
         fontSize: 12,
     },
     actions: {
@@ -99,8 +98,8 @@ export default function Card(props: CardProps) {
             />
              <FormDivider />
             <FormRow
-                style={styles.description}
-                label={`${props.descriptionLabel}`}
+                label={() => <RN.Text style={styles.description}>
+                    </RN.Text>}
                 trailing={
                     <RN.View style={styles.actions}>
                         {props.overflowActions && <RN.TouchableOpacity
