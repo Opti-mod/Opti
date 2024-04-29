@@ -98,8 +98,12 @@ export default function Card(props: CardProps) {
             />
              <FormDivider />
             <FormRow
-                label={() => <RN.Text style={styles.description}>
-                    </RN.Text>}
+                label={() => <RN.View>
+                   <RN.Text
+                   style={styles.description}>
+                    {props.descriptionLabel}
+                   </RN.Text>
+                    </RN.View>}
                 trailing={
                     <RN.View style={styles.actions}>
                         {props.overflowActions && <RN.TouchableOpacity
