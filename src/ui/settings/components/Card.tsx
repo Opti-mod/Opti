@@ -80,7 +80,8 @@ export default function Card(props: CardProps) {
         <RN.View style={[styles.card, { marginTop: props.index !== 0 ? 10 : 0 }]}>
             <FormRow
                 style={styles.header}
-                label={() => <RN.View>
+                label={() => 
+                <RN.View>
                      <RN.Text
                    style={styles.headertitle}>
                     {props.headerLabel}
@@ -111,7 +112,9 @@ export default function Card(props: CardProps) {
                    style={styles.description}>
                     {props.descriptionLabel}
                    </RN.Text>
-                    </RN.View>}
+                    </RN.View>
+                    
+                    }
                 trailing={
                     <RN.View style={styles.actions}>
                         {props.overflowActions && <RN.TouchableOpacity
