@@ -8,7 +8,7 @@ export default [
         name: 'woah',
         description: 'Woah all over the place.',
         execute(_, ctx) {
-            Messages.sendBotMessage(ctx.channel.id, { content: "woah. balls." });
+            Messages.sendBotMessage(ctx.channel.id, "woah. balls!!!!!");
         },
     },
 ] as ApplicationCommand[]
