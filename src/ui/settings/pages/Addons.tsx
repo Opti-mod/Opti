@@ -20,7 +20,7 @@ const styles = stylesheet.createThemedStyleSheet({
 export default function Addons() {
     //@ts-ignore
     useProxy(settings)
-    const [activeTab, setActiveTab] = React.useState("Plugins");
+    const [activeTab, setActiveTab] = React.useState("plugins");
 
     const tabs = [
         {
@@ -45,6 +45,6 @@ export default function Addons() {
         onTabSelected={(tab: string) => setActiveTab(tab)}
     />
     </RN.View>
-    {React.createElement(tabs[activeTab].page)}
+    {React.createElement(tabs.find(tab => tab.id === activeTab).page)}
 </>
 }
