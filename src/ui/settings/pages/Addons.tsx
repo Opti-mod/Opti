@@ -5,24 +5,31 @@ import { themes } from "@lib/themes";
 import settings from "@lib/settings";
 import AddonPage from "@ui/settings/components/AddonPage";
 import PluginCard from "@ui/settings/components/PluginCard";
+import { ReactNative as RN, stylesheet } from "@metro/common";
 import ThemeCard from "../components/ThemeCard";
 import { findByProps } from "@/lib/metro/filters";
 
 const { BadgableTabBar } = findByProps("BadgableTabBar");
 
+const styles = stylesheet.createThemedStyleSheet({
+    bar: {
+        padding: 10,
+    },
+});
+
 export default function Addons() {
     //@ts-ignore
     useProxy(settings)
-    const [activeTab, setActiveTab] = React.useState("plugins");
+    const [activeTab, setActiveTab] = React.useState("Plugins");
 
     const tabs = [
         {
-            id: "plugins",
+            id: 'plugins',
             title: 'Plugins',
             page: () => <AddonPage<Plugin> items={plugins} card={PluginCard} />
         },
         {
-            id: "shaders",
+            id: 'shaders',
             title: 'Shaders',
             page: () => <AddonPage<Theme> items={themes} card={ThemeCard} />
         }
@@ -30,12 +37,14 @@ export default function Addons() {
 
 
     return <>
+    <RN.View style={styles.bar}>
+ 
     <BadgableTabBar
-        style= {{padding: 14 }}
         tabs={tabs}
         activeTab={activeTab}
         onTabSelected={(tab: string) => setActiveTab(tab)}
     />
-    {React.createElement(tabs.find(tab => tab.id === activeTab).page)}
+    </RN.View>
+    {React.createElement(tabs[activeTab].page)}
 </>
 }
