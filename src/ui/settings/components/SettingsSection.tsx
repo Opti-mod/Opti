@@ -9,6 +9,7 @@ const { FormRow, FormSection, FormDivider } = Forms;
 
 export default function SettingsSection() {
     const navigation = NavigationNative.useNavigation();
+    //@ts-ignore
     useProxy(settings);
 
     const screens = getRenderableScreens()

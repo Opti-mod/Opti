@@ -9,7 +9,6 @@ export function enableExperiments() {
     console.log("TweakManager has loaded EnableExperiments.");
     try {
       User.getCurrentUser().flags |= 1;
-
       (User as any)._dispatcher._actionHandlers
         ._computeOrderedActionHandlers("OVERLAY_INITIALIZE")
         //@ts-ignore
@@ -27,13 +26,5 @@ export function enableExperiments() {
   }
 
   export function unloadEnableExperiments() {
-    console.log("TweakManager has unloaded EnableExperiments.");
     FluxDispatcher.unsubscribe("CONNECTION_OPEN");
   }
-
-  // idfk what this does rn
-  function event() {
-    FluxDispatcher.unsubscribe("CONNECTION_OPEN", event);
-    enableExperiments();
-  };
-

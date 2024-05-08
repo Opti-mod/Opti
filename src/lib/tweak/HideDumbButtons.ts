@@ -22,7 +22,6 @@ export function hideDumbButtons() {
   }
 
   export function unloadHideButtons() {
-    console.log("TweakManager has unloaded HideUnneccesaryButtons.");
     unpatch;
   }
 

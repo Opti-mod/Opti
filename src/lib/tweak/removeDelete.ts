@@ -21,7 +21,6 @@ export function removeDeletePrompt() {
   }
 
   export function unloadRemoveDelete() {
-    console.log("TweakManager has unloaded RemoveDeletePrompt.");
     unpatch;
   }
 

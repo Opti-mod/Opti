@@ -6,7 +6,6 @@ import { getAssetIDByName } from "@ui/assets";
 import { showToast } from "@ui/toasts";
 import { showConfirmationAlert } from "@ui/alerts";
 import Card, { CardWrapper } from "@ui/settings/components/Card";
-import { semanticColors } from "@/ui/color";
 
 async function stopThenStart(plugin: Plugin, callback: Function) {
     if (plugin.enabled) stopPlugin(plugin.id, false);

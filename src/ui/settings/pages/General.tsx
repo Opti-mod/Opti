@@ -9,13 +9,10 @@ import { Forms, Summary, ErrorBoundary } from "@ui/components";
 import settings from "@lib/settings";
 import { loaderConfig } from "@lib/settings";
 import AssetBrowser from "@ui/settings/pages/AssetBrowser";
-import TweakManager from "@ui/settings/pages/TweakManager";
 import Version from "@ui/settings/components/Version";
 import { connectToDebugger } from "@lib/debug";
 import { getPlugins } from "@/lib/plugins";
 import { getThemes } from "@/lib/themes";
-import { clipboard } from "@metro/common";
-import { showToast } from "@/ui/toasts";
 
 const { FormRow, FormSwitchRow, FormSection, FormDivider, FormInput  } = Forms;
 const { hideActionSheet } = findByProps("openLazy", "hideActionSheet");

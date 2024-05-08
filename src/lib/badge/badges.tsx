@@ -4,6 +4,5 @@ export function patchBadges()
     // aliucord
     // enmity
     // 2x 3rd party plugins
-    // and more soon. 
-    console.log("object object is not a function in String, fuck you, now its gone. no more strings to complain about.");
+    console.log("Badge component failed to load since it is not implomented yet.");
 }

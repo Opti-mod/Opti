@@ -1,4 +1,5 @@
 import { MetroModules, PropsFinder, PropsFinderAll } from "@types";
+import { getDebugInfo } from "../debug";
 
 // Metro require
 declare const __r: (moduleId: number) => any;
@@ -25,7 +26,9 @@ for (const key in window.modules) {
     }
 }
 
+
 // Function to filter through modules
+const filterModulesFix = Function.prototype.toString();
 const filterModules = (modules: MetroModules, single = false) => (filter: (m: any) => boolean) => {
     const found = [];
 

@@ -10,7 +10,6 @@ export function silentTyping() {
   }
 
   export function unloadSilentTyping() {
-    console.log("TweakManager has unloaded SilentTyping.");
     patches.forEach(unpatch => unpatch());
   }
 

@@ -10,7 +10,7 @@ export function appIcons() {
   }
 
   export function unloadAppIcons() {
-    console.log("TweakManager has unloaded FreeAppIcons.");
+
   }
 
 

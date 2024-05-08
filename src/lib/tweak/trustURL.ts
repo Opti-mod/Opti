@@ -15,7 +15,6 @@ export function trustURL() {
 
 export function unloadTrustURL()
 {
-    console.log("TweakManager has unloaded TrustURLs.");
     for(const unpatch of patches) 
-        unpatch();
+    unpatch();
 }
