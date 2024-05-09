@@ -1,5 +1,5 @@
 name: Bug Report
-description: File a bug report.
+description: File a bug report to help improve Opti.
 title: "[Bug]: "
 labels: ["bug"]
 assignees:
@@ -9,44 +9,28 @@ body:
     attributes:
       value: |
         Thanks for taking the time to fill out this bug report!
-  - type: input
-    id: contact
-    attributes:
-      label: Contact Details
-      description: How can we get in touch with you if we need more info?
-      placeholder: ex. email@example.com
-    validations:
-      required: false
   - type: textarea
     id: what-happened
     attributes:
       label: What happened?
-      description: Also tell us, what did you expect to happen?
-      placeholder: Tell us what you see!
+      description: Explain what happened before the bug / crash occurred.
+      placeholder: Explain here.
       value: "A bug happened!"
     validations:
       required: true
   - type: dropdown
     id: version
     attributes:
-      label: Version
-      description: What version of our software are you running?
+      label: OS
+      description: What OS were you using?
       options:
-        - 1.0.2 (Default)
-        - 1.0.3 (Edge)
+        - Android (Jailbroken)
+        - Android (Jailed)
+        - iOS (Jailbroken)
+        - iOS (Jailed)
       default: 0
     validations:
       required: true
-  - type: dropdown
-    id: browsers
-    attributes:
-      label: What browsers are you seeing the problem on?
-      multiple: true
-      options:
-        - Firefox
-        - Chrome
-        - Safari
-        - Microsoft Edge
   - type: textarea
     id: logs
     attributes:
@@ -57,7 +41,7 @@ body:
     id: terms
     attributes:
       label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com). 
+      description: Make sure to follow the code of conduct.
       options:
         - label: I agree to follow this project's Code of Conduct
           required: true
