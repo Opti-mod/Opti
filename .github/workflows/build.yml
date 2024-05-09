@@ -14,7 +14,7 @@ jobs:
               with:
                   repository: "opti-mod/builds"
                   path: "builds"
-                  token: ${{ secrets.BEEF_TOKEN }}
+                  token: ${{ secrets.TOKENTHING }}
             - uses: actions/setup-node@v3
               with:
                   node-version: 16
