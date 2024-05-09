@@ -1,6 +1,6 @@
 name: Bug Report
 description: File a bug report to help improve Opti.
-title: "[Bug]: "
+title: "(bug) "
 labels: ["bug"]
 assignees:
   - byeoon
@@ -28,6 +28,19 @@ body:
         - Android (Jailed)
         - iOS (Jailbroken)
         - iOS (Jailed)
+      default: 0
+    validations:
+      required: true
+  - type: dropdown
+    id: loader
+    attributes:
+      label: Opti Loader
+      description: Which way did you load Opti?
+      options:
+        - OptiXposed (Android)
+        - OptiManager (Android)
+        - OptiTweak (iOS)
+        - Sideloaded w/ other mods (iOS / Android)
       default: 0
     validations:
       required: true
