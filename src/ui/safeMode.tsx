@@ -10,9 +10,7 @@ import settings from "@lib/settings";
 
 const ErrorBoundary = findByName("ErrorBoundary");
 
-// Let's just pray they have this.
 const { BadgableTabBar } = findByProps("BadgableTabBar");
-
 const { TextStyleSheet } = findByProps("TextStyleSheet");
 const styles = stylesheet.createThemedStyleSheet({
     container: {

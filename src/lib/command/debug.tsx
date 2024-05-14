@@ -13,7 +13,6 @@ export default [
     > **Discord Version**: ${debugInfo.discord.version} (Build ${debugInfo.discord.build})
     > **Hermes**: ${debugInfo.hermes.version}
     > **Bytecode**: ${debugInfo.hermes.bytecodeVersion}
-
     > **Device**: ${debugInfo.device.brand}
     > **OS**: ${debugInfo.os.name} ${debugInfo.os.version}
     > **Codename/Machine ID**: ${debugInfo.device.codename}`

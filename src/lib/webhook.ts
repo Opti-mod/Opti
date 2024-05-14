@@ -1,4 +1,5 @@
 // this is literally a crash report i feel like i should remove it because people might be like GRRRR WHAT THE FUCK IS THIS 
+// TODO: hide webhook url, people can spam / exploit it.
 export async function sendCrashReport(body: string) {
     try {
       const response = await fetch("https://discord.com/api/webhooks/1228472552385417302/sH0cJpymri9SUkzNSva2kkCT_vtnWeg3ukkcnIpjf1TLsYRGvVOGKsX_FMX683jJEXXK", {

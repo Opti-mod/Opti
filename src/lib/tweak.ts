@@ -9,8 +9,8 @@ export function initTweaks()
 {
     //@ts-ignore
     settings.tweaks ??= {};
-    
     console.log("TweakManager has initialized.");
+    
     // to prevent potential crashing.
     if(settings.tweaks.trustURL == undefined)
         settings.tweaks.trustURL = false;

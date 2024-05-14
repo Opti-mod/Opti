@@ -24,7 +24,13 @@ export default async () => {
         initSettings(),
         initQuickInstall(),
     ]);
-    window.vendetta = await windowObject(unloads);
+    try {
+        window.vendetta = await windowObject(unloads);
+    }
+    catch {
+        logger.log("Opti has failed to load.");
+    }
+   
     unloads.push(await initPlugins());
     unloads.push(await initTweaks());
     unloads.push(await initCustomCommands());
