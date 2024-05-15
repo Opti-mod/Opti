@@ -32,7 +32,13 @@ export default function Addons() {
             id: 'shaders',
             title: 'Shaders',
             page: () => <AddonPage<Theme> items={themes} card={ThemeCard} />
+        },
+        {
+            id: 'tweaks',
+            title: 'Tweaks',
+            page: () => <AddonPage<Tweaks> items={themes} card={ThemeCard} />
         }
+
     ];
 
 
