@@ -95,7 +95,7 @@ export default function General() {
                     <Version
                     label={`Opti Version`}
                     version={debugInfo.vendetta.version}
-                    leading= {<FormRow.Icon source={{ uri: 'https://raw.githubusercontent.com/byeoon/assets/master/Opti.png' }} /> }
+                    leading= {<FormRow.Icon source={{ uri: 'https://raw.githubusercontent.com/Opti-mod/assets/main/LogoOpti.png' }} /> }
                     icon="boost"
                     /> 
                     <FormDivider />

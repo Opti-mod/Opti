@@ -81,12 +81,6 @@ export const getScreens = (youKeys = false): Screen[] => [
         }
     },
     {
-        key: formatKey("VendettaSettingsTM", youKeys),
-        title: "Tweaks",
-        icon: "ic_hammer_and_chisel_24px",
-        render: TweakManager,
-    },
-    {
         key: formatKey("VendettaCustomPage", youKeys),
         title: "Opti Page",
         shouldRender: () => false,
