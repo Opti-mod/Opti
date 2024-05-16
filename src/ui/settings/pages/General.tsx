@@ -95,7 +95,7 @@ export default function General() {
                 <FormRow
                         label="Opti Version"
                         leading={<FormRow.Icon source={{ uri: 'https://raw.githubusercontent.com/Opti-mod/assets/main/LogoOpti.png' }} /> }
-                        trailing={<RN.Text>${debugInfo.vendetta.version}</RN.Text>}
+                        trailing={<RN.Text>{debugInfo.vendetta.version}</RN.Text>}
                         onPress={() => clipboard.setString(debugInfo.vendetta.version)}
                     />
                     <FormDivider />
@@ -116,7 +116,6 @@ export default function General() {
                 <FormSection title="Actions">
                     <FormRow
                         label="Reload Discord"
-                        subLabel={`This has a chance of crashing instead of directly reloading.`}
                         leading={<FormRow.Icon source={getAssetIDByName("ic_message_retry")} />}
                         onPress={() => BundleUpdaterManager.reload()}
                     />

@@ -24,7 +24,7 @@ interface Screen {
     [index: string]: any;
     key: string;
     title: string;
-    icon?: string;
+    icon?: string | JSX.Element;
     trailing?: string;
     shouldRender?: () => boolean;
     options?: Record<string, any>;
@@ -45,7 +45,7 @@ export const getScreens = (youKeys = false): Screen[] => [
     {
         key: formatKey("VendettaSettings", youKeys),
         title: "Opti",
-        icon: 'https://raw.githubusercontent.com/Opti-mod/assets/main/Opti%202.png',
+        icon:<FormRow.Icon source={{ uri: 'https://raw.githubusercontent.com/Opti-mod/assets/main/LogoOpti.png' }} />,
         trailing: getDebugInfo().vendetta.version,
         render: General,
     },
