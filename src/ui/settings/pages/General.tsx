@@ -1,4 +1,4 @@
-import { ReactNative as RN, url, NavigationNative } from "@metro/common";
+import { ReactNative as RN, url, NavigationNative, clipboard } from "@metro/common";
 import { DISCORD_SERVER, GITHUB } from "@lib/constants";
 import { getDebugInfo, toggleSafeMode } from "@lib/debug";
 import { findByProps } from "@metro/filters";
@@ -95,8 +95,8 @@ export default function General() {
                 <FormRow
                         label="Opti Version"
                         leading={<FormRow.Icon source={{ uri: 'https://raw.githubusercontent.com/Opti-mod/assets/main/LogoOpti.png' }} /> }
-                        trailing={<RN.Text>debugInfo.vendetta.version</RN.Text>}
-                        onPress={() => url.openDeeplink(DISCORD_SERVER)}
+                        trailing={<RN.Text>${debugInfo.vendetta.version}</RN.Text>}
+                        onPress={() => clipboard.setString(debugInfo.vendetta.version)}
                     />
                     <FormDivider />
                     <FormRow
