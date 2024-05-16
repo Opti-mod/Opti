@@ -92,12 +92,12 @@ export default function General() {
         <ErrorBoundary>
             <RN.ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 38 }}>
                 <FormSection title="Important" titleStyleType="no_border">
-                    <Version
-                    label={`Opti Version`}
-                    version={debugInfo.vendetta.version}
-                    leading= {<FormRow.Icon source={{ uri: 'https://raw.githubusercontent.com/Opti-mod/assets/main/LogoOpti.png' }} /> }
-                    icon="boost"
-                    /> 
+                <FormRow
+                        label="Opti Version"
+                        leading={<FormRow.Icon source={{ uri: 'https://raw.githubusercontent.com/Opti-mod/assets/main/LogoOpti.png' }} /> }
+                        trailing={debugInfo.vendetta.version}
+                        onPress={() => url.openDeeplink(DISCORD_SERVER)}
+                    />
                     <FormDivider />
                     <FormRow
                         label="Discord Server"

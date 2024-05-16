@@ -144,12 +144,11 @@ export default function Card(props: CardProps) {
                         ))}
                     </RN.View>
                 }
-                optiLogo={<FormRow>
+                optiLogo={
                     <RN.View>
                         <FormRow.Icon source={{ uri: 'https://raw.githubusercontent.com/Opti-mod/assets/main/LogoOpti.png' }} />
                     </RN.View>
-
-                </FormRow>}
+                }
             />
         </RN.View>
     )
