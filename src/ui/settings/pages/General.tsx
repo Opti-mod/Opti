@@ -95,7 +95,7 @@ export default function General() {
                 <FormRow
                         label="Opti Version"
                         leading={<FormRow.Icon source={{ uri: 'https://raw.githubusercontent.com/Opti-mod/assets/main/LogoOpti.png' }} /> }
-                        trailing={debugInfo.vendetta.version}
+                        trailing={<RN.Text>debugInfo.vendetta.version</RN.Text>}
                         onPress={() => url.openDeeplink(DISCORD_SERVER)}
                     />
                     <FormDivider />
