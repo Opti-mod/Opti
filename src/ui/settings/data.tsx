@@ -6,14 +6,10 @@ import { semanticColors } from "@ui/color";
 import { showToast } from "@ui/toasts";
 import { without } from "@lib/utils";
 import { getAssetIDByName } from "@ui/assets";
-import settings from "@lib/settings";
 import ErrorBoundary from "@ui/components/ErrorBoundary";
 import InstallButton from "@ui/settings/components/InstallButton";
 import General from "@ui/settings/pages/General";
-import Plugins from "@ui/settings/pages/Plugins";
-import Themes from "@ui/settings/pages/Themes";
 import { PROXY_PREFIX, VENDETTA_PROXY } from "@/lib/constants";
-import TweakManager from "@ui/settings/pages/TweakManager";
 import { Forms } from "@ui/components";
 import Addons  from "@ui/settings/pages/Addons"
 import { getDebugInfo } from "@/lib/debug";
@@ -24,14 +20,12 @@ interface Screen {
     [index: string]: any;
     key: string;
     title: string;
-    icon?: string | JSX.Element;
+    icon?: JSX.Element | string;
     trailing?: string;
     shouldRender?: () => boolean;
     options?: Record<string, any>;
     render: React.ComponentType<any>;
 }
-
-const main = { uri: 'https://raw.githubusercontent.com/byeoon/assets/master/Opti.png' };
 
 const styles = stylesheet.createThemedStyleSheet({ container: { flex: 1, backgroundColor: semanticColors.BACKGROUND_MOBILE_PRIMARY } });
 const formatKey = (key: string, youKeys: boolean) => youKeys ? lodash.snakeCase(key).toUpperCase() : key;
@@ -39,14 +33,11 @@ const formatKey = (key: string, youKeys: boolean) => youKeys ? lodash.snakeCase(
 // Question: Isn't this overengineered?
 // Answer: Maybe.
 const keyMap = (screens: Screen[], data: string | ((s: Screen) => any) | null) => Object.fromEntries(screens.map(s => [s.key, typeof data === "function" ? data(s) : typeof data === "string" ? s[data] : data]));
-
-//TODO:    headerRight: () => !settings.safeMode?.enabled && <InstallButton alertTitle="Install Theme" installFunction={installTheme} />,
 export const getScreens = (youKeys = false): Screen[] => [
     {
         key: formatKey("VendettaSettings", youKeys),
         title: "Opti",
-        icon:<FormRow.Icon source={{ uri: 'https://raw.githubusercontent.com/Opti-mod/assets/main/LogoOpti.png' }} />,
-        trailing: getDebugInfo().vendetta.version,
+        icon: <FormRow.Icon source={{ uri: 'https://raw.githubusercontent.com/Opti-mod/assets/main/LogoOpti.png' }} />,
         render: General,
     },
     {
@@ -121,7 +112,7 @@ export const getYouData = () => {
             return {
                 type: "route",
                 title: () => s.title,
-                icon: s.icon ? getAssetIDByName(s.icon) : null,
+                icon: s.icon ? getAssetIDByName("" + s.icon) : s.icon, // stupid feature this SUCKS
                 screen: {
                     route: lodash.chain(s.key).camelCase().upperFirst().value(),
                     getComponent: () => WrappedComponent,
