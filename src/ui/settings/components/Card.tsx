@@ -3,7 +3,6 @@ import { findByProps } from "@metro/filters";
 import { getAssetIDByName } from "@ui/assets";
 import { semanticColors } from "@ui/color";
 import { Forms } from "@ui/components";
-import PluginCard from "./PluginCard";
 
 const { FormRow, FormSwitch, FormRadio, FormDivider } = Forms;
 const { hideActionSheet } = findByProps("openLazy", "hideActionSheet");
@@ -76,7 +75,7 @@ interface CardProps {
     overflowTitle?: string;
     overflowActions?: OverflowAction[];
     color?: string;
-    optiLogo?: string;
+    optiLogo?: boolean;
 
 }
 
@@ -111,6 +110,11 @@ export default function Card(props: CardProps) {
                         />
                     </RN.Pressable>)
                 )}
+                optiLogo={ props.optiLogo &&
+                    <RN.View>
+                        <FormRow.Icon source={{ uri: 'https://raw.githubusercontent.com/Opti-mod/assets/main/LogoOpti.png' }} />
+                    </RN.View>
+                }
             />
             <FormDivider />
             <FormRow
@@ -142,11 +146,6 @@ export default function Card(props: CardProps) {
                                 <RN.Image style={styles.icon} source={getAssetIDByName(icon)} />
                             </RN.TouchableOpacity>
                         ))}
-                    </RN.View>
-                }
-                optiLogo={
-                    <RN.View>
-                        <FormRow.Icon source={{ uri: 'https://raw.githubusercontent.com/Opti-mod/assets/main/LogoOpti.png' }} />
                     </RN.View>
                 }
             />
