@@ -95,6 +95,7 @@ export default function General() {
                     <Version
                     label={`Opti Version`}
                     version={debugInfo.vendetta.version}
+                    leading= {<FormRow.Icon source={{ uri: 'https://raw.githubusercontent.com/byeoon/assets/master/Opti.png' }} /> }
                     icon="boost"
                     /> 
                     <FormDivider />
@@ -219,7 +220,7 @@ export default function General() {
                 {window.__vendetta_loader?.features.loaderConfig && <>
                     <FormSwitchRow
                         label="Load from custom url"
-                        subLabel={"Load Vendetta from a custom endpoint."}
+                        subLabel={"Load Opti from a custom endpoint."}
                         leading={<FormRow.Icon source={getAssetIDByName("copy")} />}
                         value={loaderConfig.customLoadUrl.enabled}
                         onValueChange={(v: boolean) => {
@@ -232,7 +233,7 @@ export default function General() {
                             value={loaderConfig.customLoadUrl.url}
                             onChange={(v: string) => loaderConfig.customLoadUrl.url = v}
                             placeholder="http://localhost:4040/vendetta.js"
-                            title="VENDETTA URL"
+                            title="OPTI URL"
                         />
                         <FormDivider />
                     </>}

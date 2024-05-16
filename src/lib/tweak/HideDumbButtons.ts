@@ -17,6 +17,7 @@ export function hideDumbButtons() {
             voiceBlock.props.canSendVoiceMessage = false
         }
         const input = findInReactTree(res, t => "forceAnimateButtons" in t.props && t.props.actions);
+        //@ts-ignore it works
         input.props.actions = input.props.actions.filter(a => !blockList.includes(a.source));
     });
   }

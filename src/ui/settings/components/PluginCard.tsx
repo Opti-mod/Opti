@@ -19,14 +19,13 @@ export default function PluginCard({ item: plugin, index }: CardWrapper<Plugin>)
     const [removed, setRemoved] = React.useState(false);
     const authors = plugin.manifest.authors;
     let ver = plugin.manifest.vendetta?.version ?? "";
-    
     if (removed) return null;
 
     // \nby ${plugin.manifest.authors.map(i => i.name).join(", ")}
     return (
         <Card
             index={index}
-            headerLabel={`${plugin.manifest.name} - ${ver}`}
+            headerLabel={`${plugin.manifest.name} ${ver}`}
             headerIcon={plugin.manifest.vendetta?.icon || "ic_application_command_24px"}
             toggleType="switch"
             toggleValue={plugin.enabled}

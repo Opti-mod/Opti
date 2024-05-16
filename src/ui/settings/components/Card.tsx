@@ -25,7 +25,7 @@ const styles = stylesheet.createThemedStyleSheet({
         borderTopRightRadius: 5,
     },
     headertitle: {
-        fontFamily: constants.Fonts.PRIMARY_BOLD, 
+        fontFamily: constants.Fonts.PRIMARY_BOLD,
         fontSize: 17,
         color: semanticColors.HEADER_PRIMARY,
     },
@@ -76,25 +76,26 @@ interface CardProps {
     overflowTitle?: string;
     overflowActions?: OverflowAction[];
     color?: string;
-    
+    optiLogo?: string;
+
 }
 
 export default function Card(props: CardProps) {
     let pressableState = props.toggleValue ?? false;
 
-    return ( 
+    return (
         <RN.View style={[styles.card, { marginTop: props.index !== 0 ? 10 : 0 }]}>
             <FormRow
                 style={styles.header}
-                label={() => 
-                <RN.View>
-                     <RN.Text
-                   style={styles.headertitle}>
-                    {props.headerLabel}
-                   </RN.Text>
+                label={() =>
+                    <RN.View>
+                        <RN.Text
+                            style={styles.headertitle}>
+                            {props.headerLabel}
+                        </RN.Text>
                     </RN.View>}
                 leading={props.headerIcon && <FormRow.Icon source={getAssetIDByName(props.headerIcon)} />}
-                trailing={props.toggleType && (props.toggleType === "switch" ? 
+                trailing={props.toggleType && (props.toggleType === "switch" ?
                     (<FormSwitch
                         style={RN.Platform.OS === "android" && { marginVertical: -15 }}
                         value={props.toggleValue}
@@ -105,20 +106,20 @@ export default function Card(props: CardProps) {
                         pressableState = !pressableState;
                         props.onToggleChange?.(pressableState)
                     }}>
-                        <FormRadio 
-                        selected={props.toggleValue} 
+                        <FormRadio
+                            selected={props.toggleValue}
                         />
                     </RN.Pressable>)
                 )}
             />
-             <FormDivider />
+            <FormDivider />
             <FormRow
                 label={() => <RN.View>
-                   <RN.Text
-                   style={styles.description}>
-                    {props.descriptionLabel}
-                   </RN.Text>              
-                   </RN.View>} 
+                    <RN.Text
+                        style={styles.description}>
+                        {props.descriptionLabel}
+                    </RN.Text>
+                </RN.View>}
                 trailing={
                     <RN.View style={styles.actions}>
                         {props.overflowActions && <RN.TouchableOpacity
@@ -143,6 +144,12 @@ export default function Card(props: CardProps) {
                         ))}
                     </RN.View>
                 }
+                optiLogo={<FormRow>
+                    <RN.View>
+                        <FormRow.Icon source={{ uri: 'https://raw.githubusercontent.com/byeoon/assets/master/Opti.png' }} />
+                    </RN.View>
+
+                </FormRow>}
             />
         </RN.View>
     )
