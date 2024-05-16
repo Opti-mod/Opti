@@ -36,7 +36,7 @@ export default function Addons() {
         {
             id: 'tweaks',
             title: 'Tweaks',
-            page: () => <AddonPage<Tweaks> items={themes} card={ThemeCard} />
+            page: () => <AddonPage<Theme> items={themes} card={ThemeCard} />
         }
 
     ];

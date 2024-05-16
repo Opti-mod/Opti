@@ -1,6 +1,6 @@
 import { findByProps, find } from "@metro/filters";
 import { ReactNative as RN, channels, url } from "@metro/common";
-import { PROXY_PREFIX, THEMES_CHANNEL_ID } from "@lib/constants";
+import { PROXY_PREFIX, THEMES_CHANNEL_ID, VENDETTA_PROXY } from "@lib/constants";
 import { after, instead } from "@lib/patcher";
 import { installPlugin } from "@lib/plugins";
 import { installTheme } from "@lib/themes";
@@ -17,7 +17,7 @@ const { getChannel } = findByProps("getChannel");
 const { TextStyleSheet } = findByProps("TextStyleSheet");
 
 function typeFromUrl(url: string) {
-    if (url.startsWith(PROXY_PREFIX)) {
+    if (url.startsWith(PROXY_PREFIX) || url.startsWith(VENDETTA_PROXY)) {
         return "Plugin";
     } else if (url.endsWith(".json") && window.__vendetta_loader?.features.themes) {
         return "Theme";

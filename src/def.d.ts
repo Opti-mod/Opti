@@ -125,6 +125,12 @@ interface Plugin {
     js: string;
 }
 
+interface Tweak {
+    id: string;
+    name: string;
+    enabled: boolean;
+}
+
 interface ThemeData {
     name: string;
     description?: string;
