@@ -14,7 +14,7 @@ import { connectToDebugger } from "@lib/debug";
 import { getPlugins } from "@/lib/plugins";
 import { getThemes } from "@/lib/themes";
 
-const { FormRow, FormSwitchRow, FormSection, FormDivider, FormInput  } = Forms;
+const { FormRow, FormSwitchRow, FormSection, FormDivider, FormInput, FormText  } = Forms;
 const { hideActionSheet } = findByProps("openLazy", "hideActionSheet");
 const { showSimpleActionSheet } = findByProps("showSimpleActionSheet");
 const debugInfo = getDebugInfo();
@@ -95,7 +95,7 @@ export default function General() {
                 <FormRow
                         label="Opti Version"
                         leading={<FormRow.Icon source={{ uri: 'https://raw.githubusercontent.com/Opti-mod/assets/main/LogoOpti.png' }} /> }
-                        trailing={<RN.Text>{debugInfo.vendetta.version}</RN.Text>}
+                        trailing={<FormText style={{fontSize: 13, color: "white"}}>{debugInfo.vendetta.version}</FormText>}
                         onPress={() => clipboard.setString(debugInfo.vendetta.version)}
                     />
                     <FormDivider />

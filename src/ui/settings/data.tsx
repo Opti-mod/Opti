@@ -112,7 +112,7 @@ export const getYouData = () => {
             return {
                 type: "route",
                 title: () => s.title,
-                icon: <RN.View>s.icon</RN.View> ? getAssetIDByName("" + s.icon) : s.icon, // stupid feature this SUCKS
+                icon: <FormRow>s.icon</FormRow> ? getAssetIDByName("" + s.icon) : s.icon, // stupid feature this SUCKS
                 screen: {
                     route: lodash.chain(s.key).camelCase().upperFirst().value(),
                     getComponent: () => WrappedComponent,
