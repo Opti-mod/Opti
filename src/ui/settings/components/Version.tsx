@@ -17,7 +17,7 @@ export default function Version({ label, version, icon }: VersionProps) {
     return ( 
         <FormRow
             label={label}
-            leading={<FormRow></FormRow>}
+            leading={<FormRow.Icon source={getAssetIDByName(icon)} />}
             trailing={<FormText style={{fontSize: 13}}>{version}</FormText>}
             onPress={() => {
                 clipboard.setString(`${label} - ${version}`);
