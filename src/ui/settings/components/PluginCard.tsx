@@ -26,7 +26,7 @@ export default function PluginCard({ item: plugin, index }: CardWrapper<Plugin>)
     return (
         <Card
             index={index}
-            headerLabel={`${plugin.manifest.name}`}
+            headerLabel={`${plugin.manifest.name} - ${plugin.manifest.vendetta?.version}`}
             headerIcon={plugin.manifest.vendetta?.icon || "ic_application_command_24px"}
             toggleType="switch"
             toggleValue={plugin.enabled}
