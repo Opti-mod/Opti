@@ -4,6 +4,7 @@ import { getAssetIDByName } from "@ui/assets";
 import { getRenderableScreens } from "@ui/settings/data";
 import { ErrorBoundary, Forms } from "@ui/components";
 import settings from "@lib/settings";
+import { getDebugInfo } from "@/lib/debug";
 
 const { FormRow, FormSection, FormDivider } = Forms;
 
@@ -21,8 +22,8 @@ export default function SettingsSection() {
                     <>
                         <FormRow
                             label={s.title}
-                            leading={<FormRow.Icon source={getAssetIDByName(s.icon!)} />}
-                            trailing={FormRow.Arrow}
+                            leading={<FormRow.Icon source={{ uri: 'https://raw.githubusercontent.com/Opti-mod/assets/main/LogoOpti.png' }} />}
+                            trailing={getDebugInfo().vendetta.version}
                             onPress={() => navigation.push(s.key)}
                         />
                         {i !== screens.length - 1 && <FormDivider />}
