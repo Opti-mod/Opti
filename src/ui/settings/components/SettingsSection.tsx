@@ -22,8 +22,8 @@ export default function SettingsSection() {
                     <>
                         <FormRow
                             label={s.title}
-                            leading={<FormRow.Icon source={{ uri: 'https://raw.githubusercontent.com/Opti-mod/assets/main/LogoOpti.png' }} />}
-                            trailing={<FormText style={{fontSize: 13, color: "white"}}>{getDebugInfo().vendetta.version}</FormText>}
+                            leading={s.icon} // <FormRow.Icon source={{ uri: 'https://raw.githubusercontent.com/Opti-mod/assets/main/LogoOpti.png' }} />
+                            trailing={FormRow.Arrow}
                             onPress={() => navigation.push(s.key)}
                         />
                         {i !== screens.length - 1 && <FormDivider />}
