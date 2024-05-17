@@ -6,7 +6,7 @@ import { ErrorBoundary, Forms } from "@ui/components";
 import settings from "@lib/settings";
 import { getDebugInfo } from "@/lib/debug";
 
-const { FormRow, FormSection, FormDivider } = Forms;
+const { FormRow, FormSection, FormDivider, FormText } = Forms;
 
 export default function SettingsSection() {
     const navigation = NavigationNative.useNavigation();
@@ -23,7 +23,7 @@ export default function SettingsSection() {
                         <FormRow
                             label={s.title}
                             leading={<FormRow.Icon source={{ uri: 'https://raw.githubusercontent.com/Opti-mod/assets/main/LogoOpti.png' }} />}
-                            trailing={getDebugInfo().vendetta.version}
+                            trailing={<FormText style={{fontSize: 13, color: "white"}}>{getDebugInfo().vendetta.version}</FormText>}
                             onPress={() => navigation.push(s.key)}
                         />
                         {i !== screens.length - 1 && <FormDivider />}
