@@ -2,7 +2,6 @@ import { clipboard } from "@metro/common";
 import { getAssetIDByName } from "@ui/assets";
 import { showToast } from "@ui/toasts";
 import { Forms } from "@ui/components";
-import { semanticColors } from "@/ui/color";
 
 interface VersionProps {
     label: string;

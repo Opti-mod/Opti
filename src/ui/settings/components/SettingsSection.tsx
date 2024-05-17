@@ -4,7 +4,6 @@ import { getAssetIDByName } from "@ui/assets";
 import { getRenderableScreens } from "@ui/settings/data";
 import { ErrorBoundary, Forms } from "@ui/components";
 import settings from "@lib/settings";
-import { getDebugInfo } from "@/lib/debug";
 
 const { FormRow, FormSection, FormDivider, FormText } = Forms;
 
@@ -22,7 +21,7 @@ export default function SettingsSection() {
                     <>
                         <FormRow
                             label={s.title}
-                            leading={s.icon} // <FormRow.Icon source={{ uri: 'https://raw.githubusercontent.com/Opti-mod/assets/main/LogoOpti.png' }} />
+                            leading={<FormRow.Icon source={s.icon}></FormRow.Icon>} // <FormRow.Icon source={{ uri: 'https://raw.githubusercontent.com/Opti-mod/assets/main/LogoOpti.png' }} />
                             trailing={FormRow.Arrow}
                             onPress={() => navigation.push(s.key)}
                         />
