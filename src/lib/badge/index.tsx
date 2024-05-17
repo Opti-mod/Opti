@@ -17,8 +17,7 @@ const REFRESH_INTERVAL = 1000 * 60 * 30;
 let unpatch: () => boolean;
 let unpatch2: () => boolean;
 let cachUser;
-export default {
-  onLoad: () => {
+export function patchBadges()  {
     const profileBadges = findByName("ProfileBadges", false);
     unpatch = after("default", profileBadges, (args, res) => {
       let mem = res;
@@ -228,15 +227,12 @@ export default {
             break;
         }
       })
-
     });
-  },
-  onUnload: () => {
+}
+  export function unloadBadges() {
     unpatch?.();
     unpatch2?.();
-  },
-};
-
+  }
 
 async function fetchbadges(userId: string, updateForce: any) {
   if (
