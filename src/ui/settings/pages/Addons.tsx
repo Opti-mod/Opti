@@ -8,7 +8,7 @@ import PluginCard from "@ui/settings/components/PluginCard";
 import { ReactNative as RN, stylesheet } from "@metro/common";
 import ThemeCard from "../components/ThemeCard";
 import { findByProps } from "@/lib/metro/filters";
-import TweakManager from "@ui/settings/pages/TweakManager";
+import TweakManager from "@/ui/settings/pages/Tweaks";
 
 const { BadgableTabBar } = findByProps("BadgableTabBar");
 

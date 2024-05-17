@@ -21,7 +21,7 @@ export default function AssetBrowser() {
         <ErrorBoundary>
             <RN.View style={{ flex: 1 }}>
                 <FormRow
-                    subLabel={`Right now most tweaks are ported Vendetta plugins and are actively being improved on.\nWant yours removed? Contact me and I'll remove it ASAP.`}
+                    subLabel={`Most tweaks are ported Vendetta plugins and are actively being improved on.`}
                 />
                 <FormDivider />
                 <FormRow
