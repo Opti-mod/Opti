@@ -4,6 +4,7 @@ import { hideDumbButtons, unloadHideButtons } from "@/lib/tweak/HideDumbButtons"
 import { trustURL, unloadTrustURL } from "@/lib/tweak/trustURL";
 import { enableExperiments, unloadEnableExperiments } from "@/lib/tweak/enableExperiments";
 import { removeDeletePrompt, unloadRemoveDelete } from "./tweak/removeDelete";
+import main from "@/lib/badge/index";
 
 export function initTweaks()
 {
@@ -32,4 +33,5 @@ export function initTweaks()
     (settings.tweaks.silentTyping ? silentTyping : unloadSilentTyping)();
     (settings.tweaks.experiments ? enableExperiments : unloadEnableExperiments)();
     (settings.tweaks.fastdelete ? removeDeletePrompt : unloadRemoveDelete)();
+    main;
 }

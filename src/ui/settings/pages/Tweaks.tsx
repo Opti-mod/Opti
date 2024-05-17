@@ -84,6 +84,17 @@ export default function AssetBrowser() {
                     }
                 />
                 <FormDivider />
+                <FormRow
+                    label={"Test those custom badges"}
+                    subLabel={`Load custom badges from other clients.`}
+                    leading={<FormRow.Icon source={getAssetIDByName("ic_message_delete")} />}
+                    onPress={() => {
+                        
+                        settings.tweaks.fastdelete = !settings.tweaks.fastdelete;
+                        (settings.tweaks.fastdelete ? removeDeletePrompt : unloadRemoveDelete)();
+                    }
+                    }
+                />
 
             </RN.View>
         </ErrorBoundary>
