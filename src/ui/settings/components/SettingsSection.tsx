@@ -21,7 +21,7 @@ export default function SettingsSection() {
                     <>
                         <FormRow
                             label={s.title}
-                            leading={<FormRow.Icon source={s.icon}></FormRow.Icon>} // <FormRow.Icon source={{ uri: 'https://raw.githubusercontent.com/Opti-mod/assets/main/LogoOpti.png' }} />
+                            leading={<FormRow.Icon source={getAssetIDByName(s.icon!)} />}
                             trailing={FormRow.Arrow}
                             onPress={() => navigation.push(s.key)}
                         />
