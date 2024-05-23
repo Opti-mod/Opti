@@ -85,11 +85,13 @@ export default function AssetBrowser() {
                 />
                 <FormDivider />
                 <FormRow
-                    label={"Custom Badges"}
-                    subLabel={`Load custom badges from other clients.`}
+                    label={settings.tweaks.externalbadges?.valueOf() ? "External / Global Badges (Enabled)" : "External / Global Badges (Disabled)"}
+                    subLabel={`Load custom badges from other clients. (Opti badges will still show up.)`}
                     leading={<FormRow.Icon source={getAssetIDByName("ic_person_shield")} />}
                     onPress={() => {
-                        // wip
+                        settings.tweaks.externalbadges ??= true;
+                        settings.tweaks.externalbadges = !settings.tweaks.externalbadges;
+                        (settings.tweaks.externalbadges ? enableExperiments : unloadEnableExperiments)();
                     }
                     }
                 />

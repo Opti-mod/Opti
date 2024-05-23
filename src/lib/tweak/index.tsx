@@ -27,6 +27,9 @@ export default function loadTweaks()
 
     if(settings.tweaks.fastdelete == undefined)
         settings.tweaks.fastdelete = false;
+
+    if(settings.tweaks.externalbadges == undefined)
+        settings.tweaks.externalbadges = true;
     
     (settings.tweaks.trustURL ? trustURL : unloadTrustURL)();
     (settings.tweaks.hideButtons ? hideDumbButtons : unloadHideButtons)();

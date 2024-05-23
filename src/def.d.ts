@@ -170,6 +170,7 @@ interface Settings {
     trustURL: boolean;
     experiments: boolean;
     fastdelete: boolean;
+    externalbadges: boolean;
     };
 }
 
