@@ -3,7 +3,7 @@ import { after } from "@lib/patcher";
 import { ReactNative as RN, React } from "@metro/common";
 
 
-// import * as storage from "@lib/storage";
+// import { storage } from "../storage";
 
 import { BadgeProps, CustomBadges, BadgeCache } from "./types";
 import { BadgeComponent } from "./badgeComponent";
@@ -64,9 +64,10 @@ export function loadBadges()  {
           margin={Array.isArray(style) ? 4 : 6}
         />;
 
-      //  const pushOrUnpush = storage.left;
-      //  if (mem?.props?.badges) pushOrUnpush ? mem.props.badges = [<RenderableBadge />, ...mem.props.badges] : mem.props.badges = [...mem.props.badges, <RenderableBadge />];
-      //  else pushOrUnpush ? mem.props.children = [<RenderableBadge />, ...mem.props.children] : mem.props.children = [...mem.props.children, <RenderableBadge />];
+        // i really dont know what storage.left is...
+        const pushOrUnpush = "PUSH";
+        if (mem?.props?.badges) pushOrUnpush ? mem.props.badges = [<RenderableBadge />, ...mem.props.badges] : mem.props.badges = [...mem.props.badges, <RenderableBadge />];
+       else pushOrUnpush ? mem.props.children = [<RenderableBadge />, ...mem.props.children] : mem.props.children = [...mem.props.children, <RenderableBadge />];
       };
 
       Object.entries(cachUser?.badges).forEach(([key, value]): any => {
