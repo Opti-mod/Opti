@@ -5,6 +5,12 @@ export interface CustomBadges {
       badge: string;
       name: string;
     };
+    opti: {
+      developer: boolean;
+      contributor: boolean;
+      addon: boolean;
+      supporter: boolean;
+    };
     aliu: {
       dev: boolean;
       donor: boolean;
