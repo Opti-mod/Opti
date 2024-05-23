@@ -67,17 +67,17 @@ export function loadBadges() {
 
       // i really dont know what storage.left is...
       // update: with 2 minutes of using my brain, its if badges show up on the left or not.
-      const pushOrUnpush = "PUSH";
+      const pushOrUnpush = "PUSH"; // storage.left
       if (mem?.props?.badges) pushOrUnpush ? mem.props.badges = [<RenderableBadge />, ...mem.props.badges] : mem.props.badges = [...mem.props.badges, <RenderableBadge />];
       else pushOrUnpush ? mem.props.children = [<RenderableBadge />, ...mem.props.children] : mem.props.children = [...mem.props.children, <RenderableBadge />];
     };
 
     Object.entries(cachUser?.badges).forEach(([key, value]): any => {
 
-      if (settings.tweaks.silentTyping?.valueOf() == false) {
-        if (key !== "customBadgesArray" && key !== "opti") return;
+      if (settings.tweaks.externalbadges?.valueOf() == false) {
+        if (key !== "opti") return;
       }
-      
+
       switch (key) {
         case "customBadgesArray":
           if (value) {
