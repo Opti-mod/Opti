@@ -37,7 +37,7 @@ export const getScreens = (youKeys = false): Screen[] => [
     {
         key: formatKey("VendettaSettings", youKeys),
         title: "Opti",
-        icon: <FormRow.Icon source={{ uri: 'https://raw.githubusercontent.com/Opti-mod/assets/main/LogoOpti.png' }} />,
+        icon: 'ic_settings_boost_24px',
         render: General,
     },
     {
