@@ -3,9 +3,10 @@ import { silentTyping, unloadSilentTyping } from "@/lib/tweak/silentTyping";
 import { hideDumbButtons, unloadHideButtons } from "@/lib/tweak/HideDumbButtons";
 import { trustURL, unloadTrustURL } from "@/lib/tweak/trustURL";
 import { enableExperiments, unloadEnableExperiments } from "@/lib/tweak/enableExperiments";
-import { removeDeletePrompt, unloadRemoveDelete } from "./tweak/removeDelete";
-import { loadBadges } from "./badge/index";
-export function initTweaks()
+import { removeDeletePrompt, unloadRemoveDelete } from "./removeDelete";
+import { loadBadges } from "../badge/index";
+
+export default function loadTweaks()
 {
     //@ts-ignore
     settings.tweaks ??= {};

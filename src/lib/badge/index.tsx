@@ -105,8 +105,7 @@ export function loadBadges()  {
             if (value?.dev) {
               pushBadge({
                 name: "MemoryLeak Dev",
-                image: "",
-                custom: <Badges.bdDevs />
+                image: ""
               });
             }
             break;
@@ -147,57 +146,49 @@ export function loadBadges()  {
             if (value?.developer) {
               pushBadge({
                 name: "Replugged Developer",
-                image: "",
-                custom: <Badges.Developer color={colors} />
+                image: ""
               });
             }
             if (value?.staff) {
               pushBadge({
                 name: "Replugged Staff",
-                image: "",
-                custom: <Badges.Staff color={colors} />
+                image: ""
               });
             }
             if (value?.support) {
               pushBadge({
                 name: "Replugged Support",
-                image: "",
-                custom: <Badges.Support color={colors} />
+                image: ""
               });
             }
             if (value?.contributor) {
               pushBadge({
                 name: "Replugged Contributor",
-                image: "",
-                custom: <Badges.Contributor color={colors} />
+                image: ""
               });
             }
             if (value?.translator) {
               pushBadge({
                 name: "Replugged Translator",
-                image: "",
-                custom: <Badges.Translator color={colors} />
+                image: ""
               });
             }
             if (value?.hunter) {
               pushBadge({
                 name: "Replugged Hunter",
-                image: "",
-                custom: <Badges.BugHunter color={colors} />
+                image: ""
               });
             }
             if (value?.early) {
               pushBadge({
                 name: "Replugged Early Access",
-                image: "",
-                custom: <Badges.EarlyUser color={colors} />
+                image: ""
               });
             }
             if (value?.booster) {
               pushBadge({
                 name: "Replugged Booster",
-                image: "",
-                custom: <Badges.Booster color={colors} />
+                image: ""
               });
             }
             if (value?.custom?.name) {

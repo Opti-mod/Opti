@@ -10,7 +10,7 @@ import initFixes from "@lib/fixes";
 import { patchBadges } from "@/lib/badge/badges";
 import logger from "@lib/logger";
 import windowObject from "@lib/windowObject";
-import { initTweaks } from "./lib/tweak";
+import loadTweaks from "./lib/tweak";
 import { initCustomCommands } from "./lib/command";
 
 export default async () => {
@@ -32,7 +32,7 @@ export default async () => {
     }
    
     unloads.push(await initPlugins());
-    unloads.push(await initTweaks());
+    unloads.push(await loadTweaks());
     unloads.push(await initCustomCommands());
     unloads.push(await patchBadges());
     logger.log("Opti has loaded!");

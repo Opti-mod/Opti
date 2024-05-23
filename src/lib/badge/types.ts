@@ -1,4 +1,6 @@
 export interface CustomBadges {
+  badge: string;
+  name: string;
     customBadgesArray: {
       badge: string;
       name: string;
