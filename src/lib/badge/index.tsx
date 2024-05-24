@@ -139,7 +139,7 @@ export function loadBadges() {
         case "bd":
           if (value?.dev) {
             pushBadge({
-              name: "MemoryLeak Dev",
+              name: "BetterDiscord Dev",
               image: ""
             });
           }
@@ -303,6 +303,5 @@ async function fetchOptiBadges(userId: string, updateForce: any) {
     updateForce();
 
   }
-
   return cache.get(userId)!.badges;
 }
