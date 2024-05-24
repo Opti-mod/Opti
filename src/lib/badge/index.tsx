@@ -297,7 +297,7 @@ async function fetchOptiBadges(userId: string, updateForce: any) {
     const result: BadgeCache =
       res.status === 200 || res.status === 404
         ? { badges: body || {}, lastFetch: Date.now() }
-        : (cache.delete(userId), { badges: body, lastFetch: Date.now() });
+        : ({ badges: body, lastFetch: Date.now() });
 
     cache.set(userId, result);
     updateForce();
