@@ -1,5 +1,5 @@
 # Opti
-A more optimized Discord experience.
+An *opti*mized Discord experience for mobile.
 
 ## Installing
 
