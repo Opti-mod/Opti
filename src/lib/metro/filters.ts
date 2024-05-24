@@ -28,7 +28,9 @@ for (const key in window.modules) {
 
 
 // Function to filter through modules
-const filterModulesFix = Function.prototype.toString();
+// does not work on 223
+// credit to SerStars for the patch
+// const origToString = Function.prototype.toString;
 const filterModules = (modules: MetroModules, single = false) => (filter: (m: any) => boolean) => {
     const found = [];
 
@@ -39,6 +41,22 @@ const filterModules = (modules: MetroModules, single = false) => (filter: (m: an
         // HACK: Override the function used to report fatal JavaScript errors (that crash the app) to prevent module-requiring side effects
         // Credit to @pylixonly (492949202121261067) for the initial version of this fix
         if (!modules[id].isInitialized) try {
+            if(getDebugInfo().discord.version >= 224) {
+                const orig = Function.prototype.toString;
+                Object.defineProperty(Function.prototype, 'toString', {
+                    value: orig,
+                    configurable: true,
+                    writable: false
+                });
+    
+                __r(id as any as number);
+    
+                Object.defineProperty(Function.prototype, 'toString', {
+                    value: orig,
+                    configurable: true,
+                    writable: true
+                });
+            }
             window.ErrorUtils.setGlobalHandler(() => {});
             __r(id);
             window.ErrorUtils.setGlobalHandler(originalHandler);
