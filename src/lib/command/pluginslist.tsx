@@ -11,8 +11,9 @@ export default [
         **Enabled Plugins (${getPlugins()}):**
         > ${getPluginList()}
 
-        **Disabled Plugins:
-        > Lmao WIP`
+        **Disabled Plugins:**
+        > Lmao WIP
+        `
     Messages.sendMessage(ctx.channel.id, { content: content });
         },
     },

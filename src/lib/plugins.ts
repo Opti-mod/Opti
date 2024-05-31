@@ -149,7 +149,7 @@ export function getPlugins() {
 }
 
 export function getPluginList() {
-    return pluginsList;
+    return pluginsList.sort();
 }
 
 export const getSettings = (id: string) => loadedPlugins[id]?.settings;
