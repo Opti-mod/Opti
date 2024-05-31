@@ -145,12 +145,10 @@ const stopAllPlugins = () => Object.keys(loadedPlugins).forEach(p => stopPlugin(
 export function getPlugins() {
     var num = 0;
     Object.keys(loadedPlugins).forEach(p => num++);
-    num = totalPlugins;
     return num;
 }
-const totalPlugins = 0;
+
 export function getPluginList() {
-    
     return pluginsList;
 }
 

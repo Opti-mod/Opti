@@ -4,7 +4,7 @@ import { BundleUpdaterManager } from "../native";
 export default [ 
     {
         name: 'reload',
-        description: 'Reloads Discord.',
+        description: 'Reload Discord.',
         execute() {
         BundleUpdaterManager.reload();
         },
