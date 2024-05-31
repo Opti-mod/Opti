@@ -1,11 +1,9 @@
 import { RNConstants } from "@types";
 import { ReactNative as RN } from "@metro/common";
 import { after } from "@lib/patcher";
-import { getCurrentTheme, selectTheme } from "@lib/themes";
-import { ClientInfoManager, DeviceManager, BundleUpdaterManager } from "@lib/native";
+import { ClientInfoManager, DeviceManager } from "@lib/native";
 import { getAssetIDByName } from "@ui/assets";
 import { showToast } from "@ui/toasts";
-import settings from "@lib/settings";
 import logger from "@lib/logger";
 export let socket: WebSocket;
 

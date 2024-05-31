@@ -19,8 +19,8 @@ export default function AddonPage<T>({ items, card: CardComponent }: AddonPagePr
         <ErrorBoundary>
             <RN.FlatList
                 ListHeaderComponent={<>
-                    {settings.safeMode?.enabled && <RN.View style={{ marginBottom: 10 }}>
-                    </RN.View>}
+                    <RN.View style={{ marginBottom: 10 }}>
+                    </RN.View>
                     <Search
                         style={{ marginBottom: 10 }}
                         onChangeText={(v: string) => setSearch(v.toLowerCase())}

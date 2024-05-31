@@ -14,7 +14,7 @@ const { BadgableTabBar } = findByProps("BadgableTabBar");
 
 const styles = stylesheet.createThemedStyleSheet({
     bar: {
-        padding: 10,
+        padding: 8,
     },
 });
 

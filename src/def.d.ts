@@ -159,10 +159,6 @@ interface Theme {
 interface Settings {
     debuggerUrl: string;
     developerSettings: boolean;
-    safeMode?: {
-        enabled: boolean;
-        currentThemeId?: string;
-    };
 
     tweaks: {
     silentTyping: boolean;

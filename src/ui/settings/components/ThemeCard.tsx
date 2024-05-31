@@ -28,7 +28,7 @@ export default function ThemeCard({ item: theme, index }: CardWrapper<Theme>) {
             headerLabel={`${theme.data.name}`}
             headerIcon={"ic_theme_24px"}
             descriptionLabel={theme.data.description ?? "No description."}
-            toggleType={!settings.safeMode?.enabled ? "switch" : undefined}
+            toggleType={"switch"}
             toggleValue={theme.selected}
             onToggleChange={(v: boolean) => {
                 selectAndReload(v, theme.id);

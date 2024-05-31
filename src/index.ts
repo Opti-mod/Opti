@@ -3,13 +3,14 @@ import { patchCommands } from "@lib/commands";
 import { initPlugins } from "@lib/plugins";
 import { patchChatBackground } from "@lib/themes";
 import { patchAssets } from "@ui/assets";
+import { initCustomCommands } from "./lib/command";
 import initQuickInstall from "@ui/quickInstall";
 import initSettings from "@ui/settings";
 import initFixes from "@lib/fixes";
 import logger from "@lib/logger";
 import windowObject from "@lib/windowObject";
 import loadTweaks from "./lib/tweak";
-import { initCustomCommands } from "./lib/command";
+
 
 export default async () => {
     const unloads = await Promise.all([
@@ -18,7 +19,6 @@ export default async () => {
         patchCommands(),
         patchChatBackground(),
         initFixes(),
-   //     initSafeMode(),
         initSettings(),
         initQuickInstall(),
     ]);

@@ -20,7 +20,7 @@ export const BadgeComponent = ({ name, image, size, margin, custom }: BadgeCompo
         }
     });
 
-    const renderBagde = () => {
+    const renderBadge = () => {
         if (custom) {
             return (custom)
         } else {
@@ -34,7 +34,7 @@ export const BadgeComponent = ({ name, image, size, margin, custom }: BadgeCompo
     
     return (
         <View style={styles.container}>
-            {renderBagde()}
+            {renderBadge()}
         </View>
     )
 }

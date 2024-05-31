@@ -104,8 +104,6 @@ export function stopPlugin(id: string, disable = true) {
     const plugin = plugins[id];
     const pluginRet = loadedPlugins[id];
     if (!plugin) throw new Error("Attempted to stop non-existent plugin");
-
-    if (!settings.safeMode?.enabled) {
         try {
             pluginRet?.onUnload?.();
         } catch (e) {
@@ -113,8 +111,6 @@ export function stopPlugin(id: string, disable = true) {
         }
 
         delete loadedPlugins[id];
-    }
-
     disable && (plugin.enabled = false);
 }
 
@@ -130,13 +126,10 @@ export async function initPlugins() {
     await awaitSyncWrapper(settings);
     await awaitSyncWrapper(plugins);
     const allIds = Object.keys(plugins);
-
-    if (!settings.safeMode?.enabled) {
         // Loop over any plugin that is enabled, update it if allowed, then start it.
         await allSettled(allIds.filter(pl => plugins[pl].enabled).map(async (pl) => (plugins[pl].update && await fetchPlugin(pl).catch((e: Error) => logger.error(e.message)), await startPlugin(pl))));
         // Wait for the above to finish, then update all disabled plugins that are allowed to.
         allIds.filter(pl => !plugins[pl].enabled && plugins[pl].update).forEach(pl => fetchPlugin(pl));
-    };
 
     return stopAllPlugins;
 }
