@@ -78,7 +78,7 @@ function newYouPatch(patches: Function[]) {
     patches.push(before("type", settingsListComponents.SearchableSettingsList, ([{ sections }]) => manipulateSections(sections, data.getLayout())));
 
     patches.push(after("getSettingListSearchResultItems", gettersModule, (_, ret) => {
-        ret.forEach((s: any) => screens.some(b => b.key === s.setting) && (s.breadcrumbs = ["Vendetta"]))
+        ret.forEach((s: any) => screens.some(b => b.key === s.setting) && (s.breadcrumbs = ["Opti"]))
     }));
 
     const oldRendererConfig = settingConstantsModule.SETTING_RENDERER_CONFIG;
