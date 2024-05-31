@@ -168,7 +168,6 @@ interface Settings {
     silentTyping: boolean;
     hideButtons: boolean;
     trustURL: boolean;
-    experiments: boolean;
     fastdelete: boolean;
     externalbadges: boolean;
     };

@@ -21,7 +21,7 @@ export default function AssetBrowser() {
         <ErrorBoundary>
             <RN.View style={{ flex: 1 }}>
                 <FormRow
-                    subLabel={`Most tweaks are ported Vendetta plugins and are actively being improved on.`}
+                    subLabel={`Tweaks are small QoL adjustments that you can enable.`}
                 />
                 <FormDivider />
                 <FormRow
@@ -61,18 +61,6 @@ export default function AssetBrowser() {
                 />
                 <FormDivider />
                 <FormRow
-                    label={settings.tweaks.experiments?.valueOf() ? "Staff Mode (Enabled)" : "Staff Mode (Disabled)"}
-                    subLabel={`Enables Discord Experiments \n Port of EnableStaging made by acquitelol`}
-                    leading={<FormRow.Icon source={getAssetIDByName("debug")} />}
-                    onPress={() => {
-                        settings.tweaks.experiments ??= true;
-                        settings.tweaks.experiments = !settings.tweaks.experiments;
-                        (settings.tweaks.experiments ? enableExperiments : unloadEnableExperiments)();
-                    }
-                    }
-                />
-                <FormDivider />
-                <FormRow
                     label={settings.tweaks.fastdelete?.valueOf() ? "Message Delete Prompt (Enabled)" : "Message Delete Prompt (Disabled)"}
                     subLabel={`Delete messages without the warning prompt.`}
                     leading={<FormRow.Icon source={getAssetIDByName("ic_message_delete")} />}
@@ -85,7 +73,7 @@ export default function AssetBrowser() {
                 />
                 <FormDivider />
                 <FormRow
-                    label={settings.tweaks.externalbadges?.valueOf() ? "External / Global Badges (Enabled)" : "External / Global Badges (Disabled)"}
+                    label={settings.tweaks.externalbadges?.valueOf() ? "Global Badges (Enabled)" : "Global Badges (Disabled)"}
                     subLabel={`Load custom badges from other clients. (Opti badges will still show up.)`}
                     leading={<FormRow.Icon source={getAssetIDByName("ic_person_shield")} />}
                     onPress={() => {

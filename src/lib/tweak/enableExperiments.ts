@@ -6,7 +6,6 @@ const SerializedExperimentStore = findByProps("getSerializedState");
 
 export function enableExperiments() {
   // rosie from rosiecord https://github.com/acquitelol/enable-staging/blob/mistress/src/index.ts
-    console.log("TweakManager has loaded EnableExperiments.");
     try {
       User.getCurrentUser().flags |= 1;
       (User as any)._dispatcher._actionHandlers

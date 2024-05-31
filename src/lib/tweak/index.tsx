@@ -22,9 +22,6 @@ export default function loadTweaks()
     if(settings.tweaks.silentTyping == undefined)
         settings.tweaks.silentTyping = false;
 
-    if(settings.tweaks.experiments == undefined)
-        settings.tweaks.experiments = false;
-
     if(settings.tweaks.fastdelete == undefined)
         settings.tweaks.fastdelete = false;
 
@@ -34,7 +31,6 @@ export default function loadTweaks()
     (settings.tweaks.trustURL ? trustURL : unloadTrustURL)();
     (settings.tweaks.hideButtons ? hideDumbButtons : unloadHideButtons)();
     (settings.tweaks.silentTyping ? silentTyping : unloadSilentTyping)();
-    (settings.tweaks.experiments ? enableExperiments : unloadEnableExperiments)();
     (settings.tweaks.fastdelete ? removeDeletePrompt : unloadRemoveDelete)();
     loadBadges();
 }

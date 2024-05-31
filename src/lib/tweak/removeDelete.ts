@@ -9,7 +9,7 @@ export function removeDeletePrompt() {
   const prompt = findByProps("show", "openLazy");
 
   unpatch = instead("show", prompt, (args, res) => {
-    if (args?.[0]?.title === i18n.Messages.DELETE_MESSAGE) {
+    if (args?.[0]?.title === i18n.Messages.DELETE_MESSAGE || args?.[0]?.title === i18n.Messages.PIN_MESSAGE) {
       args[0].onConfirm?.();
     }
     else {
