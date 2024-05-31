@@ -10,9 +10,9 @@ type EvaledPlugin = {
     onUnload(): void;
     settings: JSX.Element;
 };
-
 export const plugins = wrapSync(createStorage<Record<string, Plugin>>(createMMKVBackend("VENDETTA_PLUGINS")));
 const loadedPlugins: Record<string, EvaledPlugin> = {};
+export let pluginsList = new Array<string>();
 
 export async function fetchPlugin(id: string) {
     if (!id.endsWith("/")) id += "/";
@@ -65,6 +65,7 @@ export async function evalPlugin(plugin: Plugin) {
         logger: new logModule(`Opti » ${plugin.manifest.name}`),
     };
     const pluginString = `vendetta=>{return ${plugin.js}}\n//# sourceURL=${plugin.id}`;
+    pluginsList.push(plugin.manifest.name);
 
     const raw = (0, eval)(pluginString)(vendettaForPlugins);
     const ret = typeof raw == "function" ? raw() : raw;
@@ -149,7 +150,8 @@ export function getPlugins() {
 }
 const totalPlugins = 0;
 export function getPluginList() {
-    return Object.keys(loadedPlugins);
+    
+    return pluginsList;
 }
 
 export const getSettings = (id: string) => loadedPlugins[id]?.settings;

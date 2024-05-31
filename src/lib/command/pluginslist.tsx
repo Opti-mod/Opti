@@ -8,7 +8,7 @@ export default [
         description: 'Lists all Opti plugins.',
         execute(_, ctx) {
         const content = `
-        **Enabled Plugins (${getPlugins})**
+        **Enabled Plugins (${getPlugins()})**
         > ${getPluginList()}
         `
     Messages.sendMessage(ctx.channel.id, { content: content });
