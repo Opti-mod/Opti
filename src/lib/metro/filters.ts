@@ -6,6 +6,7 @@ declare const __r: (moduleId: number) => any;
 
 // Internal Metro error reporting logic
 const originalHandler = window.ErrorUtils.getGlobalHandler();
+window.ErrorUtils.setGlobalHandler(null);
 
 // Function to blacklist a module, preventing it from being searched again
 const blacklist = (id: number) => Object.defineProperty(window.modules, id, {
