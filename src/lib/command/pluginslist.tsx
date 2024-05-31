@@ -7,13 +7,10 @@ export default [
         name: 'plugins list',
         description: 'Lists all Opti plugins.',
         execute(_, ctx) {
-        const content = `
-        **Enabled Plugins (${getPlugins()}):**
+        const content = `**Enabled Plugins (${getPlugins()}):**
         > ${getPluginList()}
-
         **Disabled Plugins:**
-        > ${getDisabledPlugins()}
-        `
+        > ${getDisabledPlugins()}`
     Messages.sendMessage(ctx.channel.id, { content: content });
         },
     },

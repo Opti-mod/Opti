@@ -1,7 +1,6 @@
 import { ErrorBoundaryProps } from "@types";
 import { React, ReactNative as RN, stylesheet, clipboard } from "@metro/common";
 import { Forms, Button, Codeblock, } from "@ui/components";
-import { sendCrashReport } from "@lib/webhook";
 
 interface ErrorBoundaryState {
     hasErr: boolean;

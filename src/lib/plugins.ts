@@ -66,8 +66,6 @@ export async function evalPlugin(plugin: Plugin) {
         logger: new logModule(`Opti » ${plugin.manifest.name}`),
     };
     const pluginString = `vendetta=>{return ${plugin.js}}\n//# sourceURL=${plugin.id}`;
-//  pluginsList.push(" " + plugin.manifest.name);
-
     const raw = (0, eval)(pluginString)(vendettaForPlugins);
     const ret = typeof raw == "function" ? raw() : raw;
     return ret?.default ?? ret ?? {};
@@ -77,15 +75,14 @@ export async function startPlugin(id: string) {
     if (!id.endsWith("/")) id += "/";
     const plugin = plugins[id];
     if (!plugin) throw new Error("Attempted to start non-existent plugin");
-
     try {
             const pluginRet: EvaledPlugin = await evalPlugin(plugin);
             loadedPlugins[id] = pluginRet;
             pluginRet.onLoad?.();
             pluginsList.push(" " + plugin.manifest.name);
-        plugin.enabled = true;
+            plugin.enabled = true;
     } catch (e) {
-        stoppedPlugins.push(" " + plugin.manifest.name);
+        stoppedPlugins.push(" " + plugin.id);
         logger.error(`Plugin ${plugin.id} errored whilst loading, and will be unloaded`, e);
 
         try {
