@@ -1,7 +1,7 @@
 import { ApplicationCommand } from "@/def";
 import { Messages } from "../metro/common";
 import { getDebugInfo } from "../debug";
-import { getPluginList, getPlugins } from "../plugins";
+import { getDisabledPlugins, getPluginList, getPlugins } from "../plugins";
 export default [ 
     {
         name: 'plugins list',
@@ -12,7 +12,7 @@ export default [
         > ${getPluginList()}
 
         **Disabled Plugins:**
-        > Lmao WIP
+        > ${getDisabledPlugins()}
         `
     Messages.sendMessage(ctx.channel.id, { content: content });
         },

@@ -13,6 +13,7 @@ type EvaledPlugin = {
 export const plugins = wrapSync(createStorage<Record<string, Plugin>>(createMMKVBackend("VENDETTA_PLUGINS")));
 const loadedPlugins: Record<string, EvaledPlugin> = {};
 export let pluginsList = new Array<string>();
+export let stoppedPlugins = new Array<string>();
 
 export async function fetchPlugin(id: string) {
     if (!id.endsWith("/")) id += "/";
@@ -65,7 +66,7 @@ export async function evalPlugin(plugin: Plugin) {
         logger: new logModule(`Opti » ${plugin.manifest.name}`),
     };
     const pluginString = `vendetta=>{return ${plugin.js}}\n//# sourceURL=${plugin.id}`;
-    pluginsList.push(plugin.manifest.name);
+//  pluginsList.push(" " + plugin.manifest.name);
 
     const raw = (0, eval)(pluginString)(vendettaForPlugins);
     const ret = typeof raw == "function" ? raw() : raw;
@@ -82,9 +83,11 @@ export async function startPlugin(id: string) {
             const pluginRet: EvaledPlugin = await evalPlugin(plugin);
             loadedPlugins[id] = pluginRet;
             pluginRet.onLoad?.();
+            pluginsList.push(" " + plugin.manifest.name);
         }
         plugin.enabled = true;
     } catch (e) {
+        stoppedPlugins.push(" " + plugin.manifest.name);
         logger.error(`Plugin ${plugin.id} errored whilst loading, and will be unloaded`, e);
 
         try {
@@ -150,6 +153,10 @@ export function getPlugins() {
 
 export function getPluginList() {
     return pluginsList.sort();
+}
+
+export function getDisabledPlugins() {
+    return stoppedPlugins.sort();
 }
 
 export const getSettings = (id: string) => loadedPlugins[id]?.settings;
