@@ -61,8 +61,8 @@ export default function AssetBrowser() {
                 />
                 <FormDivider />
                 <FormRow
-                    label={settings.tweaks.fastdelete?.valueOf() ? "Message Delete Prompt (Enabled)" : "Message Delete Prompt (Disabled)"}
-                    subLabel={`Delete messages without the warning prompt.`}
+                    label={settings.tweaks.fastdelete?.valueOf() ? "Remove Message Prompts (Enabled)" : "Remove Message Prompts (Disabled)"}
+                    subLabel={`Removes the pin and delete prompts for messages.`}
                     leading={<FormRow.Icon source={getAssetIDByName("ic_message_delete")} />}
                     onPress={() => {
                         settings.tweaks.fastdelete ??= true;
