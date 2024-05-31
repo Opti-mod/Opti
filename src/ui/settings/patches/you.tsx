@@ -44,7 +44,7 @@ function oldYouPatch(patches: Function[]) {
             ancestorRendererData: data.rendererConfigs[s.key],
             setting: s.key,
             title: data.titleConfig[s.key],
-            breadcrumbs: ["Vendetta"],
+            breadcrumbs: ["Opti"],
             icon: data.rendererConfigs[s.key].icon,
         })),
         // .filter can be removed when dropping support for 189.3 and below (unless Discord changes things again)
@@ -94,7 +94,7 @@ function newYouPatch(patches: Function[]) {
 const isLabel = (i: any, name: string) => i?.label === name || i?.title === name;
 
 function manipulateSections(sections: any[], layout: any) {
-    if (!Array.isArray(sections) || sections.find((i: any) => isLabel(i, "Vendetta"))) return;
+    if (!Array.isArray(sections) || sections.find((i: any) => isLabel(i, "Opti"))) return;
 
     // Add our settings
     const accountSettingsIndex = sections.findIndex((i: any) => isLabel(i, i18n.Messages.ACCOUNT_SETTINGS));
