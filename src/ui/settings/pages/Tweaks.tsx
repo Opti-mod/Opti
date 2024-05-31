@@ -2,12 +2,10 @@ import { ReactNative as RN } from "@metro/common";
 import { Forms, ErrorBoundary } from "@ui/components";
 import { getAssetIDByName } from "@ui/assets";
 import { silentTyping, unloadSilentTyping } from "@/lib/tweak/silentTyping";
-import { hideDumbButtons, unloadHideButtons } from "@/lib/tweak/HideDumbButtons";
-import { trustURL, unloadTrustURL } from "@/lib/tweak/trustURL";
+import { hideDumbButtons, unloadHideButtons } from "@/lib/tweak/removeChatButtons";
 import settings from "@lib/settings";
 import { useProxy } from "@lib/storage";
-import { enableExperiments, unloadEnableExperiments } from "@/lib/tweak/enableExperiments";
-import { removeDeletePrompt, unloadRemoveDelete } from "@/lib/tweak/removeDelete";
+import { removePrompts, unloadRemovePrompts } from "@/lib/tweak/removePrompts";
 
 const { FormDivider, FormRow } = Forms;
 
@@ -49,25 +47,13 @@ export default function AssetBrowser() {
                 />
                 <FormDivider />
                 <FormRow
-                    label={settings.tweaks.trustURL?.valueOf() ? "Trust All URLs (Enabled)" : "Trust All URLs (Disabled)"}
-                    subLabel={`Removes the "Trust This URL?" prompt.`}
-                    leading={<FormRow.Icon source={getAssetIDByName("unlocked")} />}
-                    onPress={() => {
-                        settings.tweaks.trustURL ??= false;
-                        settings.tweaks.trustURL = !settings.tweaks.trustURL;
-                        (settings.tweaks.trustURL ? trustURL : unloadTrustURL)();
-                    }
-                    }
-                />
-                <FormDivider />
-                <FormRow
-                    label={settings.tweaks.fastdelete?.valueOf() ? "Remove Message Prompts (Enabled)" : "Remove Message Prompts (Disabled)"}
-                    subLabel={`Removes the pin and delete prompts for messages.`}
+                    label={settings.tweaks.removePrompts?.valueOf() ? "Remove Prompts (Enabled)" : "Remove Prompts (Disabled)"}
+                    subLabel={`Removes the pin, delete, and trusted URL prompts for messages.`}
                     leading={<FormRow.Icon source={getAssetIDByName("ic_message_delete")} />}
                     onPress={() => {
-                        settings.tweaks.fastdelete ??= true;
-                        settings.tweaks.fastdelete = !settings.tweaks.fastdelete;
-                        (settings.tweaks.fastdelete ? removeDeletePrompt : unloadRemoveDelete)();
+                        settings.tweaks.removePrompts ??= true;
+                        settings.tweaks.removePrompts = !settings.tweaks.removePrompts;
+                        (settings.tweaks.removePrompts ? removePrompts : unloadRemovePrompts)();
                     }
                     }
                 />
@@ -79,7 +65,6 @@ export default function AssetBrowser() {
                     onPress={() => {
                         settings.tweaks.externalbadges ??= true;
                         settings.tweaks.externalbadges = !settings.tweaks.externalbadges;
-                        (settings.tweaks.externalbadges ? enableExperiments : unloadEnableExperiments)();
                     }
                     }
                 />

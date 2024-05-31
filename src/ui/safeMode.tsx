@@ -1,6 +1,6 @@
 import { ButtonColors } from "@types";
 import { ReactNative as RN, stylesheet } from "@metro/common";
-import { findByName, findByProps, findByStoreName } from "@metro/filters";
+import { findByName, findByProps } from "@metro/filters";
 import { after } from "@lib/patcher";
 import { getDebugInfo, toggleSafeMode } from "@lib/debug";
 import { DeviceManager } from "@lib/native";
