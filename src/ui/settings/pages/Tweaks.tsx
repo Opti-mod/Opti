@@ -21,7 +21,7 @@ export default function AssetBrowser() {
         <ErrorBoundary>
             <RN.View style={{ flex: 1 }}>
                 <FormRow
-                    subLabel={`Tweaks are small QoL adjustments that you can enable.`}
+                    label={`Tweaks are small QoL adjustments that you can enable.`}
                 />
                 <FormDivider />
                 <FormRow

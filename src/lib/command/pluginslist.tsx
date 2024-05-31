@@ -5,7 +5,7 @@ import { getPluginList, getPlugins } from "../plugins";
 export default [ 
     {
         name: 'plugins list',
-        description: 'Lists all plugins.',
+        description: 'Lists all Opti plugins.',
         execute(_, ctx) {
         const content = `
         **Enabled Plugins (${getPlugins})**
