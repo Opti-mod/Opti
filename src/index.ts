@@ -4,7 +4,6 @@ import { initPlugins } from "@lib/plugins";
 import { patchChatBackground } from "@lib/themes";
 import { patchAssets } from "@ui/assets";
 import initQuickInstall from "@ui/quickInstall";
-import initSafeMode from "@ui/safeMode";
 import initSettings from "@ui/settings";
 import initFixes from "@lib/fixes";
 import logger from "@lib/logger";
@@ -19,7 +18,7 @@ export default async () => {
         patchCommands(),
         patchChatBackground(),
         initFixes(),
-        initSafeMode(),
+   //     initSafeMode(),
         initSettings(),
         initQuickInstall(),
     ]);

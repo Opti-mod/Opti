@@ -12,16 +12,6 @@ export default function Themes() {
     return (
         <AddonPage<Theme>
             items={themes}
-            safeModeMessage={`You are in Safe Mode. Shaders have been temporarily disabled. ${settings.safeMode?.currentThemeId}`}
-            safeModeExtras={settings.safeMode?.currentThemeId ? <Button
-                text="Disable Shader"
-                color={ButtonColors.BRAND}
-                size="small"
-                onPress={() => {
-                    delete settings.safeMode?.currentThemeId;
-                }}
-                style={{ marginTop: 8 }}
-            /> : undefined}
             card={ThemeCard}
         />
     )

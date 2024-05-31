@@ -9,19 +9,6 @@ import settings from "@lib/settings";
 import logger from "@lib/logger";
 export let socket: WebSocket;
 
-export async function toggleSafeMode() {
-    settings.safeMode = { ...settings.safeMode, enabled: !settings.safeMode?.enabled }
-    if (window.__vendetta_loader?.features.themes) {
-        if (getCurrentTheme()?.id) settings.safeMode!.currentThemeId = getCurrentTheme()!.id;
-        if (settings.safeMode?.enabled) {
-            await selectTheme("default");
-        } else if (settings.safeMode?.currentThemeId) {
-            await selectTheme(settings.safeMode?.currentThemeId);
-        }
-    }
-    setTimeout(BundleUpdaterManager.reload, 400);
-}
-
 export function connectToDebugger(url: string) {
     if (socket !== undefined && socket.readyState !== WebSocket.CLOSED) socket.close();
 

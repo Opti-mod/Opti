@@ -11,7 +11,6 @@ export default function Plugins() {
     return (
         <AddonPage<Plugin>
             items={plugins}
-            safeModeMessage="Safe Mode prevents plugins from being loaded. To exit Safe Mode go to the 'Opti' tab and go back to Normal Mode."
             card={PluginCard}
         />   
     )

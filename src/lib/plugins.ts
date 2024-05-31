@@ -79,12 +79,10 @@ export async function startPlugin(id: string) {
     if (!plugin) throw new Error("Attempted to start non-existent plugin");
 
     try {
-        if (!settings.safeMode?.enabled) {
             const pluginRet: EvaledPlugin = await evalPlugin(plugin);
             loadedPlugins[id] = pluginRet;
             pluginRet.onLoad?.();
             pluginsList.push(" " + plugin.manifest.name);
-        }
         plugin.enabled = true;
     } catch (e) {
         stoppedPlugins.push(" " + plugin.manifest.name);

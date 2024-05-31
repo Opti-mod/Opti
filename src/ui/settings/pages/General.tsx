@@ -1,6 +1,6 @@
 import { ReactNative as RN, url, NavigationNative, clipboard } from "@metro/common";
 import { DISCORD_SERVER, GITHUB } from "@lib/constants";
-import { getDebugInfo, toggleSafeMode } from "@lib/debug";
+import { getDebugInfo } from "@lib/debug";
 import { findByProps } from "@metro/filters";
 import { useProxy } from "@lib/storage";
 import { BundleUpdaterManager } from "@lib/native";

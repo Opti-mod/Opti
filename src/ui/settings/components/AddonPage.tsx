@@ -6,12 +6,10 @@ import settings from "@lib/settings";
 
 interface AddonPageProps<T> {
     items: Record<string, T & { id: string }>;
-    safeModeMessage?: string;
-    safeModeExtras?: JSX.Element | JSX.Element[];
     card: React.ComponentType<CardWrapper<T>>;
 }
 
-export default function AddonPage<T>({ items, safeModeMessage, safeModeExtras, card: CardComponent }: AddonPageProps<T>) {
+export default function AddonPage<T>({ items, card: CardComponent }: AddonPageProps<T>) {
     //@ts-ignore
     useProxy(settings)
     useProxy(items);
@@ -22,8 +20,6 @@ export default function AddonPage<T>({ items, safeModeMessage, safeModeExtras, c
             <RN.FlatList
                 ListHeaderComponent={<>
                     {settings.safeMode?.enabled && <RN.View style={{ marginBottom: 10 }}>
-                        <HelpMessage messageType={0}>{safeModeMessage}</HelpMessage>
-                        {safeModeExtras}
                     </RN.View>}
                     <Search
                         style={{ marginBottom: 10 }}
