@@ -1,4 +1,4 @@
-import { moment } from "@metro/common";
+import { FluxDispatcher, moment } from "@metro/common";
 import { findByProps, findByStoreName } from "@metro/filters";
 import logger from "@lib/logger";
 import { after } from "@lib/patcher";
@@ -7,10 +7,7 @@ const ThemeManager = findByProps("updateTheme", "overrideTheme");
 const AMOLEDThemeManager = findByProps("setAMOLEDThemeEnabled");
 const ThemeStore = findByStoreName("ThemeStore");
 const UnsyncedUserSettingsStore = findByStoreName("UnsyncedUserSettingsStore");
-
-let sessionStart = findByProps("startSession");
-let sessionStore = findByStoreName("AuthenticationStore");
-const FluxDispatcher = findByProps("_currentDispatchActionType", "_subscriptions", "_actionHandlers", "_waitQueue");
+const FluxDispatcher2 = findByProps("_currentDispatchActionType", "_subscriptions", "_actionHandlers", "_waitQueue");
 
 function onDispatch({ locale }: { locale: string }) {
     // Theming
@@ -31,13 +28,15 @@ function onDispatch({ locale }: { locale: string }) {
         logger.error("Failed to fix timestamps...", e);
     }
 
+    let sessionStart = findByProps("startSession");
+    let sessionStore = findByStoreName("AuthenticationStore");
     // Fix Connecting - https://github.com/m4fn3/FixConnecting/blob/master/src/index.tsx
     const unpatch = after("startSession", sessionStart, (args, res) => {
         unpatch()
         setTimeout(() => {
             let session_id = sessionStore.getSessionId()
             if (!session_id) {
-                FluxDispatcher?.dispatch({type: 'APP_STATE_UPDATE', state: 'active'})
+                FluxDispatcher2?.dispatch({type: 'APP_STATE_UPDATE', state: 'active'})
                 console.log("Successfully patched loading.");
             }
         }, 300)
