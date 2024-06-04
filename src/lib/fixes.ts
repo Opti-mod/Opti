@@ -1,6 +1,7 @@
 import { moment } from "@metro/common";
 import { findByProps, findByStoreName } from "@metro/filters";
 import logger from "@lib/logger";
+import { after } from "@lib/patcher";
 
 const ThemeManager = findByProps("updateTheme", "overrideTheme");
 const AMOLEDThemeManager = findByProps("setAMOLEDThemeEnabled");
@@ -29,6 +30,18 @@ function onDispatch({ locale }: { locale: string }) {
     } catch(e) {
         logger.error("Failed to fix timestamps...", e);
     }
+
+    // Fix Connecting - https://github.com/m4fn3/FixConnecting/blob/master/src/index.tsx
+    const unpatch = after("startSession", sessionStart, (args, res) => {
+        unpatch()
+        setTimeout(() => {
+            let session_id = sessionStore.getSessionId()
+            if (!session_id) {
+                FluxDispatcher?.dispatch({type: 'APP_STATE_UPDATE', state: 'active'})
+                console.log("Successfully patched loading.");
+            }
+        }, 300)
+    })
 
     // We're done here!
     FluxDispatcher.unsubscribe("I18N_LOAD_SUCCESS", onDispatch);
