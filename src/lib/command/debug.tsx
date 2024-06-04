@@ -8,6 +8,7 @@ export default [
         name: 'debug',
         description: 'Prints Optis debug information to chat.',
         inputType: ApplicationCommandInputType.BUILT_IN,
+        __isOpti: true,
         execute(_, ctx) {
         const content = `**Opti Debug Info**
     > **Opti Version**: ${debugInfo.vendetta.version}

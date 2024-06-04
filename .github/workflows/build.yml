@@ -17,7 +17,7 @@ jobs:
                   token: ${{ secrets.TOKENTHING }}
             - uses: actions/setup-node@v3
               with:
-                  node-version: 16
+                  node-version: 21
 
             - name: Install dependencies
               run: |
@@ -40,5 +40,5 @@ jobs:
 
             - name: Purge CDN cache
               run: |
-                  curl https://purge.jsdelivr.net/gh/vendetta-mod/builds
+                  curl https://purge.jsdelivr.net/gh/opti-mod/builds
                   
