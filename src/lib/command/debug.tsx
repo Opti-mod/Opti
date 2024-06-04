@@ -1,4 +1,4 @@
-import { ApplicationCommand } from "@/def";
+import { ApplicationCommand, ApplicationCommandInputType } from "@types";
 import { Messages } from "../metro/common";
 import { getDebugInfo } from "../debug";
 
@@ -7,6 +7,7 @@ export default [
     {
         name: 'debug',
         description: 'Prints Optis debug information to chat.',
+        inputType: ApplicationCommandInputType.BOT,
         execute(_, ctx) {
         const content = `**Opti Debug Info**
     > **Opti Version**: ${debugInfo.vendetta.version}
