@@ -8,9 +8,9 @@ export default function loadTweaks()
 {
     //@ts-ignore
     settings.tweaks ??= {};
-    console.log("TweakManager has initialized.");
+    console.log("TweakManager has successfully initialized.");
     
-    // to prevent potential crashing.
+    // To prevent potential crashing.
     if(settings.tweaks.hideButtons == undefined)
         settings.tweaks.hideButtons = false;
 
