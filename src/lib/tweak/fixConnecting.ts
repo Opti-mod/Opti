@@ -11,7 +11,6 @@ export function fixConnection() {
 
     try {
             unpatch = after("startSession", sessionStart, (args, res) => {
-            unpatch()
             setTimeout(() => {
                 let session_id = sessionStore.getSessionId()
                 if (!session_id) {

@@ -8,7 +8,7 @@ let unpatch: () => boolean;
 
 // credit to https://github.com/amsyarasyiq/letup/blob/main/plugins/HideGiftButton/src/index.ts
 export function hideDumbButtons() {
-    console.log("TweakManager has loaded HideUnneccesaryButtons.");
+    console.log("TweakManager has loaded RemoveChatButtons.");
     const blockList = ["ic_thread_normal_24px", "ic_gift", "AppsIcon"].map(n => getAssetIDByName(n));
     
     unpatch = after("render", ChatInput.prototype, (_, res) => {
