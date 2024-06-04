@@ -21,8 +21,10 @@ jobs:
 
             - name: Install Dependencies
               run: |
+                  pnpm install --no-frozen-lockfile
                   npm i -g pnpm --force
                   pnpm i
+                  
 
             - name: Build
               run: pnpm build
