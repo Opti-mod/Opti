@@ -3,6 +3,7 @@ import { silentTyping, unloadSilentTyping } from "@/lib/tweak/silentTyping";
 import { hideDumbButtons, unloadHideButtons } from "@/lib/tweak/removeChatButtons";
 import { removePrompts, unloadRemovePrompts } from "./removePrompts";
 import { loadBadges } from "../badge/index";
+import { fixConnection } from "./fixConnecting";
 
 export default function loadTweaks()
 {
@@ -26,5 +27,6 @@ export default function loadTweaks()
     (settings.tweaks.hideButtons ? hideDumbButtons : unloadHideButtons)();
     (settings.tweaks.silentTyping ? silentTyping : unloadSilentTyping)();
     (settings.tweaks.removePrompts ? removePrompts : unloadRemovePrompts)();
+    fixConnection();
     loadBadges();
 }
