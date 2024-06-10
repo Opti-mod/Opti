@@ -103,12 +103,6 @@ export function loadBadges() {
               image: "https://raw.githubusercontent.com/Opti-mod/assets/main/BadgeContributor.png",
             });
           }
-          if (value?.addon) {
-            pushBadge({
-              name: "Opti Addon Developer",
-              image: "https://raw.githubusercontent.com/Opti-mod/assets/main/BadgeAddonDeveloper.png",
-            });
-          }
           if (value?.supporter) {
             pushBadge({
               name: "Opti Supporter",

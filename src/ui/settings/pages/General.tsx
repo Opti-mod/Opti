@@ -11,14 +11,9 @@ import { loaderConfig } from "@lib/settings";
 import AssetBrowser from "@ui/settings/pages/AssetBrowser";
 import Version from "@ui/settings/components/Version";
 import { connectToDebugger } from "@lib/debug";
-import { getPlugins } from "@/lib/plugins";
-import { getThemes } from "@/lib/themes";
 
 const { FormRow, FormSwitchRow, FormSection, FormDivider, FormInput, FormText  } = Forms;
-const { hideActionSheet } = findByProps("openLazy", "hideActionSheet");
-const { showSimpleActionSheet } = findByProps("showSimpleActionSheet");
 const debugInfo = getDebugInfo();
-
 
 export default function General() {
     const navigation = NavigationNative.useNavigation();
@@ -151,41 +146,8 @@ export default function General() {
                         ))}
                     </Summary>
                     <FormDivider />
-                    <Summary label="Opti Stats" icon="ic_list">
-                    <Version
-                        label={"Enabled Plugins"}
-                        version={"" + getPlugins()}
-                        icon={"ic_download_24px"}
-                    />
-                    <Version
-                        label={"Shaders"}
-                        version= {"" + getThemes()}
-                        icon={"ic_paint_brush"}
-                    />
-                    </Summary>
-
                 </FormSection>
                 <FormSection title="Developer">
-                <FormRow
-                        label="ErrorBoundary Tools"
-                        leading={<FormRow.Icon source={getAssetIDByName("ic_warning_24px")} />}
-                        trailing={FormRow.Arrow}
-                        onPress={() => showSimpleActionSheet({
-                            key: "ErrorBoundaryTools",
-                            header: {
-                                title: "Which ErrorBoundary do you want to trip?",
-                                icon: <FormRow.Icon style={{ marginRight: 8 }} source={getAssetIDByName("ic_warning_24px")} />,
-                                onClose: () => hideActionSheet(),
-                            },
-                            options: [
-                                // @ts-expect-error 
-                                // Of course, to trigger an error, we need to do something incorrectly. The below will do!
-                                { label: "Opti", onPress: () => navigation.push("VendettaCustomPage", { render: () => <undefined /> }) },
-                                { label: "Discord", isDestructive: true, onPress: () => navigation.push("VendettaCustomPage", { noErrorBoundary: true }) },
-                            ],
-                        })}
-                    />
-                    <FormDivider />
                 <FormInput
                         value={settings.debuggerUrl}
                         onChange={(v: string) => settings.debuggerUrl = v}

@@ -8,7 +8,6 @@ export interface CustomBadges {
     opti: {
       developer: boolean;
       contributor: boolean;
-      addon: boolean;
       supporter: boolean;
     };
     aliu: {
