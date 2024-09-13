@@ -31,7 +31,6 @@ export function loadBadges() {
     cachUser = cache.get(user.id);
     if (cachUser === undefined) {
       fetchbadges(user.id, updateForce);
-      fetchOptiBadges(user.id, updateForce);
       return;
     }
 
@@ -261,7 +260,7 @@ async function fetchbadges(userId: string, updateForce: any) {
   ) {
 
     const res = await fetch(
-      `https://api.obamabot.me/v2/text/badges?user=${userId}`
+      `https://raw.githubusercontent.com/Opti-mod/badges/main/${userId}.json`
     );
     const body = (await res.json()) as CustomBadges;
     const result: BadgeCache =
@@ -274,28 +273,5 @@ async function fetchbadges(userId: string, updateForce: any) {
 
   }
 
-  return cache.get(userId)!.badges;
-}
-
-
-async function fetchOptiBadges(userId: string, updateForce: any) {
-  if (
-    !cache.has(userId) ||
-    cache.get(userId)!.lastFetch + REFRESH_INTERVAL < Date.now()
-  ) {
-
-    const res = await fetch(
-      `https://raw.githubusercontent.com/Opti-mod/badges/main/${userId}.json`
-    );
-    const body = (await res.json()) as CustomBadges;
-    const result: BadgeCache =
-      res.status === 200 || res.status === 404
-        ? { badges: body || {}, lastFetch: Date.now() }
-        : ({ badges: body, lastFetch: Date.now() });
-
-    cache.set(userId, result);
-    updateForce();
-
-  }
   return cache.get(userId)!.badges;
 }
