@@ -4,10 +4,10 @@ An *opti*mized Discord experience for mobile.
 ## Installing
 
 ### Android
-* Root - [VendettaXposed](https://github.com/vendetta-mod/VendettaXposed/releases/latest)
+* Root - [VendettaXposed](https://github.com/opti-mod/OptiXposed/releases/latest)
 * Non-root - [OptiManager](https://github.com/opti-mod/OptiManager/releases/latest)
     - Manager not working? No problem! Pre-built APKs are provided [here](https://discord.k6.tf/).
-    - The minimum Android version required is 9. It will not work any lower.
+    - The minimum Android version required is 9. It will not work on any lower version.
 
 ### iOS
 * Jailbroken - [VendettaTweak](https://github.com/vendetta-mod/VendettaTweak)
@@ -40,7 +40,7 @@ An *opti*mized Discord experience for mobile.
 
 6. In the newly created `dist` directory, run a HTTP server. I recommend [http-server](https://www.npmjs.com/package/http-server).
 
-7. Go to Opti settings and under `Load from custom url`, input the IP address and port of the server (e.g.  e.g. `http://192.168.1.236:4040`) in the new input box labelled `OPTI URL`.
+7. Go to Opti settings and under `Load from custom url`, input the IP address and port of the server (e.g.  e.g. `http://192.168.1.236:4040`) in the new input box labelled `OPTI URL`. uh. maybe i shouldnt have removed developer settings.
 
 8. Restart Discord. Upon reload, you should notice that your device will download Opti's bundled code from your server, rather than GitHub.
 
