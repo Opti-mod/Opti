@@ -161,7 +161,6 @@ interface Settings {
     developerSettings: boolean;
 
     tweaks: {
-    silentTyping: boolean;
     hideButtons: boolean;
     removePrompts: boolean;
     externalbadges: boolean;

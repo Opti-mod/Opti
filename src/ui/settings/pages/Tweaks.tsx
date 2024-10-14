@@ -1,7 +1,6 @@
 import { ReactNative as RN } from "@metro/common";
 import { Forms, ErrorBoundary } from "@ui/components";
 import { getAssetIDByName } from "@ui/assets";
-import { silentTyping, unloadSilentTyping } from "@/lib/tweak/silentTyping";
 import { hideDumbButtons, unloadHideButtons } from "@/lib/tweak/removeChatButtons";
 import settings from "@lib/settings";
 import { useProxy } from "@lib/storage";
@@ -20,18 +19,6 @@ export default function AssetBrowser() {
             <RN.View style={{ flex: 1 }}>
                 <FormRow
                     label={`Tweaks are small QoL adjustments that you can enable.`}
-                />
-                <FormDivider />
-                <FormRow
-                    label={settings.tweaks.silentTyping?.valueOf() ? "Silent Typing (Enabled)" : "Silent Typing (Disabled)"}
-                    subLabel={`Hides that you are typing to other people.`}
-                    leading={<FormRow.Icon source={getAssetIDByName("bell")} />}
-                    onPress={() => {
-                        settings.tweaks.silentTyping ??= false;
-                        settings.tweaks.silentTyping = !settings.tweaks.silentTyping;
-                        (settings.tweaks.silentTyping ? silentTyping : unloadSilentTyping)();
-                    }
-                    }
                 />
                 <FormDivider />
                 <FormRow
