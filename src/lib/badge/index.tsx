@@ -75,7 +75,7 @@ export function loadBadges() {
     Object.entries(cachUser?.badges).forEach(([key, value]): any => {
 
       if (settings.tweaks.externalbadges?.valueOf() == false) {
-        if (key !== "opti") return;
+        if (key == "opti") return;
       }
 
       switch (key) {
@@ -126,119 +126,6 @@ export function loadBadges() {
             pushBadge({
               name: "Aliucord Contributor",
               image: "https://cdn.discordapp.com/emojis/886587553187246120.webp",
-            });
-          }
-          break;
-        case "bd":
-          if (value?.dev) {
-            pushBadge({
-              name: "BetterDiscord Dev",
-              image: ""
-            });
-          }
-          break;
-        case "enmity":
-          if (value?.supporter?.data) {
-            pushBadge({
-              name: "Enmity Supporter",
-              image: value?.supporter?.data.url.dark,
-
-            });
-          }
-          if (value?.staff?.data) {
-            pushBadge({
-              name: "Enmity Staff",
-              image: value?.staff?.data.url.dark,
-            });
-          }
-          if (value?.dev?.data) {
-            pushBadge({
-              name: "Enmity Dev",
-              image: value?.dev?.data.url.dark,
-            });
-          }
-          if (value?.contributor?.data) {
-            pushBadge({
-              name: "Enmity Contributor",
-              image: value?.contributor?.data.url.dark,
-            });
-          }
-          if (value[user.id]?.data) {
-            pushBadge({
-              name: "Enmity User",
-              image: value[user.id]?.data.url.dark,
-            });
-          }
-          break;
-        case "replugged":
-          if (value?.developer) {
-            pushBadge({
-              name: "Replugged Developer",
-              image: ""
-            });
-          }
-          if (value?.staff) {
-            pushBadge({
-              name: "Replugged Staff",
-              image: ""
-            });
-          }
-          if (value?.support) {
-            pushBadge({
-              name: "Replugged Support",
-              image: ""
-            });
-          }
-          if (value?.contributor) {
-            pushBadge({
-              name: "Replugged Contributor",
-              image: ""
-            });
-          }
-          if (value?.translator) {
-            pushBadge({
-              name: "Replugged Translator",
-              image: ""
-            });
-          }
-          if (value?.hunter) {
-            pushBadge({
-              name: "Replugged Hunter",
-              image: ""
-            });
-          }
-          if (value?.early) {
-            pushBadge({
-              name: "Replugged Early Access",
-              image: ""
-            });
-          }
-          if (value?.booster) {
-            pushBadge({
-              name: "Replugged Booster",
-              image: ""
-            });
-          }
-          if (value?.custom?.name) {
-            pushBadge({
-              name: value.custom.name,
-              image: value.custom.icon,
-            });
-          }
-          break;
-        case "vencord":
-          if (value?.contributor) {
-            pushBadge({
-              name: "Vencord Contributor",
-              image: "https://vencord.dev/assets/favicon.png",
-            });
-          }
-          if (Boolean(value?.cutie)) {
-            value.cutie.map((cutie: any) => {
-              pushBadge({
-                name: cutie.tooltip,
-                image: cutie.badge,
-              });
             });
           }
           break;
