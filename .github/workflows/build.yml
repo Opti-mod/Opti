@@ -10,21 +10,22 @@ jobs:
 
         steps:
             - uses: actions/checkout@v3
-            - uses: actions/checkout@v3
               with:
                   repository: "opti-mod/builds"
                   path: "builds"
                   token: ${{ secrets.TOKENTHING }}
+
             - uses: actions/setup-node@v3
               with:
-                  node-version: 21
+                  node-version: "22"
 
-            - name: Install Dependencies
+            - uses: pnpm/action-setup@v4
+              with:
+                version: "9"
+
+            - name: Install dependencies
               run: |
-                  pnpm install --no-frozen-lockfile
-                  npm i -g pnpm --force
                   pnpm i
-                  
 
             - name: Build
               run: pnpm build
