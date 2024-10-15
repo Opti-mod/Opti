@@ -4,7 +4,7 @@ An *opti*mized Discord experience for mobile.
 ## Installing
 
 ### Android
-* Root - [VendettaXposed](https://github.com/opti-mod/OptiXposed/releases/latest)
+* Root - [OptiXposed](https://github.com/opti-mod/OptiXposed/releases/latest)
 * Non-root - [OptiManager](https://github.com/opti-mod/OptiManager/releases/latest)
     - Manager not working? No problem! Pre-built APKs are provided [here](https://discord.k6.tf/).
     - The minimum Android version required is 9. It will not work on any lower version.
@@ -13,8 +13,7 @@ An *opti*mized Discord experience for mobile.
 * Jailbroken - [VendettaTweak](https://github.com/vendetta-mod/VendettaTweak)
     - You can get prebuilt `.deb` files from GitHub Actions - we support rootful and rootless jailbreaks!
 * Jailed - You can get IPAs from [the thread](https://discord.com/channels/1015931589865246730/1087295482667208766) in our [Discord server](https://discord.gg/n9QQ4XhhJP) or from our [host](https://discord.k6.tf/ios/).
-
-* Sideloading with Enmity - You can sideload Opti with Enmity by using VendettaCompat and putting this url in the custom load: https://raw.githubusercontent.com/Opti-mod/Opti/rewrite/dist/vendetta.js
+* Sideloading with Enmity - You can sideload Opti with Enmity by using VendettaCompat and inserting this url: https://raw.githubusercontent.com/Opti-mod/builds/refs/heads/main/vendetta.js
 
 ## Contributing
 1. Install an Opti loader with loader config support (any mentioned in the [Installing](#installing) section).
