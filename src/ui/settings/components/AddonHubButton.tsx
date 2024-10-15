@@ -1,7 +1,5 @@
-import { ReactNative as RN, stylesheet, clipboard, NavigationNative } from "@metro/common";
-import { HTTP_REGEX_MULTI } from "@lib/constants";
+import { ReactNative as RN, stylesheet, NavigationNative } from "@metro/common";
 import AddonHub from "@ui/settings/pages/AddonHub";
-import { showInputAlert } from "@ui/alerts";
 import { getAssetIDByName } from "@ui/assets";
 import { semanticColors } from "@ui/color";
 
@@ -22,7 +20,7 @@ export default function InstallButton({ alertTitle, installFunction: fetchFuncti
     return (
         <RN.TouchableOpacity onPress={() =>
             navigation.push("VendettaCustomPage", {
-                title: "Asset Browser",
+                title: "Addons Hub",
                 render: AddonHub,
             })
          
