@@ -35,8 +35,6 @@ export function loadBadges() {
     }
 
     const style = mem?.props?.style
-    const { replugged } = cachUser?.badges;
-    const colors = `#${replugged?.custom?.color || '7289da'}`
 
     // Credits here to @acquitelol
     // https://github.com/enmity-mod/enmity/blob/8ff15a8fffc5a1ad4d41c5e8f8a02e6876a760ec/src/core/patches/badges.tsx#L81-L95
@@ -109,26 +107,6 @@ export function loadBadges() {
             });
           }
           break;
-        case "aliu":
-          if (value?.dev) {
-            pushBadge({
-              name: "Aliucord Dev",
-              image: "https://cdn.discordapp.com/emojis/860165259117199401.webp",
-            });
-          }
-          if (value?.donor) {
-            pushBadge({
-              name: "Aliucord Donor",
-              image: "https://cdn.discordapp.com/emojis/859801776232202280.webp",
-            });
-          }
-          if (value?.contributor) {
-            pushBadge({
-              name: "Aliucord Contributor",
-              image: "https://cdn.discordapp.com/emojis/886587553187246120.webp",
-            });
-          }
-          break;
         default:
           break;
       }
@@ -157,7 +135,6 @@ async function fetchbadges(userId: string, updateForce: any) {
 
     cache.set(userId, result);
     updateForce();
-
   }
 
   return cache.get(userId)!.badges;

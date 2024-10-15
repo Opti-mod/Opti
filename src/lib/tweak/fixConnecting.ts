@@ -15,7 +15,7 @@ export function fixConnection() {
                 let session_id = sessionStore.getSessionId()
                 if (!session_id) {
                     FluxDispatcher?.dispatch({ type: 'APP_STATE_UPDATE', state: 'active' })
-                    console.log("Successfully patched infinite loading.");
+                    console.log("Successfully patched infinite connecting.");
                 }
             }, 200)
         })

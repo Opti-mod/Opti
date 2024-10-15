@@ -23,9 +23,7 @@ export function removePrompts() {
 
   patches.push(after("isTrustedDomain", MaskedLink, () => {
         return true;
-    }));
-
-  
+    })); 
 }
 
 export function unloadRemovePrompts() {
