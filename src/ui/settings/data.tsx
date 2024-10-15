@@ -8,6 +8,7 @@ import { without } from "@lib/utils";
 import { getAssetIDByName } from "@ui/assets";
 import ErrorBoundary from "@ui/components/ErrorBoundary";
 import InstallButton from "@ui/settings/components/InstallButton";
+import AddonHubButton from "@ui/settings/components/AddonHubButton";
 import General from "@ui/settings/pages/General";
 import { PROXY_PREFIX, VENDETTA_PROXY } from "@/lib/constants";
 import { Forms } from "@ui/components";
@@ -47,6 +48,7 @@ export const getScreens = (youKeys = false): Screen[] => [
         render: Addons,
         options: { 
             headerRight: () => (
+                <>
                 <InstallButton
                     alertTitle="Install Addon"
                     installFunction={async (input) => {
@@ -67,8 +69,19 @@ export const getScreens = (youKeys = false): Screen[] => [
                             }));
                         else return await installPlugin(input);
                     }}
+                    
                 />
+                <AddonHubButton
+                alertTitle="Install Addon"
+                installFunction={async (input) => {
+                    
+                }}
+            />
+            </>
+                
             ),
+            
+            
         }
     },
     {
