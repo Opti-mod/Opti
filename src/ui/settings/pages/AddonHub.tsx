@@ -20,13 +20,10 @@ export default function AssetBrowser() {
             flex: 1,
         },
     });
-    
-
 
     const [search, setSearch] = React.useState("");
-        //@ts-ignore
-    useProxy(settings)
     const [activeTab, setActiveTab] = React.useState("plugins");
+    
      const tabs = [
         {
             id: 'plugins',
@@ -49,7 +46,7 @@ export default function AssetBrowser() {
                  activeTab={activeTab}
                 onTabSelected={(tab: string) => setActiveTab(tab)}
                  />
-                 
+
                 <Search
                     style={{ margin: 10 }}
                     onChangeText={(v: string) => setSearch(v)}
