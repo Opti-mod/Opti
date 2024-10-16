@@ -9,11 +9,11 @@ import initSettings from "@ui/settings";
 import initFixes from "@lib/fixes";
 import logger from "@lib/logger";
 import windowObject from "@lib/windowObject";
-import { ReactNative as RN, NavigationNative } from "@metro/common";
-import Developer from "./ui/settings/pages/Developer";
+import { patchSecurity } from "./lib/security";
+
 
 export default async () => {
-    const navigation = NavigationNative.useNavigation();
+
     // Load everything in parallel
     const unloads = await Promise.all([
         patchLogHook(),
@@ -24,6 +24,7 @@ export default async () => {
         initSafeMode(),
         initSettings(),
         initQuickInstall(),
+        patchSecurity(),
     ]);
 
     // Assign window object
@@ -33,10 +34,7 @@ export default async () => {
     unloads.push(await initPlugins());
 
     // We good :)
-    logger.log("Vendetta is ready!");
+    logger.log("Opti is ready!");
 
-    navigation.push("VendettaCustomPage", {
-        title: "Welcome to Opti",
-        render: Developer,
-    })
+
 }
