@@ -12,6 +12,7 @@ const { FormRow, FormSwitchRow, FormSection, FormDivider } = Forms;
 const debugInfo = getDebugInfo();
 
 export default function General() {
+    //@ts-ignore
     useProxy(settings);
 
     const versions = [
