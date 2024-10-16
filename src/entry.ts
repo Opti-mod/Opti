@@ -8,14 +8,9 @@ console.log("Hello from Opti!");
 // Make 'freeze' and 'seal' do nothing
 Object.freeze = Object;
 Object.seal = Object;
-const navigation = NavigationNative.useNavigation();
 
 import(".").then((m) => m.default()).catch((e) => {
     console.log(e?.stack ?? e.toString());
-    navigation.push("VendettaCustomPage", {
-        title: "Welcome to Opti",
-        render: Developer,
-    });
     alert([
         "Failed to load Opti!\n",
         `Build Number: ${ClientInfoManager.Build}`,
