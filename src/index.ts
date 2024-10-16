@@ -9,8 +9,11 @@ import initSettings from "@ui/settings";
 import initFixes from "@lib/fixes";
 import logger from "@lib/logger";
 import windowObject from "@lib/windowObject";
+import { ReactNative as RN, NavigationNative } from "@metro/common";
+import Developer from "./ui/settings/pages/Developer";
 
 export default async () => {
+    const navigation = NavigationNative.useNavigation();
     // Load everything in parallel
     const unloads = await Promise.all([
         patchLogHook(),
@@ -31,4 +34,9 @@ export default async () => {
 
     // We good :)
     logger.log("Vendetta is ready!");
+
+    navigation.push("VendettaCustomPage", {
+        title: "Welcome to Opti",
+        render: Developer,
+    })
 }
