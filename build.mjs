@@ -14,7 +14,7 @@ const commit = (await exec("git rev-parse HEAD")).stdout.trim().substring(0, 7) 
 try {
     await build({
         entryPoints: ["./src/entry.ts"],
-        outfile: "./dist/vendetta.js",
+        outfile: "./dist/opti.js",
         minify: true,
         bundle: true,
         format: "iife",
@@ -44,10 +44,10 @@ try {
             alias(aliases),
         ],
         define: {
-            __vendettaVersion: `"${commit}"`,
+            __optiVersion: `"${commit}"`,
         },
         footer: {
-            js: "//# sourceURL=Vendetta",
+            js: "//# sourceURL=Opti",
         },
         legalComments: "none",
     });

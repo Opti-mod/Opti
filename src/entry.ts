@@ -1,7 +1,7 @@
 import { ClientInfoManager } from "@lib/native";
 
 // This logs in the native logging implementation, e.g. logcat
-console.log("Hello from Vendetta!");
+console.log("Hello from Opti!");
 
 // Make 'freeze' and 'seal' do nothing
 Object.freeze = Object;
@@ -12,7 +12,7 @@ import(".").then((m) => m.default()).catch((e) => {
     alert([
         "Failed to load Vendetta!\n",
         `Build Number: ${ClientInfoManager.Build}`,
-        `Vendetta: ${__vendettaVersion}`,
+        `Vendetta: ${__optiVersion}`,
         e?.stack || e.toString(),
     ].join("\n"));
 });

@@ -511,7 +511,7 @@ interface VendettaPluginObject {
 
 declare global {
     type React = typeof _React;
-    const __vendettaVersion: string;
+    const __optiVersion: string;
 
     interface Window {
         [key: PropertyKey]: any;

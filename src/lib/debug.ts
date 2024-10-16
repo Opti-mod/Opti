@@ -59,7 +59,7 @@ export function patchLogHook() {
     }
 }
 
-export const versionHash: string = __vendettaVersion;
+export const versionHash: string = __optiVersion;
 
 export function getDebugInfo() {
     // Hermes
