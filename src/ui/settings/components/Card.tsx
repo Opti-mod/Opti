@@ -17,14 +17,10 @@ const styles = stylesheet.createThemedStyleSheet({
     },
     header: {
         padding: 0,
-        backgroundColor: semanticColors.HEADER_PRIMARY,
+        backgroundColor: semanticColors.INTERACTIVE_MUTED,
         color: semanticColors.HEADER_PRIMARY,
         borderTopLeftRadius: 5,
         borderTopRightRadius: 5,
-    },
-    authors: {
-        color: semanticColors.HEADER_SECONDARY,
-        fontSize: 14,
     },
     actions: {
         flexDirection: "row-reverse",
