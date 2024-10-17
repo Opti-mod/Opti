@@ -1,7 +1,7 @@
 import { patchLogHook } from "@lib/debug";
 import { patchCommands } from "@lib/commands";
 import { initPlugins } from "@lib/plugins";
-import { patchChatBackground } from "@lib/themes";
+import { initThemes, patchChatBackground } from "@lib/themes";
 import { patchAssets } from "@ui/assets";
 import initQuickInstall from "@ui/quickInstall";
 import initSafeMode from "@ui/safeMode";
@@ -9,7 +9,7 @@ import initSettings from "@ui/settings";
 import initFixes from "@lib/fixes";
 import logger from "@lib/logger";
 import windowObject from "@lib/windowObject";
-import { patchSecurity } from "./lib/security";
+import { initSecurity } from "./lib/security";
 
 
 export default async () => {
@@ -24,7 +24,8 @@ export default async () => {
         initSafeMode(),
         initSettings(),
         initQuickInstall(),
-        patchSecurity(),
+        
+    //    initSecurity(),
     ]);
 
     // Assign window object
@@ -32,8 +33,11 @@ export default async () => {
 
     // Once done, load plugins
     unloads.push(await initPlugins());
+    
+    // Why not load themes as well?
+    unloads.push(await initThemes());
 
-    // We good :)
+    // We good :D
     logger.log("Opti is ready!");
 
 
