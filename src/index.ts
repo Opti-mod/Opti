@@ -35,9 +35,6 @@ export default async () => {
 
     // Once done, load plugins
     unloads.push(await initPlugins());
-    
-    // Why not load themes as well?
-    unloads.push(await initThemes());
 
     // We good :D
     logger.log("Opti is ready!");

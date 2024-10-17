@@ -14,7 +14,7 @@ import(".").then((m) => m.default()).catch((e) => {
     alert([
         "Failed to load Opti!\n",
         `Build Number: ${ClientInfoManager.Build}`,
-        `Vendetta: ${__optiVersion}`,
+        `Opti: ${__optiVersion}`,
         e?.stack || e.toString(),
     ].join("\n"));
 });
