@@ -17,6 +17,7 @@ export function patchCommands() {
 
 export function registerCommand(command: ApplicationCommand): () => void {
     // Get built in commands
+    
     const builtInCommands = commandsModule.getBuiltInCommands(ApplicationCommandType.CHAT, true, false);
     builtInCommands.sort((a: ApplicationCommand, b: ApplicationCommand) => parseInt(b.id!) - parseInt(a.id!));
 

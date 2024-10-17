@@ -47,6 +47,7 @@ export const commands = findByProps("getBuiltInCommands");
 export const navigation = findByProps("pushLazy");
 export const navigationStack = findByProps("createStackNavigator");
 export const NavigationNative = findByProps("NavigationContainer");
+export const Messages = findByProps("sendBotMessage");
 
 // Flux
 export const Flux = findByProps("connectStores");

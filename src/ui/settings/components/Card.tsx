@@ -32,6 +32,10 @@ const styles = stylesheet.createThemedStyleSheet({
         marginLeft: 5,
         tintColor: semanticColors?.INTERACTIVE_NORMAL,
     },
+    authors: {
+        color: semanticColors.HEADER_SECONDARY,
+        fontSize: 14,
+    },
 })
 
 interface Action {
@@ -65,6 +69,7 @@ interface CardProps {
 export default function Card(props: CardProps) {
     let pressableState = props.toggleValue ?? false;
 
+    // TODO: re-position the '...' icon to next to the switch
     return ( 
         <RN.View style={[styles.card, { marginTop: props.index !== 0 ? 10 : 0 }]}>
             <FormRow

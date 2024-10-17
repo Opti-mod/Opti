@@ -34,7 +34,7 @@ export default function PluginCard({ item: plugin, index }: CardWrapper<Plugin>)
                 try {
                     if (v) startPlugin(plugin.id); else stopPlugin(plugin.id);
                 } catch (e) {
-                    showToast((e as Error).message, getAssetIDByName("Small"));
+                    showToast((e as Error).message);
                 }
             }}
             descriptionLabel={`${plugin.manifest.description}  \n\nAuthors: ${authors.map(i => i.name).join(", ")}`}

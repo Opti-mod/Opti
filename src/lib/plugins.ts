@@ -14,6 +14,9 @@ type EvaledPlugin = {
 // going to touch the plugin function without a 50 foot pole, you can't stop me!!!!
 export const plugins = wrapSync(createStorage<Record<string, Plugin>>(createMMKVBackend("VENDETTA_PLUGINS")));
 const loadedPlugins: Record<string, EvaledPlugin> = {};
+export let pluginsList = new Array<string>();
+export let stoppedPlugins = new Array<string>();
+
 
 export async function fetchPlugin(id: string) {
     if (!id.endsWith("/")) id += "/";
@@ -83,8 +86,10 @@ export async function startPlugin(id: string) {
             loadedPlugins[id] = pluginRet;
             pluginRet.onLoad?.();
         }
+        pluginsList.push(" " + plugin.manifest.name);
         plugin.enabled = true;
     } catch (e) {
+        stoppedPlugins.push(" " + plugin.id);
         logger.error(`Plugin ${plugin.id} errored whilst loading, and will be unloaded`, e);
 
         try {
@@ -138,6 +143,20 @@ export async function initPlugins() {
     };
 
     return stopAllPlugins;
+}
+
+export function getPlugins() {
+    var num = 0;
+    Object.keys(loadedPlugins).forEach(p => num++);
+    return num;
+}
+
+export function getPluginList() {
+    return pluginsList.sort();
+}
+
+export function getDisabledPlugins() {
+    return stoppedPlugins.sort();
 }
 
 const stopAllPlugins = () => Object.keys(loadedPlugins).forEach(p => stopPlugin(p, false));

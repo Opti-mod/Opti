@@ -19,7 +19,7 @@ export default function Version({ label, version, icon }: VersionProps) {
             trailing={<FormText>{version}</FormText>}
             onPress={() => {
                 clipboard.setString(`${label} - ${version}`);
-                showToast("Copied version to clipboard.", getAssetIDByName("toast_copy_link"));
+                showToast("Copied to clipboard.", getAssetIDByName("toast_copy_link"));
             }}
         />
     )
