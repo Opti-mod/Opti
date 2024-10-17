@@ -11,6 +11,7 @@ type EvaledPlugin = {
     settings: JSX.Element;
 };
 
+// going to touch the plugin function without a 50 foot pole, you can't stop me!!!!
 export const plugins = wrapSync(createStorage<Record<string, Plugin>>(createMMKVBackend("VENDETTA_PLUGINS")));
 const loadedPlugins: Record<string, EvaledPlugin> = {};
 
@@ -62,7 +63,7 @@ export async function evalPlugin(plugin: Plugin) {
             // Wrapping this with wrapSync is NOT an option.
             storage: await createStorage<Record<string, any>>(createMMKVBackend(plugin.id)),
         },
-        logger: new logModule(`Vendetta » ${plugin.manifest.name}`),
+        logger: new logModule(`Opti » ${plugin.manifest.name}`),
     };
     const pluginString = `vendetta=>{return ${plugin.js}}\n//# sourceURL=${plugin.id}`;
 
