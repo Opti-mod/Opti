@@ -10,6 +10,7 @@ import initFixes from "@lib/fixes";
 import logger from "@lib/logger";
 import windowObject from "@lib/windowObject";
 import { initSecurity } from "./lib/security";
+import { initAntiTrack } from "./tweaks/NoTracking";
 
 
 export default async () => {
@@ -24,6 +25,7 @@ export default async () => {
         initSafeMode(),
         initSettings(),
         initQuickInstall(),
+        initAntiTrack(),
         
     //    initSecurity(),
     ]);
