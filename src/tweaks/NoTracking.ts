@@ -14,6 +14,7 @@ export function initAntiTrack() {
     if (Reporter) insteadDoNothing(Reporter, "submitLiveCrashReport");
     if (Analytics) insteadDoNothing(Analytics.AnalyticsActionHandlers, "handleTrack");
     if (Metadata) insteadDoNothing(Metadata, "trackWithMetadata");
+    console.log("Analytics are gone 2.");
 
     const Sentry = {
         main: window.__SENTRY__?.hub,
@@ -28,12 +29,12 @@ export function initAntiTrack() {
         Sentry.main.getScope().clear();
         insteadDoNothing(Sentry.main, "addBreadcrumb");
 
-        const c = console as any;
-        for (const method in c) {
-            if (c[method].__sentry_original__)
-                c[method] = c[method].__sentry_original__;
-            if (c[method].__REACT_DEVTOOLS_ORIGINAL_METHOD__?.__sentry_original__)
-                c[method].__REACT_DEVTOOLS_ORIGINAL_METHOD__ = c[method].__REACT_DEVTOOLS_ORIGINAL_METHOD__.__sentry_original__;
-        }
+      //  const c = console as any;
+      //  for (const method in c) {
+      //      if (c[method].__sentry_original__)
+      //          c[method] = c[method].__sentry_original__;
+     //       if (c[method].__REACT_DEVTOOLS_ORIGINAL_METHOD__?.__sentry_original__)
+       //         c[method].__REACT_DEVTOOLS_ORIGINAL_METHOD__ = c[method].__REACT_DEVTOOLS_ORIGINAL_METHOD__.__sentry_original__;
+        //}
     }
 }
