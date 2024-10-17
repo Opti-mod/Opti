@@ -13,8 +13,9 @@ const { showSimpleActionSheet } = findByProps("showSimpleActionSheet");
 
 export default function Developer() {
     const navigation = NavigationNative.useNavigation();
-
+    //@ts-ignore
     useProxy(settings);
+    //@ts-ignore
     useProxy(loaderConfig);
 
     return (
@@ -25,11 +26,11 @@ export default function Developer() {
                         value={settings.debuggerUrl}
                         onChange={(v: string) => settings.debuggerUrl = v}
                         placeholder="127.0.0.1:9090"
-                        title="DEBUGGER URL"
+                        title="Debug URL"
                     />
                     <FormDivider />
                     <FormRow
-                        label="Connect to debug websocket"
+                        label="Connect to websocket"
                         leading={<FormRow.Icon source={getAssetIDByName("copy")} />}
                         onPress={() => connectToDebugger(settings.debuggerUrl)}
                     />
@@ -48,7 +49,7 @@ export default function Developer() {
                 {window.__vendetta_loader?.features.loaderConfig && <FormSection title="Loader config">
                     <FormSwitchRow
                         label="Load from custom url"
-                        subLabel={"Load Vendetta from a custom endpoint."}
+                        subLabel={"Load Opti from a custom endpoint."}
                         leading={<FormRow.Icon source={getAssetIDByName("copy")} />}
                         value={loaderConfig.customLoadUrl.enabled}
                         onValueChange={(v: boolean) => {
@@ -60,8 +61,8 @@ export default function Developer() {
                         <FormInput
                             value={loaderConfig.customLoadUrl.url}
                             onChange={(v: string) => loaderConfig.customLoadUrl.url = v}
-                            placeholder="http://localhost:4040/vendetta.js"
-                            title="VENDETTA URL"
+                            placeholder="http://localhost:4040/opti.js"
+                            title="Opti URL"
                         />
                         <FormDivider />
                     </>}
@@ -100,7 +101,7 @@ export default function Developer() {
                             options: [
                                 // @ts-expect-error 
                                 // Of course, to trigger an error, we need to do something incorrectly. The below will do!
-                                { label: "Vendetta", onPress: () => navigation.push("VendettaCustomPage", { render: () => <undefined /> }) },
+                                { label: "Opti", onPress: () => navigation.push("VendettaCustomPage", { render: () => <undefined /> }) },
                                 { label: "Discord", isDestructive: true, onPress: () => navigation.push("VendettaCustomPage", { noErrorBoundary: true }) },
                             ],
                         })}

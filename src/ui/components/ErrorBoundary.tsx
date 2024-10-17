@@ -33,8 +33,8 @@ export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, E
 
         return (
             <RN.ScrollView style={styles.view}>
-                <Forms.FormText style={styles.title}>Uh oh.</Forms.FormText>
-                <Codeblock selectable style={{ marginBottom: 5 }}>{this.state.errText}</Codeblock>
+                <Forms.FormText style={styles.title}>Opti has encountered an error.</Forms.FormText>
+                <Codeblock selectable style={{ marginBottom: 8 }}>{this.state.errText}</Codeblock>
                 <Button
                     color={Button.Colors.RED}
                     size={Button.Sizes.MEDIUM}

@@ -24,10 +24,7 @@ export default async () => {
         initFixes(),
         initSafeMode(),
         initSettings(),
-        initQuickInstall(),
-        initAntiTrack(),
-        
-    //    initSecurity(),
+        initQuickInstall(), 
     ]);
 
     // Assign window object

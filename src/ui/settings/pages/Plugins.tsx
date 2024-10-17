@@ -6,6 +6,7 @@ import AddonPage from "@ui/settings/components/AddonPage";
 import PluginCard from "@ui/settings/components/PluginCard";
 
 export default function Plugins() {
+    //@ts-ignore
     useProxy(settings)
 
     return (

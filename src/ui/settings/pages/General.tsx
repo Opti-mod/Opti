@@ -32,7 +32,7 @@ export default function General() {
             icon: "ic_category_16px",
         },
         {
-            label: "React Native",
+            label: "RN",
             version: debugInfo.react.nativeVersion,
             icon: "mobile",
         },
@@ -104,13 +104,6 @@ export default function General() {
                         label="Reload Discord"
                         leading={<FormRow.Icon source={getAssetIDByName("ic_message_retry")} />}
                         onPress={() => BundleUpdaterManager.reload()}
-                    />
-                    <FormDivider />
-                    <FormRow
-                        label={settings.safeMode?.enabled ? "Return to Normal Mode" : "Reload in Safe Mode"}
-                        subLabel={`This will reload Discord ${settings.safeMode?.enabled ? "normally." : "without loading plugins."}`}
-                        leading={<FormRow.Icon source={getAssetIDByName("ic_privacy_24px")} />}
-                        onPress={toggleSafeMode}
                     />
                     <FormDivider />
                     <FormSwitchRow
