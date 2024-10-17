@@ -17,8 +17,8 @@ const styles = stylesheet.createThemedStyleSheet({
     },
     header: {
         padding: 0,
-        backgroundColor: semanticColors.INTERACTIVE_MUTED,
-        color: semanticColors.HEADER_PRIMARY,
+        backgroundColor: semanticColors?.INTERACTIVE_MUTED,
+        color: semanticColors?.INTERACTIVE_MUTED,
         borderTopLeftRadius: 5,
         borderTopRightRadius: 5,
     },
@@ -86,6 +86,7 @@ export default function Card(props: CardProps) {
                         <FormRadio selected={props.toggleValue} />
                     </RN.Pressable>)
                 )}
+                
             />
             <FormRow
                 label={props.descriptionLabel}
