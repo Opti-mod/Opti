@@ -16,6 +16,7 @@ async function stopThenStart(plugin: Plugin, callback: Function) {
 export default function PluginCard({ item: plugin, index }: CardWrapper<Plugin>) {
     const settings = getSettings(plugin.id);
     const navigation = NavigationNative.useNavigation();
+    const authors = plugin.manifest.authors;
     const [removed, setRemoved] = React.useState(false);
 
     // This is needed because of React™
@@ -25,7 +26,7 @@ export default function PluginCard({ item: plugin, index }: CardWrapper<Plugin>)
         <Card
             index={index}
             // TODO: Actually make use of user IDs
-            headerLabel={`${plugin.manifest.name} by ${plugin.manifest.authors.map(i => i.name).join(", ")}`}
+            headerLabel={`${plugin.manifest.name}`}
             headerIcon={plugin.manifest.vendetta?.icon || "ic_application_command_24px"}
             toggleType="switch"
             toggleValue={plugin.enabled}
@@ -36,7 +37,7 @@ export default function PluginCard({ item: plugin, index }: CardWrapper<Plugin>)
                     showToast((e as Error).message, getAssetIDByName("Small"));
                 }
             }}
-            descriptionLabel={plugin.manifest.description}
+            descriptionLabel={`plugin.manifest.description  \n\nAuthors: ${authors.map(i => i.name).join(", ")}`}
             overflowTitle={plugin.manifest.name}
             overflowActions={[
                 {

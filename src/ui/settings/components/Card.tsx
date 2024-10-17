@@ -8,15 +8,17 @@ const { FormRow, FormSwitch, FormRadio } = Forms;
 const { hideActionSheet } = findByProps("openLazy", "hideActionSheet");
 const { showSimpleActionSheet } = findByProps("showSimpleActionSheet");
 
-// TODO: These styles work weirdly. iOS has cramped text, Android with low DPI probably does too. Fix?
 const styles = stylesheet.createThemedStyleSheet({
     card: {
-        backgroundColor: semanticColors?.BACKGROUND_SECONDARY,
-        borderRadius: 5,
+        backgroundColor: semanticColors.BACKGROUND_SECONDARY,
+        borderRadius: 7,
+        borderColor: semanticColors.BACKGROUND_TERTIARY,
+        borderWidth: 1,
     },
     header: {
         padding: 0,
-        backgroundColor: semanticColors?.BACKGROUND_TERTIARY,
+        backgroundColor: semanticColors.PRIMARY_DARK,
+        color: semanticColors.HEADER_PRIMARY,
         borderTopLeftRadius: 5,
         borderTopRightRadius: 5,
     },
