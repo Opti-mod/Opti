@@ -113,6 +113,7 @@ interface PluginManifest {
     // Vendor-specific field, contains our own data
     vendetta?: {
         icon?: string;
+        internal?: boolean;
     };
 }
 
