@@ -9,8 +9,7 @@ import initSettings from "@ui/settings";
 import initFixes from "@lib/fixes";
 import logger from "@lib/logger";
 import windowObject from "@lib/windowObject";
-import { initSecurity } from "./lib/security";
-import { initAntiTrack } from "./tweaks/NoTracking";
+import { initBadges } from "./lib/badge";
 
 
 export default async () => {
@@ -25,6 +24,7 @@ export default async () => {
         initSafeMode(),
         initSettings(),
         initQuickInstall(), 
+        initBadges(),
     ]);
 
     // Assign window object
