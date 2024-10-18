@@ -1,3 +1,6 @@
+import { BadgeComponents } from "./types";
+import { ReactNative as RN, stylesheet, toasts, React } from "@metro/common";
+
 const { View, Image, TouchableOpacity } = RN;
 export const BadgeComponent = ({ name, image, size, margin, custom }: BadgeComponents) => {
 

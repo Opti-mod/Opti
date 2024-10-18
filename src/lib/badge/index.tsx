@@ -7,7 +7,6 @@ import { ReactNative as RN, React } from "@metro/common";
 
 import { BadgeProps, CustomBadges, BadgeCache } from "./types";
 import { BadgeComponent } from "./badgeComponent";
-import settings from "../settings";
 
 
 const { View } = RN;
