@@ -10,6 +10,7 @@ import initFixes from "@lib/fixes";
 import logger from "@lib/logger";
 import windowObject from "@lib/windowObject";
 import { initBadges } from "./lib/badge";
+import { initSplash } from "./lib/security";
 
 
 export default async () => {
@@ -32,6 +33,7 @@ export default async () => {
 
     // Once done, load plugins
     unloads.push(await initPlugins());
+    unloads.push(await initSplash());
 
     // We good :D
     logger.log("Opti is ready!");
