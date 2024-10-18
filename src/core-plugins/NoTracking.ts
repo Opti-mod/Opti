@@ -1,9 +1,10 @@
 // Thanks aliucord
+// I swear im not trying to steal the directory.
 import { FluxDispatcher, moment } from "@metro/common";
 import { findByProps } from "@metro/filters";
 import { insteadDoNothing } from "@/lib/patcher";
 
-export function initAntiTrack() {
+export function loadNoTracking() {
     console.log("Analytics are gone.");
     const Reporter = findByProps("submitLiveCrashReport");
     const Metadata = findByProps("trackWithMetadata");

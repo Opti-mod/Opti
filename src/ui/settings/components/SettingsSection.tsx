@@ -15,7 +15,7 @@ export default function SettingsSection() {
 
     return (
         <ErrorBoundary>
-            <FormSection key="Vendetta" title={`Opti${settings.safeMode?.enabled ? " (Safe Mode)" : ""}`}>
+            <FormSection key="Vendetta" title={`Opti`}>
                 {screens.map((s, i) => (
                     <>
                         <FormRow

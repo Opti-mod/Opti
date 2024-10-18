@@ -71,11 +71,6 @@ export function initBadges() {
     };
 
     Object.entries(cachUser?.badges).forEach(([key, value]): any => {
-
-      if (settings.tweaks.externalbadges?.valueOf() == false) {
-        if (key == "opti") return;
-      }
-
       switch (key) {
         case "opti":
           if (value?.developer) {
