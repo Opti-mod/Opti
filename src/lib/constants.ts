@@ -1,5 +1,5 @@
-export const DISCORD_SERVER = "https://discord.gg/n9QQ4XhhJP";
-export const DISCORD_SERVER_ID = "1015931589865246730";
+export const DISCORD_SERVER = "https://discord.gg/zm5MWBPeRp";
+export const DISCORD_SERVER_ID = "1228081962883747880";
 export const PLUGINS_CHANNEL_ID = "1091880384561684561";
 export const THEMES_CHANNEL_ID = "1091880434939482202";
 export const GITHUB = "https://github.com/opti-mod/Opti";
