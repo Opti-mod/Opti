@@ -131,6 +131,7 @@ interface ThemeData {
     authors?: Author[];
     spec: number;
     semanticColors?: Record<string, (string | false)[]>;
+    fonts?: Record<string, string>;
     rawColors?: Record<string, string>;
     background?: {
         url: string;
@@ -396,6 +397,8 @@ interface VendettaObject {
             navigation: PropIntellisense<"pushLazy">;
             navigationStack: PropIntellisense<"createStackNavigator">;
             NavigationNative: PropIntellisense<"NavigationContainer">;
+            Messages: PropIntellisense<"sendBotMessage">;
+            
             // You may ask: "Why not just install Flux's types?"
             // Answer: Discord have a (presumably proprietary) fork. It's wildly different.
             Flux: PropIntellisense<"connectStores">;
