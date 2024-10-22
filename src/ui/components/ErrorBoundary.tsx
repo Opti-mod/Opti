@@ -12,11 +12,13 @@ const styles = stylesheet.createThemedStyleSheet({
         flex: 1,
         flexDirection: "column",
         margin: 10,
+        borderRadius: 5,
     },
     title: {
         fontSize: 20,
         textAlign: "center",
         marginBottom: 5,
+        borderRadius: 5,
     },
 });
 

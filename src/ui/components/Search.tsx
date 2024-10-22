@@ -8,9 +8,10 @@ const styles = stylesheet.createThemedStyleSheet({
     search: {
         margin: 0,
         padding: 0,
+        width: 16,
         borderBottomWidth: 0,
-        background: "none",
         backgroundColor: "none",
+        
     }
 });
 
