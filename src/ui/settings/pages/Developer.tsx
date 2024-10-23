@@ -192,6 +192,9 @@ export default function Developer() {
                         }}
                     />
                 </TableRowGroup>
+                <TableRowGroup title="Branch">
+
+                </TableRowGroup>
                 <TableRowGroup title="Info">
                     <Summary label="Versions" icon="ic_information_filled_24px">
                         {versions.map((v, i) => (

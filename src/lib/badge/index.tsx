@@ -87,7 +87,7 @@ export function initBadges() {
           if (value?.supporter) {
             pushBadge({
               name: "Opti Supporter",
-              image: "https://raw.githubusercontent.com/Opti-mod/assets/main/BadgeSupporter.png",
+              image: "https://raw.githubusercontent.com/Opti-mod/assets/main/BadgeSupporter.PNG",
             });
           }
           break;

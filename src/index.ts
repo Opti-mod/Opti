@@ -1,7 +1,7 @@
 import { patchLogHook } from "@lib/debug";
 import { patchCommands } from "@lib/commands";
 import { initPlugins } from "@lib/plugins";
-import { initThemes, patchChatBackground } from "@lib/themes";
+import { patchChatBackground } from "@lib/themes";
 import { patchAssets } from "@ui/assets";
 import initQuickInstall from "@ui/quickInstall";
 import initSafeMode from "@ui/safeMode";
@@ -37,7 +37,4 @@ export default async () => {
 
     // We good :D
     logger.log("Opti is ready!");
-    // window.alert("Test alert! What does this do?");
-
-
 }

@@ -7,6 +7,7 @@ import AddonPage from "@ui/settings/components/AddonPage";
 import ThemeCard from "@ui/settings/components/ThemeCard";
 
 export default function Themes() {
+    //@ts-ignore
     useProxy(settings);
 
     return (
