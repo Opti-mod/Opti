@@ -9,7 +9,7 @@ import settings from "@lib/settings";
 import Version from "@ui/settings/components/Version";
 
 const { FormRow, FormSwitchRow, FormSection, FormDivider } = Forms;
-const { TableRow, TableRowIcon, TableSwitchRow, TableRowGroup }= Tabs;
+const { Stack, TableRow, TableRowIcon, TableSwitchRow, TableRowGroup }= Tabs;
 const debugInfo = getDebugInfo();
 
 export default function General() {
@@ -85,25 +85,26 @@ export default function General() {
     return (
         <ErrorBoundary>
                 <RN.ScrollView style={{ flex: 1 }} contentContainerStyle={{ padding: 24, alignItems: "center" }}>
-                <FormSection title="Links" titleStyleType="no_border">
-                    <FormRow
+                      <Stack spacing={16}>
+                <TableRowGroup title="Links" titleStyleType="no_border">
+                    <TableRow
                         label="Discord Server"
                         leading={<FormRow.Icon source={getAssetIDByName("Discord")} />}
                         trailing={FormRow.Arrow}
                         onPress={() => url.openDeeplink(DISCORD_SERVER)}
                     />
                     <FormDivider />
-                    <FormRow
+                    <TableRow
                         label="GitHub"
                         leading={<FormRow.Icon source={getAssetIDByName("img_account_sync_github_white")} />}
                         trailing={FormRow.Arrow}
                         onPress={() => url.openURL(GITHUB)}
                     />
-                </FormSection>
+                </TableRowGroup>
                 <TableRowGroup title="Actions">
                     <TableRow
                         label="Reload Discord"
-                        leading={<FormRow.Icon source={getAssetIDByName("ic_message_retry")} />}
+                        icon={<TableRowIcon source={getAssetIDByName("ic_message_retry")} />}
                         onPress={() => BundleUpdaterManager.reload()}
                     />
                     
@@ -135,6 +136,7 @@ export default function General() {
                         ))}
                     </Summary>
                 </FormSection>
+                </Stack>
             </RN.ScrollView>
         </ErrorBoundary>
     )
