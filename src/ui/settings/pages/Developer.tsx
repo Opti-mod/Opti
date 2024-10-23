@@ -91,7 +91,7 @@ export default function Developer() {
 
     return (
         <ErrorBoundary>
-            <RN.ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 38 }}>
+                          <RN.ScrollView style={{ flex: 1 }} contentContainerStyle={{ padding: 24, alignItems: "center" }}>
             <Stack spacing={16}>
                 <TableRowGroup title="Debug" titleStyleType="no_border">
                     <FormInput
@@ -102,13 +102,13 @@ export default function Developer() {
                     />
                     <TableRow
                         label="Connect to websocket"
-                        leading={<FormRow.Icon source={getAssetIDByName("copy")} />}
+                        icon={<TableRowIcon source={getAssetIDByName("copy")} />}
                         onPress={() => connectToDebugger(settings.debuggerUrl)}
                     />
                     {window.__vendetta_rdc && <>
                         <TableRow
                             label="Connect to React DevTools"
-                            leading={<FormRow.Icon source={getAssetIDByName("ic_badge_staff")} />}
+                            icon={<TableRowIcon source={getAssetIDByName("ic_badge_staff")} />}
                             onPress={() => window.__vendetta_rdc?.connectToDevTools({
                                 host: settings.debuggerUrl.split(":")?.[0],
                                 resolveRNStyle: RN.StyleSheet.flatten,
@@ -120,7 +120,7 @@ export default function Developer() {
                     <TableSwitchRow
                         label="Load from custom url"
                         subLabel={"Load Opti from a custom endpoint."}
-                        leading={<FormRow.Icon source={getAssetIDByName("copy")} />}
+                        icon={<TableRowIcon source={getAssetIDByName("copy")} />}
                         value={loaderConfig.customLoadUrl.enabled}
                         onValueChange={(v: boolean) => {
                             loaderConfig.customLoadUrl.enabled = v;
@@ -137,7 +137,7 @@ export default function Developer() {
                     {window.__vendetta_loader.features.devtools && <TableSwitchRow
                         label="Load React DevTools"
                         subLabel={`Version: ${window.__vendetta_loader.features.devtools.version}`}
-                        leading={<FormRow.Icon source={getAssetIDByName("ic_badge_staff")} />}
+                        icon={<TableRowIcon source={getAssetIDByName("ic_badge_staff")} />}
                         value={loaderConfig.loadReactDevTools}
                         onValueChange={(v: boolean) => {
                             loaderConfig.loadReactDevTools = v;
@@ -147,7 +147,7 @@ export default function Developer() {
                 <TableRowGroup title="Other">
                 <TableRow
                         label="Asset Browser"
-                        leading={<FormRow.Icon source={getAssetIDByName("ic_image")} />}
+                        icon={<TableRowIcon source={getAssetIDByName("ic_image")} />}
                         onPress={() => navigation.push("VendettaCustomPage", {
                             title: "Asset Browser",
                             render: AssetBrowser,
@@ -156,7 +156,7 @@ export default function Developer() {
                     />
                 <TableRow
                         label="Opti Design Sheet"
-                        leading={<FormRow.Icon source={getAssetIDByName("ic_image")} />}
+                        icon={<TableRowIcon source={getAssetIDByName("ic_image")} />}
                         onPress={() => navigation.push("VendettaCustomPage", {
                             title: "Design Test",
                             render: DesignTesting,
@@ -165,8 +165,8 @@ export default function Developer() {
                     />
                     <TableRow
                         label="ErrorBoundary Tools"
-                        leading={<FormRow.Icon source={getAssetIDByName("ic_warning_24px")} />}
-                        trailing={FormRow.Arrow}
+                        icon={<TableRowIcon source={getAssetIDByName("ic_warning_24px")} />}
+                        arrow
                         onPress={() => showSimpleActionSheet({
                             key: "ErrorBoundaryTools",
                             header: {
@@ -184,7 +184,7 @@ export default function Developer() {
                     />
                      <TableSwitchRow
                         label="Enable Crash Reports"
-                        leading={<TableRowIcon source={getAssetIDByName("ic_progress_wrench_24px")} />}
+                        icon={<TableRowIcon source={getAssetIDByName("ic_progress_wrench_24px")} />}
                         value={false}
                         onValueChange={(v: boolean) => {
                             showToast("Does not work yet.");

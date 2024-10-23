@@ -1,12 +1,13 @@
 import { ErrorBoundaryProps } from "@types";
 import { React, ReactNative as RN, stylesheet } from "@metro/common";
-import { Forms, Button, Codeblock } from "@ui/components";
+import { Forms, Button, Codeblock, Tabs } from "@ui/components";
 
 interface ErrorBoundaryState {
     hasErr: boolean;
     errText?: string;
 }
 
+const { Stack, TableRow, TableRowIcon, TableSwitchRow, TableRowGroup }= Tabs;
 const styles = stylesheet.createThemedStyleSheet({
     view: {
         flex: 1,
@@ -34,7 +35,8 @@ export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, E
         if (!this.state.hasErr) return this.props.children;
 
         return (
-            <RN.ScrollView style={styles.view}>
+            <RN.ScrollView style={{ flex: 1 }} contentContainerStyle={{ padding: 24, alignItems: "center" }}>
+            <Stack spacing={16}>
                 <Forms.FormText style={styles.title}>Opti has encountered an error.</Forms.FormText>
                 <Codeblock selectable style={{ marginBottom: 8 }}>{this.state.errText}</Codeblock>
                 <Button
@@ -44,7 +46,9 @@ export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, E
                     onPress={() => this.setState({ hasErr: false, errText: undefined })}
                     text="Retry"
                 />
+                </Stack>
             </RN.ScrollView>
+            
         )
     }
 }
