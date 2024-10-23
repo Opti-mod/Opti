@@ -3,13 +3,18 @@ import { NavigationNative } from "./lib/metro/common";
 import Developer from "./ui/settings/pages/Developer";
 import { getDebugInfo } from "./lib/debug";
 
+const debugInfo = getDebugInfo();
+
+//@ts-ignore
+// globalThis.window = globalThis;
+
 // This logs in the native logging implementation, e.g. logcat
 console.log("Hello from Opti!");
 
 // Make 'freeze' and 'seal' do nothing
 Object.freeze = Object;
 Object.seal = Object;
-const debugInfo = getDebugInfo();
+
 
 import(".").then((m) => m.default()).catch((e) => {
     console.log("Opti encountered an issue. " + e?.stack ?? e.toString());

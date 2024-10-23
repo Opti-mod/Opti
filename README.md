@@ -1,5 +1,5 @@
-# Vendetta
-A mod for Discord's mobile apps.
+# Opti
+An enhanced Discord mobile experience based on Vendetta.
 
 ## Installing
 Vendetta's codebase is platform-agnostic, but you need a platform-specific loader.
