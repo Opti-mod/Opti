@@ -36,7 +36,6 @@ export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, E
 
         return (
             <RN.ScrollView style={{ flex: 1 }} contentContainerStyle={{ padding: 24, alignItems: "center" }}>
-            <Stack spacing={16}>
                 <Forms.FormText style={styles.title}>Opti has encountered an error.</Forms.FormText>
                 <Codeblock selectable style={{ marginBottom: 8 }}>{this.state.errText}</Codeblock>
                 <Button
@@ -46,7 +45,6 @@ export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, E
                     onPress={() => this.setState({ hasErr: false, errText: undefined })}
                     text="Retry"
                 />
-                </Stack>
             </RN.ScrollView>
             
         )
