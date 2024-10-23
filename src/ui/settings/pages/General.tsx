@@ -1,4 +1,4 @@
-import { ReactNative as RN, url } from "@metro/common";
+import { ReactNative as RN, clipboard, url } from "@metro/common";
 import { DISCORD_SERVER, GITHUB } from "@lib/constants";
 import { getDebugInfo, toggleSafeMode } from "@lib/debug";
 import { useProxy } from "@lib/storage";
@@ -26,13 +26,17 @@ export default function General() {
                     <TableRow
                         label="Opti Version"
                         icon={<TableRowIcon source={getAssetIDByName("boost")} />}
-                        onPress={() => showToast(`${debugInfo.vendetta.version}`)}
+                        subLabel={`${debugInfo.vendetta.version}`}
+                        onPress={() => {
+                            clipboard.setString(debugInfo.vendetta.version);
+                            showToast("Copied to clipboard.");
+                        }
+                        }
                     />
                     <TableRow
                         label="Enabled Plugins"
                          icon={<TableRowIcon source={getAssetIDByName("ic_progress_wrench_24px")} />}
-                        subLabel={ `${getPlugins} enabled plugins.` }
-                        onPress={() => showToast(`${debugInfo.vendetta.version}`)}
+                        subLabel={ `${getPlugins()} enabled plugins.` }
                     />
                     </TableRowGroup>
                 <TableRowGroup title="Actions">
