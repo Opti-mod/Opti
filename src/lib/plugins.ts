@@ -4,6 +4,8 @@ import { awaitSyncWrapper, createMMKVBackend, createStorage, purgeStorage, wrapS
 import { allSettled } from "@lib/polyfills";
 import logger, { logModule } from "@lib/logger";
 import settings from "@lib/settings";
+import { showToast } from "@/ui/toasts";
+import { getAssetIDByName } from "@/ui/assets";
 
 type EvaledPlugin = {
     onLoad?(): void;
@@ -91,11 +93,13 @@ export async function startPlugin(id: string) {
     } catch (e) {
         stoppedPlugins.push(" " + plugin.id);
         logger.error(`Plugin ${plugin.id} errored whilst loading, and will be unloaded`, e);
+        showToast(`Plugin ${plugin.id} failed to load. The error output is in console.`, getAssetIDByName("ic_close_circle_24px"));
 
         try {
             loadedPlugins[plugin.id]?.onUnload?.();
         } catch (e2) {
             logger.error(`Plugin ${plugin.id} errored whilst unloading`, e2);
+            showToast(`Plugin ${plugin.id} failed to load. The error output is in console.`, getAssetIDByName("ic_close_circle_24px"));
         }
 
         delete loadedPlugins[id];

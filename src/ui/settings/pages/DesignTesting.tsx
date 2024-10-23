@@ -5,7 +5,7 @@ import { getDebugInfo, toggleSafeMode } from "@lib/debug";
 import { useProxy } from "@lib/storage";
 import { BundleUpdaterManager } from "@lib/native";
 import { getAssetIDByName } from "@ui/assets";
-import { Forms, Summary, ErrorBoundary, Tabs } from "@ui/components";
+import { Forms, Summary, ErrorBoundary, Tabs, TableRadio } from "@ui/components";
 import settings from "@lib/settings";
 import Version from "@ui/settings/components/Version";
 import { showToast } from "@/ui/toasts";
@@ -33,6 +33,11 @@ export default function DesignTesting() {
                         onValueChange={(v: boolean) => {
                             settings.developerSettings = v;
                         }}
+                    />
+                    <TableRadio
+                        label="TableRadio"
+                        leading={<TableRowIcon source={getAssetIDByName("ic_progress_wrench_24px")} />}
+                        value={settings.developerSettings}
                     />
                 </TableRowGroup>
                </Stack>

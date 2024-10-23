@@ -6,13 +6,17 @@ const findSingular = (prop: string) => find(m => m[prop] && Object.keys(m).lengt
 
 // Discord
 export const Forms = findByProps("Form", "FormSection");
+
 export const General = findByProps("Button", "Text", "View");
 // Ohh its called Tabs because TabsV2!!!!!!! ahaha 
+export const TableRadio = findSingular("FormRadio");
+export const TableRowTrailingText = findByProps("TableRowTrailingText");
 export const Tabs = { 
     ...findByProps("TableRow", "TableRowGroup"),
     RedesignSwitch: findSingular("FormSwitch"),
     RedesignCheckbox: findSingular("FormCheckbox"),
 } as Record<string, any>;
+
 export const Alert = findByDisplayName("FluxContainer(Alert)");
 export const Button = findByProps("Looks", "Colors", "Sizes") as React.ComponentType<any> & { Looks: any, Colors: any, Sizes: any };
 export const HelpMessage = findByName("HelpMessage");
