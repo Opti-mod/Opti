@@ -7,11 +7,12 @@ import { getAssetIDByName } from "@ui/assets";
 import { Forms, Summary, ErrorBoundary, Tabs } from "@ui/components";
 import settings from "@lib/settings";
 import Version from "@ui/settings/components/Version";
+import { showToast } from "@/ui/toasts";
 
 const { FormRow, FormSwitchRow, FormSection, FormDivider } = Forms;
 const { Stack, TableRow, TableRowIcon, TableSwitchRow, TableRowGroup }= Tabs;
 const debugInfo = getDebugInfo();
-
+// Something I realized while working on this, shit doesn't uncache. It doesn't update whenever I do stuff.
 export default function General() {
     //@ts-ignore
     useProxy(settings);
@@ -40,13 +41,19 @@ export default function General() {
                     <TableRow
                         label="Discord Server"
                         leading={<TableRowIcon source={getAssetIDByName("Discord")} />}
-                        trailing={FormRow.Arrow}
                         onPress={() => url.openDeeplink(DISCORD_SERVER)}
+                        arrow
                     />
                     <TableRow
                         label="GitHub"
                         leading={<TableRowIcon source={getAssetIDByName("img_account_sync_github_white")} />}
-                        trailing={FormRow.Arrow}
+                        onPress={() => url.openURL(GITHUB)}
+                        arrow
+                    />
+                    <TableRow
+                        label="Opti Version"
+                        leading={<TableRowIcon source={getAssetIDByName("img_account_sync_github_white")} />}
+                        trailing={`${debugInfo.vendetta.version}`}
                         onPress={() => url.openURL(GITHUB)}
                     />
                 </TableRowGroup>

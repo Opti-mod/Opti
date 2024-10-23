@@ -7,6 +7,7 @@ import { Forms, ErrorBoundary, Tabs, Summary } from "@ui/components";
 import settings, { loaderConfig } from "@lib/settings";
 import AssetBrowser from "@ui/settings/pages/AssetBrowser";
 import Version from "@ui/settings/components/Version";
+import { showToast } from "@/ui/toasts";
 const { FormSection, FormRow, FormSwitchRow, FormInput, FormDivider } = Forms;
 const { hideActionSheet } = findByProps("openLazy", "hideActionSheet");
 const { Stack, TableRow, TableRowIcon, TableSwitchRow, TableRowGroup }= Tabs;
@@ -174,6 +175,14 @@ export default function Developer() {
                                 { label: "Discord", isDestructive: true, onPress: () => navigation.push("VendettaCustomPage", { noErrorBoundary: true }) },
                             ],
                         })}
+                    />
+                     <TableSwitchRow
+                        label="Enable Crash Reports"
+                        leading={<TableRowIcon source={getAssetIDByName("ic_progress_wrench_24px")} />}
+                        value={false}
+                        onValueChange={(v: boolean) => {
+                            showToast("Does not work yet.");
+                        }}
                     />
                 </FormSection>
                 <TableRowGroup title="Info">
