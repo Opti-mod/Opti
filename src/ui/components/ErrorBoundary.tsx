@@ -1,13 +1,11 @@
 import { ErrorBoundaryProps } from "@types";
 import { React, ReactNative as RN, stylesheet } from "@metro/common";
-import { Forms, Button, Codeblock, Tabs } from "@ui/components";
+import { Forms, Button, Codeblock } from "@ui/components";
 
 interface ErrorBoundaryState {
     hasErr: boolean;
     errText?: string;
 }
-
-const { Stack, TableRow, TableRowIcon, TableSwitchRow, TableRowGroup }= Tabs;
 const styles = stylesheet.createThemedStyleSheet({
     view: {
         flex: 1,
