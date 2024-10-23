@@ -80,7 +80,7 @@ export const getScreens = (youKeys = false): Screen[] => [
     {
         key: formatKey("VendettaDeveloper", youKeys),
         title: "Developer",
-        icon: "ic_file_small_webcode",
+        icon: "ic_report_message",
         shouldRender: () => settings.developerSettings ?? false,
         render: Developer,
     },

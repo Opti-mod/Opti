@@ -77,7 +77,7 @@ export default function PluginCard({ item: plugin, index }: CardWrapper<Plugin>)
                             },
                             options: [
                                 // TODO: add logic
-                                { label: authors[0], onPress: () =>   Profiles.showUserProfile({ userId: plugin.manifest.authors[0]?.id }) },
+                                { label: plugin.manifest.authors[0].name, onPress: () =>   Profiles.showUserProfile({ userId: plugin.manifest.authors[0]?.id }) },
                                 { label: "User2",onPress: () => showToast("Test 2") },
                             ],
                     })
