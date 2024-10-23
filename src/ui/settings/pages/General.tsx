@@ -16,76 +16,10 @@ export default function General() {
     //@ts-ignore
     useProxy(settings);
 
-    const versions = [
-        {
-            label: "Opti",
-            version: debugInfo.vendetta.version,
-            icon: "ic_progress_wrench_24px",
-        },
-        {
-            label: "Discord",
-            version: `${debugInfo.discord.version} (${debugInfo.discord.build})`,
-            icon: "Discord",
-        },
-        {
-            label: "React",
-            version: debugInfo.react.version,
-            icon: "ic_category_16px",
-        },
-        {
-            label: "RN",
-            version: debugInfo.react.nativeVersion,
-            icon: "mobile",
-        },
-        {
-            label: "Bytecode",
-            version: debugInfo.hermes.bytecodeVersion,
-            icon: "ic_server_security_24px",
-        },
-    ];
-
-    const platformInfo = [
-        {
-            label: "Loader",
-            version: debugInfo.vendetta.loader,
-            icon: "ic_download_24px",
-        },
-        {
-            label: "Operating System",
-            version: `${debugInfo.os.name} ${debugInfo.os.version}`,
-            icon: "ic_cog_24px"
-        },
-        ...(debugInfo.os.sdk ? [{
-            label: "SDK",
-            version: debugInfo.os.sdk,
-            icon: "ic_profile_badge_verified_developer_color"
-        }] : []),
-        {
-            label: "Manufacturer",
-            version: debugInfo.device.manufacturer,
-            icon: "ic_badge_staff"
-        },
-        {
-            label: "Brand",
-            version: debugInfo.device.brand,
-            icon: "ic_settings_boost_24px"
-        },
-        {
-            label: "Model",
-            version: debugInfo.device.model,
-            icon: "ic_phonelink_24px"
-        },
-        {
-            label: RN.Platform.select({ android: "Codename", ios: "Machine ID" })!,
-            version: debugInfo.device.codename,
-            icon: "ic_compose_24px"
-        }
-    ];
-
     return (
         <ErrorBoundary>
                 <RN.ScrollView style={{ flex: 1 }} contentContainerStyle={{ padding: 24, alignItems: "center" }}>
-                      <Stack spacing={16}>
+                <Stack spacing={16}>
                 <TableRowGroup title="Links" titleStyleType="no_border">
                     <TableRow
                         label="Discord Server"
@@ -93,7 +27,6 @@ export default function General() {
                         trailing={FormRow.Arrow}
                         onPress={() => url.openDeeplink(DISCORD_SERVER)}
                     />
-                    <FormDivider />
                     <TableRow
                         label="GitHub"
                         leading={<FormRow.Icon source={getAssetIDByName("img_account_sync_github_white")} />}
@@ -107,7 +40,6 @@ export default function General() {
                         icon={<TableRowIcon source={getAssetIDByName("ic_message_retry")} />}
                         onPress={() => BundleUpdaterManager.reload()}
                     />
-                    
                     <TableSwitchRow
                         label="Developer Settings"
                         leading={<FormRow.Icon source={getAssetIDByName("ic_progress_wrench_24px")} />}
@@ -117,25 +49,6 @@ export default function General() {
                         }}
                     />
                 </TableRowGroup>
-                <FormSection title="Info">
-                    <Summary label="Versions" icon="ic_information_filled_24px">
-                        {versions.map((v, i) => (
-                            <>
-                                <Version label={v.label} version={v.version} icon={v.icon} />
-                                {i !== versions.length - 1 && <FormDivider />}
-                            </>
-                        ))}
-                    </Summary>
-                    <FormDivider />
-                    <Summary label="Platform" icon="ic_mobile_device">
-                        {platformInfo.map((p, i) => (
-                            <>
-                                <Version label={p.label} version={p.version} icon={p.icon} />
-                                {i !== platformInfo.length - 1 && <FormDivider />}
-                            </>
-                        ))}
-                    </Summary>
-                </FormSection>
                 </Stack>
             </RN.ScrollView>
         </ErrorBoundary>

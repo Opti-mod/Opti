@@ -1,15 +1,17 @@
 import { ReactNative as RN, NavigationNative } from "@metro/common";
 import { findByProps } from "@metro/filters";
-import { connectToDebugger } from "@lib/debug";
+import { connectToDebugger, getDebugInfo } from "@lib/debug";
 import { useProxy } from "@lib/storage";
 import { getAssetIDByName } from "@ui/assets";
-import { Forms, ErrorBoundary } from "@ui/components";
+import { Forms, ErrorBoundary, Tabs, Summary } from "@ui/components";
 import settings, { loaderConfig } from "@lib/settings";
 import AssetBrowser from "@ui/settings/pages/AssetBrowser";
-
+import Version from "@ui/settings/components/Version";
 const { FormSection, FormRow, FormSwitchRow, FormInput, FormDivider } = Forms;
 const { hideActionSheet } = findByProps("openLazy", "hideActionSheet");
+const { Stack, TableRow, TableRowIcon, TableSwitchRow, TableRowGroup }= Tabs;
 const { showSimpleActionSheet } = findByProps("showSimpleActionSheet");
+const debugInfo = getDebugInfo();
 
 export default function Developer() {
     const navigation = NavigationNative.useNavigation();
@@ -17,6 +19,73 @@ export default function Developer() {
     useProxy(settings);
     //@ts-ignore
     useProxy(loaderConfig);
+
+
+    const versions = [
+        {
+            label: "Opti",
+            version: debugInfo.vendetta.version,
+            icon: "ic_progress_wrench_24px",
+        },
+        {
+            label: "Discord",
+            version: `${debugInfo.discord.version} (${debugInfo.discord.build})`,
+            icon: "Discord",
+        },
+        {
+            label: "React",
+            version: debugInfo.react.version,
+            icon: "ic_category_16px",
+        },
+        {
+            label: "RN",
+            version: debugInfo.react.nativeVersion,
+            icon: "mobile",
+        },
+        {
+            label: "Bytecode",
+            version: debugInfo.hermes.bytecodeVersion,
+            icon: "ic_server_security_24px",
+        },
+    ];
+
+    const platformInfo = [
+        {
+            label: "Loader",
+            version: debugInfo.vendetta.loader,
+            icon: "ic_download_24px",
+        },
+        {
+            label: "Operating System",
+            version: `${debugInfo.os.name} ${debugInfo.os.version}`,
+            icon: "ic_cog_24px"
+        },
+        ...(debugInfo.os.sdk ? [{
+            label: "SDK",
+            version: debugInfo.os.sdk,
+            icon: "ic_profile_badge_verified_developer_color"
+        }] : []),
+        {
+            label: "Manufacturer",
+            version: debugInfo.device.manufacturer,
+            icon: "ic_badge_staff"
+        },
+        {
+            label: "Brand",
+            version: debugInfo.device.brand,
+            icon: "ic_settings_boost_24px"
+        },
+        {
+            label: "Model",
+            version: debugInfo.device.model,
+            icon: "ic_phonelink_24px"
+        },
+        {
+            label: RN.Platform.select({ android: "Codename", ios: "Machine ID" })!,
+            version: debugInfo.device.codename,
+            icon: "ic_compose_24px"
+        }
+    ];
 
     return (
         <ErrorBoundary>
@@ -107,6 +176,24 @@ export default function Developer() {
                         })}
                     />
                 </FormSection>
+                <TableRowGroup title="Info">
+                    <Summary label="Versions" icon="ic_information_filled_24px">
+                        {versions.map((v, i) => (
+                            <>
+                                <Version label={v.label} version={v.version} icon={v.icon} />
+                                {i !== versions.length - 1 && <FormDivider />}
+                            </>
+                        ))}
+                    </Summary>
+                    <Summary label="Platform" icon="ic_mobile_device">
+                        {platformInfo.map((p, i) => (
+                            <>
+                                <Version label={p.label} version={p.version} icon={p.icon} />
+                                {i !== platformInfo.length - 1 && <FormDivider />}
+                            </>
+                        ))}
+                    </Summary>
+                </TableRowGroup>
             </RN.ScrollView>
         </ErrorBoundary>
     )
