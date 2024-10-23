@@ -12,7 +12,6 @@ export const Tabs = {
     ...findByProps("TableRow", "TableRowGroup"),
     RedesignSwitch: findSingular("FormSwitch"),
     RedesignCheckbox: findSingular("FormCheckbox"),
-    RedesignInput: findSingular("FormInput"),
 } as Record<string, any>;
 export const Alert = findByDisplayName("FluxContainer(Alert)");
 export const Button = findByProps("Looks", "Colors", "Sizes") as React.ComponentType<any> & { Looks: any, Colors: any, Sizes: any };

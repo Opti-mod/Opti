@@ -7,7 +7,7 @@ export function initSplash() {
     const navigation = NavigationNative.useNavigation();
     // hm
     console.log("Loading Opti Security");
-    alert("This is a test.");
+    window.alert("This is a test.");
  //   navigation.push("VendettaCustomPage", {
   //      title: "Asset Browser",
    //     render: AssetBrowser,

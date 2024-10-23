@@ -25,7 +25,6 @@ export default function General() {
                     <TableRow
                         label="Reload Discord"
                         icon={<TableRowIcon source={getAssetIDByName("ic_message_retry")} />}
-                        description="This may crash your client, use at your own risk!"
                         onPress={() => BundleUpdaterManager.reload()}
                     />
                     <TableSwitchRow
