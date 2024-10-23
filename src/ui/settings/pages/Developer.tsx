@@ -8,6 +8,7 @@ import settings, { loaderConfig } from "@lib/settings";
 import AssetBrowser from "@ui/settings/pages/AssetBrowser";
 import Version from "@ui/settings/components/Version";
 import { showToast } from "@/ui/toasts";
+import DesignTesting from "./DesignTesting";
 const { FormSection, FormRow, FormSwitchRow, FormInput, FormDivider } = Forms;
 const { hideActionSheet } = findByProps("openLazy", "hideActionSheet");
 const { Stack, TableRow, TableRowIcon, TableSwitchRow, TableRowGroup }= Tabs;
@@ -91,22 +92,20 @@ export default function Developer() {
     return (
         <ErrorBoundary>
             <RN.ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 38 }}>
-                <FormSection title="Debug" titleStyleType="no_border">
+                <TableRowGroup title="Debug" titleStyleType="no_border">
                     <FormInput
                         value={settings.debuggerUrl}
                         onChange={(v: string) => settings.debuggerUrl = v}
                         placeholder="127.0.0.1:9090"
                         title="Debug URL"
                     />
-                    <FormDivider />
-                    <FormRow
+                    <TableRow
                         label="Connect to websocket"
                         leading={<FormRow.Icon source={getAssetIDByName("copy")} />}
                         onPress={() => connectToDebugger(settings.debuggerUrl)}
                     />
                     {window.__vendetta_rdc && <>
-                        <FormDivider />
-                        <FormRow
+                        <TableRow
                             label="Connect to React DevTools"
                             leading={<FormRow.Icon source={getAssetIDByName("ic_badge_staff")} />}
                             onPress={() => window.__vendetta_rdc?.connectToDevTools({
@@ -115,9 +114,9 @@ export default function Developer() {
                             })}
                         />
                     </>}
-                </FormSection>
-                {window.__vendetta_loader?.features.loaderConfig && <FormSection title="Loader config">
-                    <FormSwitchRow
+                </TableRowGroup>
+                {window.__vendetta_loader?.features.loaderConfig && <TableRowGroup title="Loader config">
+                    <TableSwitchRow
                         label="Load from custom url"
                         subLabel={"Load Opti from a custom endpoint."}
                         leading={<FormRow.Icon source={getAssetIDByName("copy")} />}
@@ -126,7 +125,6 @@ export default function Developer() {
                             loaderConfig.customLoadUrl.enabled = v;
                         }}
                     />
-                    <FormDivider />
                     {loaderConfig.customLoadUrl.enabled && <>
                         <FormInput
                             value={loaderConfig.customLoadUrl.url}
@@ -134,9 +132,8 @@ export default function Developer() {
                             placeholder="http://localhost:4040/opti.js"
                             title="Opti URL"
                         />
-                        <FormDivider />
                     </>}
-                    {window.__vendetta_loader.features.devtools && <FormSwitchRow
+                    {window.__vendetta_loader.features.devtools && <TableSwitchRow
                         label="Load React DevTools"
                         subLabel={`Version: ${window.__vendetta_loader.features.devtools.version}`}
                         leading={<FormRow.Icon source={getAssetIDByName("ic_badge_staff")} />}
@@ -145,19 +142,27 @@ export default function Developer() {
                             loaderConfig.loadReactDevTools = v;
                         }}
                     />}
-                </FormSection>}
-                <FormSection title="Other">
-                    <FormRow
+                </TableRowGroup>}
+                <TableRowGroup title="Other">
+                <TableRow
                         label="Asset Browser"
                         leading={<FormRow.Icon source={getAssetIDByName("ic_image")} />}
-                        trailing={FormRow.Arrow}
                         onPress={() => navigation.push("VendettaCustomPage", {
                             title: "Asset Browser",
                             render: AssetBrowser,
                         })}
+                        arrow
                     />
-                    <FormDivider />
-                    <FormRow
+                <TableRow
+                        label="Opti Design Sheet"
+                        leading={<FormRow.Icon source={getAssetIDByName("ic_image")} />}
+                        onPress={() => navigation.push("VendettaCustomPage", {
+                            title: "Design Test",
+                            render: DesignTesting,
+                        })}
+                        arrow
+                    />
+                    <TableRow
                         label="ErrorBoundary Tools"
                         leading={<FormRow.Icon source={getAssetIDByName("ic_warning_24px")} />}
                         trailing={FormRow.Arrow}
@@ -184,7 +189,7 @@ export default function Developer() {
                             showToast("Does not work yet.");
                         }}
                     />
-                </FormSection>
+                </TableRowGroup>
                 <TableRowGroup title="Info">
                     <Summary label="Versions" icon="ic_information_filled_24px">
                         {versions.map((v, i) => (
