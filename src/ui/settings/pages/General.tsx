@@ -53,8 +53,7 @@ export default function General() {
                     <TableRow
                         label="Opti Version"
                         leading={<TableRowIcon source={getAssetIDByName("img_account_sync_github_white")} />}
-                        trailing={`${debugInfo.vendetta.version}`}
-                        onPress={() => url.openURL(GITHUB)}
+                        onPress={() => showToast(`${debugInfo.vendetta.version}`)}
                     />
                 </TableRowGroup>
                 </Stack>
