@@ -2,9 +2,10 @@ import { ReactNative as RN, stylesheet } from "@metro/common";
 import { findByProps } from "@metro/filters";
 import { getAssetIDByName } from "@ui/assets";
 import { semanticColors } from "@ui/color";
-import { Forms } from "@ui/components";
+import { Forms, Tabs } from "@ui/components";
 
 const { FormRow, FormSwitch, FormRadio } = Forms;
+const { Stack, TableRow, TableRowIcon, TableSwitchRow, TableRowGroup }= Tabs;
 const { hideActionSheet } = findByProps("openLazy", "hideActionSheet");
 const { showSimpleActionSheet } = findByProps("showSimpleActionSheet");
 
@@ -72,10 +73,10 @@ export default function Card(props: CardProps) {
     // TODO: re-position the '...' icon to next to the switch
     return ( 
         <RN.View style={[styles.card, { marginTop: props.index !== 0 ? 10 : 0 }]}>
-            <FormRow
+            <TableRow
                 style={styles.header}
                 label={props.headerLabel}
-                leading={props.headerIcon && <FormRow.Icon source={getAssetIDByName(props.headerIcon)} />}
+                icon={props.headerIcon && <TableRowIcon source={getAssetIDByName(props.headerIcon)} />}
                 trailing={props.toggleType && (props.toggleType === "switch" ? 
                     (<FormSwitch
                         style={RN.Platform.OS === "android" && { marginVertical: -15 }}
@@ -93,7 +94,7 @@ export default function Card(props: CardProps) {
                 )}
                 
             />
-            <FormRow
+            <TableRow
                 label={props.descriptionLabel}
                 trailing={
                     <RN.View style={styles.actions}>
@@ -102,7 +103,7 @@ export default function Card(props: CardProps) {
                                 key: "CardOverflow",
                                 header: {
                                     title: props.overflowTitle,
-                                    icon: props.headerIcon && <FormRow.Icon style={{ marginRight: 8 }} source={getAssetIDByName(props.headerIcon)} />,
+                                    icon: props.headerIcon && <TableRowIcon style={{ marginRight: 4 }} source={getAssetIDByName(props.headerIcon)} />,
                                     onClose: () => hideActionSheet(),
                                 },
                                 // This does not work.
