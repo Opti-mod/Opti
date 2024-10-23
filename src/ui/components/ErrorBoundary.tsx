@@ -43,6 +43,15 @@ export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, E
                     onPress={() => this.setState({ hasErr: false, errText: undefined })}
                     text="Retry"
                 />
+                 <Button
+                    color={Button.Colors.ORANGE}
+                    size={Button.Sizes.MEDIUM}
+                    look={Button.Looks.FILLED}
+                    onPress={() => 
+                        this.setState({ hasErr: false, errText: undefined })
+                    }
+                    text="Send Crash Report [WIP]"
+                />
             </RN.ScrollView>
             
         )

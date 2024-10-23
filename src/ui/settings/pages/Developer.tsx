@@ -156,7 +156,7 @@ export default function Developer() {
                     />
                 <TableRow
                         label="Opti Design Sheet"
-                        icon={<TableRowIcon source={getAssetIDByName("ic_image")} />}
+                        icon={<TableRowIcon source={getAssetIDByName("ic_paint_brush")} />}
                         onPress={() => navigation.push("VendettaCustomPage", {
                             title: "Design Test",
                             render: DesignTesting,
@@ -185,8 +185,9 @@ export default function Developer() {
                      <TableSwitchRow
                         label="Enable Crash Reports"
                         icon={<TableRowIcon source={getAssetIDByName("ic_progress_wrench_24px")} />}
-                        value={false}
+                        value={settings.crashLogs}
                         onValueChange={(v: boolean) => {
+                            settings.crashLogs = v;
                             showToast("Does not work yet.");
                         }}
                     />

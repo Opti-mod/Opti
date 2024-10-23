@@ -1,4 +1,5 @@
 import { ReactNative as RN, url } from "@metro/common";
+// import LogoOpti from "../../assets/fuck/LogoOpti.png"
 import { DISCORD_SERVER, GITHUB } from "@lib/constants";
 import { getDebugInfo, toggleSafeMode } from "@lib/debug";
 import { useProxy } from "@lib/storage";
@@ -24,8 +25,6 @@ export default function DesignTesting() {
                 <TableRowGroup title="Actions">
                     <TableRow
                         label="TableRow"
-                        icon={<TableRowIcon source={getAssetIDByName("ic_message_retry")} />}
-                        description="This may crash your client, use at your own risk!"
                     />
                     <TableSwitchRow
                         label="Developer Settings"
@@ -34,12 +33,6 @@ export default function DesignTesting() {
                         onValueChange={(v: boolean) => {
                             settings.developerSettings = v;
                         }}
-                    />
-                     <TableInput
-                       value={settings.debuggerUrl}
-                       onChange={(v: string) => settings.debuggerUrl = v}
-                       placeholder="127.0.0.1:9090"
-                       title="Debug URL"
                     />
                 </TableRowGroup>
                 <TableRowGroup title="Links" titleStyleType="no_border">

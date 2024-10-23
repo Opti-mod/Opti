@@ -153,6 +153,7 @@ interface Theme {
 interface Settings {
     debuggerUrl: string;
     developerSettings: boolean;
+    crashLogs: boolean;
     safeMode?: {
         enabled: boolean;
         currentThemeId?: string;

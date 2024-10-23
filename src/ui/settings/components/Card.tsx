@@ -105,6 +105,7 @@ export default function Card(props: CardProps) {
                                     icon: props.headerIcon && <FormRow.Icon style={{ marginRight: 8 }} source={getAssetIDByName(props.headerIcon)} />,
                                     onClose: () => hideActionSheet(),
                                 },
+                                // This does not work.
                                 options: props.overflowActions?.map(i => ({ ...i, icon: getAssetIDByName(i.icon) })),
                             })}
                         >

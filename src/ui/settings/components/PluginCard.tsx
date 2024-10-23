@@ -1,11 +1,15 @@
 import { ButtonColors, Plugin } from "@types";
+import { findByProps, find } from "@metro/filters";
 import { NavigationNative, clipboard } from "@metro/common";
 import { removePlugin, startPlugin, stopPlugin, getSettings, fetchPlugin } from "@lib/plugins";
 import { MMKVManager } from "@lib/native";
+import { after, instead } from "@lib/patcher";
 import { getAssetIDByName } from "@ui/assets";
 import { showToast } from "@ui/toasts";
 import { showConfirmationAlert } from "@ui/alerts";
 import Card, { CardWrapper } from "@ui/settings/components/Card";
+const { showSimpleActionSheet } = findByProps("showSimpleActionSheet");
+const { hideActionSheet } = findByProps("openLazy", "hideActionSheet");
 
 async function stopThenStart(plugin: Plugin, callback: Function) {
     if (plugin.enabled) stopPlugin(plugin.id, false);
@@ -60,6 +64,24 @@ export default function PluginCard({ item: plugin, index }: CardWrapper<Plugin>)
                         clipboard.setString(plugin.id);
                         showToast("Copied plugin URL to clipboard.", getAssetIDByName("toast_copy_link"));
                     }
+                },
+                {
+                    icon: "ic_person",
+                    label: "Open Authors",
+                    onPress: () => {
+                        showSimpleActionSheet({
+                            key: "PluginAuthors",
+                            header: {
+                                title: "Author's Profiles",
+                                onClose: () => hideActionSheet(),
+                            },
+                            options: [
+                                // TODO: add logic
+                                { label: "User1", onPress: () => showToast("Test") },
+                                { label: "User2",onPress: () => showToast("Test 2") },
+                            ],
+                    })
+                }
                 },
                 {   
                     icon: "ic_download_24px",
