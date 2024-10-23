@@ -4,11 +4,12 @@ import { getDebugInfo, toggleSafeMode } from "@lib/debug";
 import { useProxy } from "@lib/storage";
 import { BundleUpdaterManager } from "@lib/native";
 import { getAssetIDByName } from "@ui/assets";
-import { Forms, Summary, ErrorBoundary } from "@ui/components";
+import { Forms, Summary, ErrorBoundary, Tabs } from "@ui/components";
 import settings from "@lib/settings";
 import Version from "@ui/settings/components/Version";
 
 const { FormRow, FormSwitchRow, FormSection, FormDivider } = Forms;
+const { TableRow, TableRowIcon, TableSwitchRow, TableRowGroup }= Tabs;
 const debugInfo = getDebugInfo();
 
 export default function General() {
@@ -99,14 +100,14 @@ export default function General() {
                         onPress={() => url.openURL(GITHUB)}
                     />
                 </FormSection>
-                <FormSection title="Actions">
-                    <FormRow
+                <TableRowGroup title="Actions">
+                    <TableRow
                         label="Reload Discord"
                         leading={<FormRow.Icon source={getAssetIDByName("ic_message_retry")} />}
                         onPress={() => BundleUpdaterManager.reload()}
                     />
-                    <FormDivider />
-                    <FormSwitchRow
+                    
+                    <TableSwitchRow
                         label="Developer Settings"
                         leading={<FormRow.Icon source={getAssetIDByName("ic_progress_wrench_24px")} />}
                         value={settings.developerSettings}
@@ -114,7 +115,7 @@ export default function General() {
                             settings.developerSettings = v;
                         }}
                     />
-                </FormSection>
+                </TableRowGroup>
                 <FormSection title="Info">
                     <Summary label="Versions" icon="ic_information_filled_24px">
                         {versions.map((v, i) => (
