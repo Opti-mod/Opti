@@ -37,6 +37,7 @@ export default async () => {
 
     // We good :D
     logger.log("Opti is ready!");
+    window.alert("Test alert! What does this do?");
 
 
 }
