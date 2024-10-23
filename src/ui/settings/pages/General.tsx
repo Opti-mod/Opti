@@ -30,7 +30,8 @@ export default function General() {
                     />
                     <TableRow
                         label="Enabled Plugins"
-                        subLabel={ getPlugins }
+                         icon={<TableRowIcon source={getAssetIDByName("ic_progress_wrench_24px")} />}
+                        subLabel={ `${getPlugins} enabled plugins.` }
                         onPress={() => showToast(`${debugInfo.vendetta.version}`)}
                     />
                     </TableRowGroup>
