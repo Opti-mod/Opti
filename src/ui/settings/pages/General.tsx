@@ -83,7 +83,7 @@ export default function General() {
 
     return (
         <ErrorBoundary>
-            <RN.ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 38 }}>
+                <RN.ScrollView style={{ flex: 1 }} contentContainerStyle={{ padding: 24, alignItems: "center" }}>
                 <FormSection title="Links" titleStyleType="no_border">
                     <FormRow
                         label="Discord Server"

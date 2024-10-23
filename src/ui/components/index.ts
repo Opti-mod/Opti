@@ -1,9 +1,17 @@
 import { ReactNative as RN } from "@metro/common";
-import { findByDisplayName, findByName, findByProps } from "@metro/filters";
+import { findByDisplayName, findByName, findByProps, find } from "@metro/filters";
+
+// https://github.com/bound-mod/bound/blob/rewrite/src/ui/components/index.ts which is actually https://github.com/pyoncord/Pyoncord/blob/08c6b5ee1580991704640385b715d772859f34b7/src/lib/ui/components/discord/Redesign.ts#L4C1-L4C98
+const findSingular = (prop: string) => find(m => m[prop] && Object.keys(m).length === 1)?.[prop];
 
 // Discord
 export const Forms = findByProps("Form", "FormSection");
 export const General = findByProps("Button", "Text", "View");
+export const Tabs = { 
+    ...findByProps("TableRow", "TableRowGroup"),
+    RedesignSwitch: findSingular("FormSwitch"),
+    RedesignCheckbox: findSingular("FormCheckbox"),
+} as Record<string, any>;
 export const Alert = findByDisplayName("FluxContainer(Alert)");
 export const Button = findByProps("Looks", "Colors", "Sizes") as React.ComponentType<any> & { Looks: any, Colors: any, Sizes: any };
 export const HelpMessage = findByName("HelpMessage");
