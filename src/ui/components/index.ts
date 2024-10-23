@@ -9,7 +9,7 @@ export const Forms = findByProps("Form", "FormSection");
 export const General = findByProps("Button", "Text", "View");
 // Ohh its called Tabs because TabsV2!!!!!!! ahaha 
 export const Tabs = { 
-    ...findByProps("TableRow", "TableRowGroup", "TableSwitchRow", "TableRadio", "TableRowIcon"),
+    ...findByProps("TableRow", "TableRowGroup"),
     RedesignSwitch: findSingular("FormSwitch"),
     RedesignCheckbox: findSingular("FormCheckbox"),
     RedesignInput: findSingular("FormInput"),
