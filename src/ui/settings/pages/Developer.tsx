@@ -92,6 +92,7 @@ export default function Developer() {
     return (
         <ErrorBoundary>
             <RN.ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 38 }}>
+            <Stack spacing={16}>
                 <TableRowGroup title="Debug" titleStyleType="no_border">
                     <FormInput
                         value={settings.debuggerUrl}
@@ -208,6 +209,7 @@ export default function Developer() {
                         ))}
                     </Summary>
                 </TableRowGroup>
+                </Stack>
             </RN.ScrollView>
         </ErrorBoundary>
     )
