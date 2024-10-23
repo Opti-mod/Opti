@@ -48,6 +48,8 @@ export const navigation = findByProps("pushLazy");
 export const navigationStack = findByProps("createStackNavigator");
 export const NavigationNative = findByProps("NavigationContainer");
 export const Messages = findByProps("sendBotMessage");
+export const AsyncProfiles = findByProps("getUser", "fetchProfile");
+export const Profiles = findByProps("showUserProfile");
 // Flux
 export const Flux = findByProps("connectStores");
 export const FluxDispatcher = findByProps("_currentDispatchActionType");

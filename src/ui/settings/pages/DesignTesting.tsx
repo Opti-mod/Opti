@@ -27,7 +27,7 @@ export default function DesignTesting() {
                         label="TableRow"
                     />
                     <TableSwitchRow
-                        label="Developer Settings"
+                        label="TableSwitchRow"
                         leading={<TableRowIcon source={getAssetIDByName("ic_progress_wrench_24px")} />}
                         value={settings.developerSettings}
                         onValueChange={(v: boolean) => {
@@ -35,26 +35,7 @@ export default function DesignTesting() {
                         }}
                     />
                 </TableRowGroup>
-                <TableRowGroup title="Links" titleStyleType="no_border">
-                    <TableRow
-                        label="Discord Server"
-                        leading={<TableRowIcon source={getAssetIDByName("Discord")} />}
-                        onPress={() => url.openDeeplink(DISCORD_SERVER)}
-                        arrow
-                    />
-                    <TableRow
-                        label="GitHub"
-                        leading={<TableRowIcon source={getAssetIDByName("img_account_sync_github_white")} />}
-                        onPress={() => url.openURL(GITHUB)}
-                        arrow
-                    />
-                    <TableRow
-                        label="Opti Version"
-                        leading={<TableRowIcon source={getAssetIDByName("img_account_sync_github_white")} />}
-                        onPress={() => showToast(`${debugInfo.vendetta.version}`)}
-                    />
-                </TableRowGroup>
-                </Stack>
+               </Stack>
             </RN.ScrollView>
         </ErrorBoundary>
     )

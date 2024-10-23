@@ -1,7 +1,7 @@
 import { ButtonColors, Plugin } from "@types";
 import { findByProps, find } from "@metro/filters";
-import { NavigationNative, clipboard } from "@metro/common";
-import { removePlugin, startPlugin, stopPlugin, getSettings, fetchPlugin } from "@lib/plugins";
+import { NavigationNative, clipboard, Profiles } from "@metro/common";
+import { removePlugin, startPlugin, stopPlugin, getSettings, fetchPlugin, plugins } from "@lib/plugins";
 import { MMKVManager } from "@lib/native";
 import { after, instead } from "@lib/patcher";
 import { getAssetIDByName } from "@ui/assets";
@@ -67,7 +67,7 @@ export default function PluginCard({ item: plugin, index }: CardWrapper<Plugin>)
                 },
                 {
                     icon: "ic_person",
-                    label: "Open Authors",
+                    label: "View Authors",
                     onPress: () => {
                         showSimpleActionSheet({
                             key: "PluginAuthors",
@@ -77,7 +77,7 @@ export default function PluginCard({ item: plugin, index }: CardWrapper<Plugin>)
                             },
                             options: [
                                 // TODO: add logic
-                                { label: "User1", onPress: () => showToast("Test") },
+                                { label: authors[0], onPress: () =>   Profiles.showUserProfile({ userId: plugin.manifest.authors[0]?.id }) },
                                 { label: "User2",onPress: () => showToast("Test 2") },
                             ],
                     })
