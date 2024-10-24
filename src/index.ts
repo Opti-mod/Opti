@@ -33,7 +33,7 @@ export default async () => {
 
     // Once done, load plugins
     unloads.push(await initPlugins());
-    // shitass feature unloads.push(await initSplash());
+    unloads.push(await initSplash());
 
     // We good :D
     logger.log("Opti is ready!");

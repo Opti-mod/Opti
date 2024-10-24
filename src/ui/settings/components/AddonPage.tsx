@@ -12,7 +12,8 @@ interface AddonPageProps<T> {
 }
 
 export default function AddonPage<T>({ items, safeModeMessage, safeModeExtras, card: CardComponent }: AddonPageProps<T>) {
-    useProxy(settings)
+    //@ts-ignore fuck this error. why does it always show up, i dont know
+    useProxy(settings);
     useProxy(items);
     const [search, setSearch] = React.useState("");
 
