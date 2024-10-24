@@ -12,9 +12,9 @@ const { showSimpleActionSheet } = findByProps("showSimpleActionSheet");
 const styles = stylesheet.createThemedStyleSheet({
     card: {
         backgroundColor: semanticColors.BACKGROUND_SECONDARY,
-        borderRadius: 7,
+        borderRadius: 12,
         borderColor: semanticColors.BACKGROUND_TERTIARY,
-        borderWidth: 1,
+        borderWidth: 2,
     },
     header: {
         padding: 0,
@@ -22,6 +22,9 @@ const styles = stylesheet.createThemedStyleSheet({
         color: semanticColors?.INTERACTIVE_MUTED,
         borderTopLeftRadius: 5,
         borderTopRightRadius: 5,
+    },
+    description: {
+        fontSize: 11,
     },
     actions: {
         flexDirection: "row-reverse",
@@ -95,6 +98,7 @@ export default function Card(props: CardProps) {
                 
             />
             <TableRow
+                style={styles.description}
                 label={props.descriptionLabel}
                 trailing={
                     <RN.View style={styles.actions}>
