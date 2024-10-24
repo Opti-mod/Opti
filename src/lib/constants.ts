@@ -4,6 +4,7 @@ export const PLUGINS_CHANNEL_ID = "1298416173586845787";
 export const THEMES_CHANNEL_ID = "1298416199331348540";
 export const GITHUB = "https://github.com/opti-mod/Opti";
 export const PROXY_PREFIX = "https://vd-plugins.github.io/proxy";
+export const OPTI_PROXY_PREFIX = "https://opti-plugins.github.io/proxy";
 export const BADGES = 'https://raw.githubusercontent.com/opti-mod/badges/main/';
 export const HTTP_REGEX = /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/;
 export const HTTP_REGEX_MULTI = /https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&//=]*)/g;

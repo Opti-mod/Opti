@@ -67,7 +67,7 @@ export default () => {
 
             showConfirmationAlert({
                 title: "Hold Up",
-                content: ["This link is a ", <RN.Text style={TextStyleSheet["text-md/semibold"]}>{urlType}</RN.Text>, ", would you like to install it?"],
+                content: ["Would you like to directly install this", <RN.Text style={TextStyleSheet["text-md/semibold"]}>{urlType}</RN.Text>, "?"],
                 onConfirm: () => installWithToast(urlType, url),
                 confirmText: "Install",
                 cancelText: "Cancel",

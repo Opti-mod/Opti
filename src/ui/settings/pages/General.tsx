@@ -53,6 +53,15 @@ export default function General() {
                             settings.developerSettings = v;
                         }}
                     />
+                    <TableSwitchRow
+                        label="Enable Crash Reports"
+                        icon={<TableRowIcon source={getAssetIDByName("ic_progress_wrench_24px")} />}
+                        value={settings.crashLogs}
+                        onValueChange={(v: boolean) => {
+                            settings.crashLogs = v;
+                            showToast("Does not work yet.");
+                        }}
+                    />
                 </TableRowGroup>
                 <TableRowGroup title="Links" titleStyleType="no_border">
                     <TableRow

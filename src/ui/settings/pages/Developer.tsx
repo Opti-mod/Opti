@@ -182,15 +182,6 @@ export default function Developer() {
                             ],
                         })}
                     />
-                     <TableSwitchRow
-                        label="Enable Crash Reports"
-                        icon={<TableRowIcon source={getAssetIDByName("ic_progress_wrench_24px")} />}
-                        value={settings.crashLogs}
-                        onValueChange={(v: boolean) => {
-                            settings.crashLogs = v;
-                            showToast("Does not work yet.");
-                        }}
-                    />
                     <TableSwitchRow
                         label="Enable Post Loader"
                         icon={<TableRowIcon source={getAssetIDByName("ic_add_circle")} />}
