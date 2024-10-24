@@ -9,7 +9,6 @@ export const Forms = findByProps("Form", "FormSection");
 
 export const General = findByProps("Button", "Text", "View");
 // Ohh its called Tabs because TabsV2!!!!!!! ahaha 
-export const TableRadio = findSingular("FormRadio");
 export const TableRowTrailingText = findByProps("TableRowTrailingText");
 export const Tabs = { 
     ...findByProps("TableRow", "TableRowGroup"),
