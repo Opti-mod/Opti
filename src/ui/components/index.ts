@@ -15,6 +15,7 @@ export const Tabs = {
     ...findByProps("TableRow", "TableRowGroup"),
     RedesignSwitch: findSingular("FormSwitch"),
     RedesignCheckbox: findSingular("FormCheckbox"),
+    RedesignRadio: findSingular("FormRadio"), //idfk how to initialize this
 } as Record<string, any>;
 
 export const Alert = findByDisplayName("FluxContainer(Alert)");

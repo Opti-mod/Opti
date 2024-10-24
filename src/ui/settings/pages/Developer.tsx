@@ -91,7 +91,7 @@ export default function Developer() {
 
     return (
         <ErrorBoundary>
-        <RN.ScrollView style={{ flex: 1 }} contentContainerStyle={{ padding: 24, alignItems: "center" }}>
+        <RN.ScrollView style={{ flex: 1 }} contentContainerStyle={{ padding: 20, alignItems: "center" }}>
             <Stack spacing={16}>
                 <TableRowGroup title="Debug" titleStyleType="no_border">
                     <FormInput
@@ -189,6 +189,14 @@ export default function Developer() {
                         onValueChange={(v: boolean) => {
                             settings.crashLogs = v;
                             showToast("Does not work yet.");
+                        }}
+                    />
+                    <TableSwitchRow
+                        label="Enable Post Loader"
+                        icon={<TableRowIcon source={getAssetIDByName("ic_add_circle")} />}
+                        value={settings.postLoader}
+                        onValueChange={(v: boolean) => {
+                            settings.postLoader = v;
                         }}
                     />
                 </TableRowGroup>

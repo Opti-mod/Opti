@@ -154,6 +154,7 @@ interface Settings {
     debuggerUrl: string;
     developerSettings: boolean;
     crashLogs: boolean;
+    postLoader: boolean;
     safeMode?: {
         enabled: boolean;
         currentThemeId?: string;

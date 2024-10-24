@@ -9,7 +9,7 @@ const { Stack, TableRow, TableRowIcon, TableSwitchRow, TableRowGroup }= Tabs;
 export function initSplash() {
    const { showSimpleActionSheet } = findByProps("showSimpleActionSheet");
     console.log("Loading Opti Security");
-    if(window.vendetta.settings.developerSettings) {
+    if(window.vendetta.settings.developerSettings && window.vendetta.settings.postLoader) {
       showSimpleActionSheet({
          key: "OptiPostload",
          header: {
@@ -17,8 +17,8 @@ export function initSplash() {
              onClose: () => hideActionSheet(),
          },
          options: [
-             { label: "Toggle Safe Mode", onPress: (o : any) =>  {
-               window.vendetta.settings.safeMode === o;
+             { label: "Toggle Safe Mode", onPress: (o : boolean) =>  {
+               window.vendetta.settings.safeMode?.enabled == o;
                showToast("Loading Opti in safe mode."); 
             }
              },
