@@ -17,6 +17,7 @@ const debugInfo = getDebugInfo();
 
 export default function Developer() {
     const navigation = NavigationNative.useNavigation();
+    let thevar = "";
     //@ts-ignore
     useProxy(settings);
     //@ts-ignore
@@ -121,14 +122,14 @@ export default function Developer() {
                         label="Load from custom url"
                         subLabel={"Load Opti from a custom endpoint."}
                         icon={<TableRowIcon source={getAssetIDByName("copy")} />}
-                        value={loaderConfig.customLoadUrl.enabled}
+                        value={loaderConfig?.customLoadUrl?.enabled}
                         onValueChange={(v: boolean) => {
                             loaderConfig.customLoadUrl.enabled = v;
                         }}
                     />
-                    {loaderConfig.customLoadUrl.enabled && <>
+                    {loaderConfig?.customLoadUrl.enabled && <>
                         <FormInput
-                            value={loaderConfig.customLoadUrl.url}
+                            value={loaderConfig?.customLoadUrl.url}
                             onChange={(v: string) => loaderConfig.customLoadUrl.url = v}
                             placeholder="http://localhost:4040/opti.js"
                             title="Opti URL"
@@ -155,6 +156,12 @@ export default function Developer() {
                         })}
                         arrow
                     />
+                        <FormInput
+                            value={thevar}
+                            onChange={(v: string) => thevar = v}
+                            placeholder="Developer"
+                            title="URL to lead to"
+                        />
                 <TableRow
                         label="Opti Design Sheet"
                         icon={<TableRowIcon source={getAssetIDByName("ic_paint_brush")} />}
