@@ -16,7 +16,7 @@ const styles = stylesheet.createThemedStyleSheet({
     },
 });
 
-// iOS doesn't support the selectable property on RN.Text...
+// iOS doesn't support the selectable property on RN.Text.
 const InputBasedCodeblock = ({ style, children }: CodeblockProps) => <RN.TextInput editable={false} multiline style={[styles.codeBlock, style && style]} value={children} />
 const TextBasedCodeblock = ({ selectable, style, children }: CodeblockProps) => <RN.Text selectable={selectable} style={[styles.codeBlock, style && style]}>{children}</RN.Text>
 

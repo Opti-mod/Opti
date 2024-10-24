@@ -116,7 +116,7 @@ export default function Developer() {
                         />
                     </>}
                 </TableRowGroup>
-                <TableRowGroup title="Loader config">
+                <TableRowGroup title="Loader Config">
                     <TableSwitchRow
                         label="Load from custom url"
                         subLabel={"Load Opti from a custom endpoint."}
