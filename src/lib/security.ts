@@ -3,6 +3,7 @@ import Developer from "@/ui/settings/pages/Developer";
 import { ReactNative as RN, NavigationNative } from "@metro/common";
 import { findByProps } from "./metro/filters";
 import { Tabs } from "@/ui/components";
+import { showToast } from "@/ui/toasts";
 const { hideActionSheet } = findByProps("openLazy", "hideActionSheet");
 const { Stack, TableRow, TableRowIcon, TableSwitchRow, TableRowGroup }= Tabs;
 export function initSplash() {
@@ -17,7 +18,9 @@ export function initSplash() {
          },
          options: [
              { label: "Toggle Safe Mode", onPress: (o : any) =>  {
-               window.vendetta.settings.safeMode == o; }
+               window.vendetta.settings.safeMode === o;
+               showToast("Loading Opti in safe mode."); 
+            }
              },
              { label: "Load without Opti",onPress: () =>{
                alert("no");
