@@ -72,7 +72,7 @@ export default function Card(props: CardProps) {
 
     // TODO: re-position the '...' icon to next to the switch
     return ( 
-        <RN.View style={[styles.card, { marginTop: props.index !== 0 ? 10 : 0 }]}>
+        <RN.View style={[styles.card, { marginTop: props.index !== 0 ? 8 : 0 }]}>
             <TableRow
                 style={styles.header}
                 label={props.headerLabel}
@@ -88,10 +88,10 @@ export default function Card(props: CardProps) {
                         pressableState = !pressableState;
                         props.onToggleChange?.(pressableState)
                     }}>
-                        {/* TODO: Look into making this respect brand color */}
                         <FormRadio selected={props.toggleValue} />
                     </RN.Pressable>)
-                )}
+                    )
+            }
                 
             />
             <TableRow
