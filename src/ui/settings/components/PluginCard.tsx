@@ -11,6 +11,8 @@ import Card, { CardWrapper } from "@ui/settings/components/Card";
 const { showSimpleActionSheet } = findByProps("showSimpleActionSheet");
 const { hideActionSheet } = findByProps("openLazy", "hideActionSheet");
 
+const { TextStyleSheet } = findByProps("TextStyleSheet");
+
 async function stopThenStart(plugin: Plugin, callback: Function) {
     if (plugin.enabled) stopPlugin(plugin.id, false);
     callback();
@@ -29,7 +31,7 @@ export default function PluginCard({ item: plugin, index }: CardWrapper<Plugin>)
     return (
         <Card
             index={index}
-            headerLabel={`${plugin.manifest.name}`}
+            headerLabel={`${plugin.manifest.name}\n\n by ${authors.map(i => i.name).join(", ")}`}
             headerIcon={plugin.manifest.vendetta?.icon || "ic_application_command_24px"}
             toggleType="switch"
             toggleValue={plugin.enabled}
@@ -40,7 +42,7 @@ export default function PluginCard({ item: plugin, index }: CardWrapper<Plugin>)
                     showToast((e as Error).message);
                 }
             }}
-            descriptionLabel={`${plugin.manifest.description}  \n\nAuthors: ${authors.map(i => i.name).join(", ")}`}
+            descriptionLabel={`${plugin.manifest.description}`}
             overflowTitle={plugin.manifest.name}
             overflowActions={[
                 {
@@ -77,7 +79,7 @@ export default function PluginCard({ item: plugin, index }: CardWrapper<Plugin>)
                             options: [
                                 // TODO: add logic
                                 { label: plugin.manifest.authors[0].name, onPress: () =>   Profiles.showUserProfile({ userId: plugin.manifest.authors[0]?.id }) },
-                                { label: "User2",onPress: () => showToast("Test 2") },
+                                { label: plugin.manifest.authors[1]?.name,onPress: () => showToast("Working on being able to async load other profiles.") },
                             ],
                     })
                 }
