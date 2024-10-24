@@ -114,6 +114,7 @@ interface PluginManifest {
     vendetta?: {
         icon?: string;
         internal?: boolean;
+        version?: string;
     };
 }
 

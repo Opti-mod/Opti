@@ -14,14 +14,14 @@ const styles = stylesheet.createThemedStyleSheet({
         backgroundColor: semanticColors.BACKGROUND_SECONDARY,
         borderRadius: 12,
         borderColor: semanticColors.BACKGROUND_TERTIARY,
-        borderWidth: 2,
+        borderWidth: 1,
     },
     header: {
         padding: 0,
         backgroundColor: semanticColors?.INTERACTIVE_MUTED,
         color: semanticColors?.INTERACTIVE_MUTED,
-        borderTopLeftRadius: 5,
-        borderTopRightRadius: 5,
+        borderTopLeftRadius: 6,
+        borderTopRightRadius: 6,
     },
     description: {
         fontSize: 11,
@@ -31,15 +31,11 @@ const styles = stylesheet.createThemedStyleSheet({
         alignItems: "center",
     },
     icon: {
-        width: 22,
-        height: 22,
+        width: 24,
+        height: 24,
         marginLeft: 5,
         tintColor: semanticColors?.INTERACTIVE_NORMAL,
-    },
-    authors: {
-        color: semanticColors.HEADER_SECONDARY,
-        fontSize: 14,
-    },
+    }
 })
 
 interface Action {
