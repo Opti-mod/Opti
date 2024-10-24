@@ -116,7 +116,7 @@ export default function Developer() {
                         />
                     </>}
                 </TableRowGroup>
-                {window.__vendetta_loader?.features.loaderConfig && <TableRowGroup title="Loader config">
+                <TableRowGroup title="Loader config">
                     <TableSwitchRow
                         label="Load from custom url"
                         subLabel={"Load Opti from a custom endpoint."}
@@ -134,7 +134,7 @@ export default function Developer() {
                             title="Opti URL"
                         />
                     </>}
-                    {window.__vendetta_loader.features.devtools && <TableSwitchRow
+                    {window.__vendetta_loader?.features.devtools && <TableSwitchRow
                         label="Load React DevTools"
                         subLabel={`Version: ${window.__vendetta_loader.features.devtools.version}`}
                         icon={<TableRowIcon source={getAssetIDByName("ic_badge_staff")} />}
@@ -143,7 +143,8 @@ export default function Developer() {
                             loaderConfig.loadReactDevTools = v;
                         }}
                     />}
-                </TableRowGroup>}
+                </TableRowGroup>
+                
                 <TableRowGroup title="Other">
                 <TableRow
                         label="Asset Browser"
