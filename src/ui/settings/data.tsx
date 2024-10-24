@@ -51,7 +51,7 @@ export const getScreens = (youKeys = false): Screen[] => [
                         if (!input.startsWith(PROXY_PREFIX) && !settings.developerSettings)
                             setImmediate(() => showConfirmationAlert({
                                 title: "Unproxied Plugin",
-                                content: "The plugin you are trying to install has not been proxied/verified by Vendetta staff. Are you sure you want to continue?",
+                                content: "The plugin you are trying to install has not been verified by Opti staff. Are you sure you want to continue?",
                                 confirmText: "Install",
                                 onConfirm: () =>
                                     installPlugin(input)

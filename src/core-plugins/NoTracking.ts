@@ -1,6 +1,4 @@
 // Thanks aliucord
-// I swear im not trying to steal the directory.
-import { FluxDispatcher, moment } from "@metro/common";
 import { findByProps } from "@metro/filters";
 import { insteadDoNothing } from "@/lib/patcher";
 

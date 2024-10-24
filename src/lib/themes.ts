@@ -181,7 +181,7 @@ export async function initThemes() {
     //! Native code is required here!
     // Awaiting the sync wrapper is too slow, to the point where semanticColors are not correctly overwritten.
     // We need a workaround, and it will unfortunately have to be done on the native side.
-    // await awaitSyncWrapper(themes);
+    await awaitSyncWrapper(themes);
 
     const selectedTheme = getCurrentTheme();
     if (!selectedTheme) return;
@@ -233,4 +233,8 @@ function extractInfo(themeMode: string, colorObj: any): [name: string, colorDef:
     const colorDef = color.SemanticColor[propName];
 
     return [propName, colorDef[themeMode.toLowerCase()]];
+}
+
+function getThemes() {
+    // TODO: finish
 }

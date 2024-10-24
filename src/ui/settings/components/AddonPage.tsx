@@ -18,7 +18,6 @@ export default function AddonPage<T>({ items, safeModeMessage, safeModeExtras, c
 
     return (
         <ErrorBoundary>
-            {/* TODO: Implement better searching than just by ID */}
             <RN.FlatList
                 ListHeaderComponent={<>
                     {settings.safeMode?.enabled && <RN.View style={{ marginBottom: 10 }}>

@@ -29,7 +29,6 @@ export default function PluginCard({ item: plugin, index }: CardWrapper<Plugin>)
     return (
         <Card
             index={index}
-            // TODO: Actually make use of user IDs
             headerLabel={`${plugin.manifest.name}`}
             headerIcon={plugin.manifest.vendetta?.icon || "ic_application_command_24px"}
             toggleType="switch"

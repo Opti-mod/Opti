@@ -77,6 +77,23 @@ export async function evalPlugin(plugin: Plugin) {
     return ret?.default ?? ret ?? {};
 }
 
+export async function evalCorePlugins(plugin: Plugin) {
+    const vendettaForPlugins = {
+        ...window.vendetta,
+        plugin: {
+            id: plugin.id,
+            // Wrapping this with wrapSync is NOT an option.
+            storage: await createStorage<Record<string, any>>(createMMKVBackend(plugin.id)),
+        },
+        logger: new logModule(`Opti Core Plugin » ${plugin.id}`),
+    };
+    const pluginString = `vendetta=>{return ${plugin.js}}\n//# sourceURL=${plugin.id}`;
+
+    const raw = (0, eval)(pluginString)(vendettaForPlugins);
+    const ret = typeof raw == "function" ? raw() : raw;
+    return ret?.default ?? ret ?? {};
+}
+
 export async function startPlugin(id: string) {
     if (!id.endsWith("/")) id += "/";
     const plugin = plugins[id];
