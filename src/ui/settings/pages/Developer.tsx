@@ -184,6 +184,7 @@ export default function Developer() {
                     />
                     <TableSwitchRow
                         label="Enable Post Loader"
+                        subLabel="Bootleg balling rn"
                         icon={<TableRowIcon source={getAssetIDByName("ic_add_circle")} />}
                         value={settings.postLoader}
                         onValueChange={(v: boolean) => {
